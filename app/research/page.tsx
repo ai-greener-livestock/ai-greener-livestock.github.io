@@ -1,534 +1,780 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import Link from "next/link"
-import { Beaker, BarChart3, Database } from "lucide-react"
-import { ModelPerformanceChart } from "@/components/ResearchCharts"
+import { 
+  BarChart3, 
+  Database, 
+  Brain, 
+  Microscope, 
+  Users, 
+  Target,
+  Award,
+  BookOpen,
+  Code,
+  Download,
+  ExternalLink,
+  CheckCircle,
+  TrendingUp,
+  Globe,
+  ArrowRight,
+  FileText,
+  Eye,
+  Layers,
+  Settings,
+  Activity
+} from "lucide-react"
 
 export default function ResearchPage() {
-  const equipmentList = [
-    {
-      id: 1,
-      title: "FLIR GF77 Optical Gas Imaging Camera",
-      description: "Uncooled LWIR camera that visualizes methane plumes invisible to the naked eye",
-      specifications: "320×240 resolution, 7-8.5 μm spectral range, 100 ppm-m NECL sensitivity, <25 mK thermal sensitivity",
-      purpose: "Captures infrared images of methane plumes for AI analysis and segmentation",
-      image: "/equipment/flir-gf77.png"
-    },
-    {
-      id: 2,
-      title: "Laser Methane Detector (LMD)",
-      description: "TopCruz® LZ-30 detector using Tunable Diode Laser Absorption Spectroscopy",
-      specifications: "5 ppm sensitivity at 15m, 0-50,000 ppm range, <0.1s response time, 20cm beam diameter at 30m",
-      purpose: "Provides precise methane concentration measurements for validating AI model results",
-      image: "/equipment/laser-methane-detector.jpeg"
-    },
-    {
-      id: 3,
-      title: "ANKOM Gas Production System",
-      description: "Automated batch culture system for measuring total gas and methane production",
-      specifications: "24-hour incubation, 39°C water bath, anaerobic conditions with CO₂ flushing",
-      purpose: "Simulates rumen fermentation conditions and collects gas samples for analysis",
-      image: "/equipment/ankom-module.jpeg"
-    },
-    {
-      id: 4,
-      title: "Precision Gas Flow Controller",
-      description: "Cole-Parmer Digital Pressure Controller for controlled methane release experiments",
-      specifications: "0-15 psi pressure range, 1/8\" NPT(F) fitting, 10-100 SCCM flow control",
-      purpose: "Creates controlled methane releases at specific flow rates for dataset generation",
-      image: "/equipment/control-flow-meter.jpeg"
-    },
-    {
-      id: 5,
-      title: "Experimental Camera Setup",
-      description: "Standardized imaging configuration for consistent methane plume capture",
-      specifications: "12-inch camera distance, 2-inch gas-to-background distance, ice block background",
-      purpose: "Ensures reproducible imaging conditions and optimal temperature contrast for detection",
-      image: "/equipment/camera-setup.jpeg"
-    },
-         {
-       id: 6,
-       title: "FLIR Gx320 OGI Camera (In Vivo)",
-       description: "Cooled mid-wave infrared camera for detecting methane emissions from live cattle",
-       specifications: "640×480 resolution, 30 fps, cooled InSb detector, superior sensitivity for field conditions",
-       purpose: "Captures methane emissions directly from live cattle in farm environments for real-world validation",
-       image: "/equipment/cow-hero-2.jpeg"
-     },
-     {
-       id: 7,
-       title: "Gas Chromatography System",
-       description: "SRI 8610C gas chromatograph with thermal conductivity detector for gas analysis",
-       specifications: "Shin Carbon detector, Hayesep D column, 50°C operation, argon carrier gas",
-       purpose: "Provides ground truth measurements of CH₄, CO₂, and H₂ concentrations for validation",
-       image: "/equipment/ankom-module.jpeg"
-     }
-  ]
-
-  const datasets = [
-    {
-      id: 1,
-      title: "Controlled Diet (CD) Dataset",
-      description: "Methane plume images categorized by GC-validated concentration ranges from different dietary treatments",
-      size: "4,885 labeled images",
-      purpose: "Quantify methane emissions across dietary interventions using AI segmentation",
-      details: "Class-1 (166-171 ppm), Class-2 (300-334 ppm), Class-3 (457-510 ppm) from control, low forage, and high forage diets"
-    },
-    {
-      id: 2,
-      title: "Controlled Methane Release (MR) Dataset",
-      description: "Calibrated methane release images at precise flow rates using gas cylinder and flow controller",
-      size: "9,237 labeled images",
-      purpose: "Train AI models to detect and quantify methane at known concentrations",
-      details: "10-100 SCCM flow rates, FLIR GF77 camera, ice background for temperature contrast"
-    },
-         {
-       id: 3,
-       title: "Dairy Cow Rumen Gas (CR) Dataset", 
-       description: "Real-world methane emission images from Holstein dairy cow rumen fermentation samples",
-       size: "340 labeled images",
-       purpose: "Validate AI performance on actual livestock methane emissions",
-       details: "24-hour ANKOM batch culture, TEDLAR gas collection, challenging low-contrast conditions"
-     },
-     {
-       id: 4,
-       title: "Beef Cattle Methane Emission Dataset (In Vivo)",
-       description: "Live cattle methane emission detection from actual farm conditions using FLIR Gx320 camera",
-       size: "208,149 total frames with 11,694 annotated methane plumes",
-       purpose: "Real-world validation of AI models on live cattle with dietary classification",
-       details: "30 fps capture, 5.6% plume occurrence rate, three dietary treatments, intermittent eructation events"
-     }
-  ]
-
-  const methodologySteps = [
-    {
-      title: "Continuous Culture Fermentation",
-      description: "We used four single-flow continuous fermenters to simulate cow rumen conditions, each containing 700 mL of rumen liquor from fistulated dairy cattle fed different diets for 10 days.",
-      details: "700 mL rumen liquor → 39°C temperature → 45 RPM stirring → 70 mL/h artificial saliva buffer → CO₂ flushing for anaerobic conditions"
-    },
-    {
-      title: "Controlled Diet Testing",
-      description: "Four different treatments were tested: Control (50:50 forage:concentrate), Low Forage (20:80), High Forage (80:20), and Bromoform supplement (seaweed extract at 0.14 g/L/day).",
-      details: "10-day incubation → 54g diet fed 3x daily → pH monitoring → Transfer to 24-hour ANKOM batch culture"
-    },
-    {
-      title: "Gas Collection and Analysis",
-      description: "Methane gas was collected in TEDLAR gas bags and analyzed using gas chromatography, laser methane detection, and optical gas imaging with standardized protocols.",
-      details: "ANKOM batch culture → TEDLAR gas collection → GC analysis (SRI 8610C) → LMD measurements → OGI capture"
-    },
-    {
-      title: "Optical Gas Imaging Setup",
-      description: "We developed a novel imaging configuration using FLIR GF77 camera with ice background to create sufficient temperature contrast for methane visualization at low concentrations.",
-      details: "12-inch camera distance → 2-inch gas-to-background distance → Ice block background → 640×480 resolution → Multiple color modes"
-    },
-          {
-        title: "AI Model Development and Training",
-        description: "We developed two specialized AI architectures: Gasformer for in vitro laboratory analysis and GasTwinFormer for in vivo live cattle detection with dietary classification capabilities.",
-        details: "Gasformer (in vitro): 85.1% mIoU, 91.72% mF1 → GasTwinFormer (in vivo): 74.47% mIoU, 83.63% mF1, 100% dietary classification accuracy"
-      }
-  ]
-
   return (
-    <div className="flex flex-col">
-      {/* Header */}
-      <section className="bg-gradient-to-br from-blue-50 to-green-50 py-16">
+    <div className="flex flex-col min-h-screen">
+      {/* Hero Section */}
+      <section className="bg-gradient-to-br from-blue-50 via-green-50 to-purple-50 py-16 lg:py-24">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto text-center">
-            <Badge variant="secondary" className="bg-blue-100 text-blue-800 mb-4">
-              Research Methodology
+          <div className="max-w-6xl mx-auto text-center">
+            <Badge variant="secondary" className="bg-blue-100 text-blue-800 mb-6">
+              Research Timeline
             </Badge>
             <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-              How We Studied Methane Emissions from Cows
+              AI-Driven Methane Detection for Livestock Monitoring
             </h1>
-            <p className="text-xl text-gray-600 leading-relaxed">
-              A detailed look at our research methods, equipment, and findings. 
-              We used laboratory experiments, special cameras, and artificial intelligence 
-              to study how cow diet affects methane emissions.
+            <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+              A comprehensive three-phase research program developing cutting-edge artificial intelligence techniques combined with optical gas imaging technology to detect, segment, and quantify methane emissions from livestock operations.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Visual Research Context */}
+      {/* Project Overview */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-8">
-              <h2 className="text-3xl font-bold text-gray-900 mb-4">Understanding Methane from Dairy Cattle</h2>
-              <p className="text-lg text-gray-600">
-                Holstein dairy cows produce methane through enteric fermentation in their rumen. 
-                Our research focuses on developing non-invasive methods to detect and quantify these emissions.
-              </p>
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold text-gray-900 mb-6">Project Overview</h2>
             </div>
             
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
-              <div className="relative overflow-hidden rounded-lg shadow-lg">
-                <img 
-                  src="/equipment/cow-hero.jpeg" 
-                  alt="Holstein dairy cow in research setting"
-                  className="w-full h-64 object-cover"
-                />
-                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
-                  <p className="text-white text-sm">Holstein dairy cows are the primary focus of our methane emission research</p>
-                </div>
-              </div>
-              <div className="relative overflow-hidden rounded-lg shadow-lg">
-                <img 
-                  src="/equipment/cow-hero-2.jpeg" 
-                  alt="Live beef cattle during in vivo methane emission detection experiment"
-                  className="w-full h-64 object-cover"
-                />
-                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
-                  <p className="text-white text-sm">In vivo methane detection from live cattle using FLIR Gx320 OGI camera</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-blue-50 rounded-lg p-6">
-              <h3 className="text-lg font-semibold text-blue-900 mb-3">Research Impact</h3>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
-                <div className="bg-white p-3 rounded">
-                  <div className="text-blue-700 font-bold text-lg">6%</div>
-                  <p className="text-gray-600">of global greenhouse gas emissions come from ruminant livestock</p>
-                </div>
-                <div className="bg-white p-3 rounded">
-                  <div className="text-blue-700 font-bold text-lg">6-12%</div>
-                  <p className="text-gray-600">of dietary energy is lost as methane that could be used for milk/meat production</p>
-                </div>
-                <div className="bg-white p-3 rounded">
-                  <div className="text-blue-700 font-bold text-lg">36x</div>
-                  <p className="text-gray-600">more potent warming effect than CO₂ over 100-year period</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Research Overview */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-gray-900 mb-4">Research Overview</h2>
-              <p className="text-lg text-gray-600">
-                What we wanted to learn and what we discovered
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-              <Card>
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
+              <Card className="border-2 border-red-200 bg-red-50">
                 <CardHeader>
-                  <CardTitle className="flex items-center">
-                    <Beaker className="h-5 w-5 text-blue-600 mr-2" />
-                    Research Questions
+                  <CardTitle className="flex items-center text-red-800">
+                    <TrendingUp className="h-6 w-6 mr-2" />
+                    The Challenge
                   </CardTitle>
                 </CardHeader>
-                <CardContent className="space-y-4">
-                  <div>
-                    <h4 className="font-medium text-gray-900 mb-2">1. Can AI detect methane gas?</h4>
-                    <p className="text-sm text-gray-600">We wanted to see if artificial intelligence could automatically detect methane gas in camera images as accurately as human experts.</p>
-                  </div>
-                  <div>
-                    <h4 className="font-medium text-gray-900 mb-2">2. How does diet affect emissions?</h4>
-                    <p className="text-sm text-gray-600">We tested different cow diets to measure exactly how much methane each one produces.</p>
-                  </div>
-                  <div>
-                    <h4 className="font-medium text-gray-900 mb-2">3. Can this work in practice?</h4>
-                    <p className="text-sm text-gray-600">We evaluated whether our methods could be used by farmers and researchers in real-world conditions.</p>
+                <CardContent>
+                  <div className="space-y-4">
+                    <div className="text-center">
+                      <div className="text-3xl font-bold text-red-700">32%</div>
+                      <div className="text-sm text-red-600">of human-caused methane emissions</div>
+                    </div>
+                    <div className="text-center">
+                      <div className="text-3xl font-bold text-red-700">70%</div>
+                      <div className="text-sm text-red-600">increase in demand by 2050</div>
+                    </div>
+                    <p className="text-sm text-gray-700">
+                      Livestock methane emissions represent a critical challenge in climate science, making automated monitoring systems essential for effective mitigation strategies.
+                    </p>
                   </div>
                 </CardContent>
               </Card>
 
-              <Card>
+              <Card className="border-2 border-blue-200 bg-blue-50">
                 <CardHeader>
-                  <CardTitle className="flex items-center">
-                    <BarChart3 className="h-5 w-5 text-green-600 mr-2" />
-                    Research Approach
+                  <CardTitle className="flex items-center text-blue-800">
+                    <Brain className="h-6 w-6 mr-2" />
+                    Our Approach
                   </CardTitle>
                 </CardHeader>
-                <CardContent className="space-y-4">
-                  <div className="bg-green-50 p-3 rounded-lg">
-                    <h4 className="font-medium text-green-800 mb-1">Multi-disciplinary Method</h4>
-                    <p className="text-sm text-green-700">Combined computer science, animal nutrition, and agricultural engineering expertise</p>
-                  </div>
-                  <div className="bg-blue-50 p-3 rounded-lg">
-                    <h4 className="font-medium text-blue-800 mb-1">Dual In Vitro & In Vivo Approach</h4>
-                    <p className="text-sm text-blue-700">Combined controlled laboratory studies with real-world live cattle experiments</p>
-                  </div>
-                  <div className="bg-purple-50 p-3 rounded-lg">
-                    <h4 className="font-medium text-purple-800 mb-1">Validated with Multiple Methods</h4>
-                    <p className="text-sm text-purple-700">Cross-validated AI results with gas chromatography and laser detection</p>
+                <CardContent>
+                  <div className="space-y-4">
+                    <div className="text-center">
+                      <div className="text-3xl font-bold text-blue-700">3</div>
+                      <div className="text-sm text-blue-600">research phases</div>
+                    </div>
+                    <div className="text-center">
+                      <div className="text-3xl font-bold text-blue-700">AI + OGI</div>
+                      <div className="text-sm text-blue-600">integrated solution</div>
+                    </div>
+                    <p className="text-sm text-gray-700">
+                      Combining cutting-edge artificial intelligence with optical gas imaging technology for real-time methane detection and quantification.
+                    </p>
                   </div>
                 </CardContent>
               </Card>
-            </div>
-          </div>
-        </div>
-      </section>
 
-      {/* Equipment Section */}
-      <section className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-gray-900 mb-4">Research Equipment</h2>
-              <p className="text-lg text-gray-600">
-                The specialized tools we used to detect and measure methane emissions
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {equipmentList.map((equipment) => (
-                <Card key={equipment.id} className="border-l-4 border-blue-400 overflow-hidden">
-                  <div className="aspect-video w-full overflow-hidden">
-                    <img 
-                      src={equipment.image} 
-                      alt={equipment.title}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <CardHeader>
-                    <CardTitle className="text-lg">{equipment.title}</CardTitle>
-                    <CardDescription>{equipment.description}</CardDescription>
-                  </CardHeader>
-                  <CardContent className="space-y-3">
-                    <div>
-                      <h4 className="font-medium text-gray-900 mb-1">How We Used It:</h4>
-                      <p className="text-sm text-gray-600">{equipment.purpose}</p>
-                    </div>
-                    <div>
-                      <h4 className="font-medium text-gray-900 mb-1">Technical Details:</h4>
-                      <p className="text-sm text-gray-500 font-mono">{equipment.specifications}</p>
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Methodology Section */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-gray-900 mb-4">Step-by-Step Methodology</h2>
-              <p className="text-lg text-gray-600">
-                Detailed breakdown of our research process
-              </p>
-            </div>
-
-            <div className="space-y-8">
-              {methodologySteps.map((step, index) => (
-                <Card key={index} className="border-l-4 border-green-400">
-                  <CardHeader>
-                    <CardTitle className="flex items-center">
-                      <div className="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center mr-3">
-                        <span className="text-green-700 font-bold">{index + 1}</span>
-                      </div>
-                      {step.title}
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-gray-600 mb-3">{step.description}</p>
-                    <div className="bg-gray-50 p-3 rounded-lg">
-                      <p className="text-sm text-gray-500 font-mono">{step.details}</p>
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Datasets Section */}
-      <section className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-gray-900 mb-4">Research Datasets</h2>
-              <p className="text-lg text-gray-600">
-                We created four comprehensive datasets with over 26,000 labeled images from both laboratory and live cattle studies to train and test our AI systems.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-              {datasets.map((dataset) => (
-                <Card key={dataset.id} className="text-center">
-                  <CardHeader>
-                    <Database className="h-10 w-10 text-purple-600 mx-auto mb-4" />
-                    <CardTitle className="text-lg">{dataset.title}</CardTitle>
-                    <CardDescription>{dataset.description}</CardDescription>
-                  </CardHeader>
-                  <CardContent className="space-y-4">
-                    <div className="text-2xl font-bold text-purple-700">{dataset.size}</div>
-                    <div>
-                      <h4 className="font-medium text-gray-900 mb-2">Purpose:</h4>
-                      <p className="text-sm text-gray-600">{dataset.purpose}</p>
-                    </div>
-                    <div className="bg-purple-50 p-3 rounded-lg">
-                      <p className="text-xs text-purple-700">{dataset.details}</p>
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Detailed Results */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-gray-900 mb-4">Detailed Research Findings</h2>
-              <p className="text-lg text-gray-600">
-                Complete results from our AI model performance and dietary impact studies
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-              <Card>
+              <Card className="border-2 border-green-200 bg-green-50">
                 <CardHeader>
-                  <CardTitle>AI Model Performance Comparison</CardTitle>
-                  <CardDescription>Gasformer vs. Other Computer Vision Models</CardDescription>
+                  <CardTitle className="flex items-center text-green-800">
+                    <Target className="h-6 w-6 mr-2" />
+                    Research Impact
+                  </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <div className="overflow-x-auto">
-                    <table className="w-full text-sm">
-                      <thead>
-                        <tr className="bg-gray-100">
-                          <th className="p-2 text-left">Model</th>
-                          <th className="p-2 text-left">mIoU (%)</th>
-                          <th className="p-2 text-left">Parameters</th>
-                          <th className="p-2 text-left">FPS</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr className="bg-green-50">
-                          <td className="p-2 font-medium">Gasformer</td>
-                          <td className="p-2 font-bold text-green-600">88.56</td>
-                          <td className="p-2">3.65M</td>
-                          <td className="p-2">97.45</td>
-                        </tr>
-                        <tr>
-                          <td className="p-2">Segformer B0</td>
-                          <td className="p-2">88.41</td>
-                          <td className="p-2">3.7M</td>
-                          <td className="p-2">91.2</td>
-                        </tr>
-                        <tr className="bg-gray-50">
-                          <td className="p-2">DeepLabv3+</td>
-                          <td className="p-2">88.18</td>
-                          <td className="p-2">41M</td>
-                          <td className="p-2">28.3</td>
-                        </tr>
-                        <tr>
-                          <td className="p-2">SegNeXt-T</td>
-                          <td className="p-2">88.00</td>
-                          <td className="p-2">4.2M</td>
-                          <td className="p-2">85.1</td>
-                        </tr>
-                        <tr className="bg-gray-50">
-                          <td className="p-2">FCN</td>
-                          <td className="p-2">86.41</td>
-                          <td className="p-2">134M</td>
-                          <td className="p-2">12.5</td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                  <p className="text-sm text-gray-600 mt-4">
-                    Gasformer achieved the highest accuracy while maintaining fast processing speed and compact model size.
-                  </p>
-                </CardContent>
-              </Card>
-
-              <Card>
-                <CardHeader>
-                  <CardTitle>Diet Impact on Methane Emissions</CardTitle>
-                  <CardDescription>Laboratory Results from Different Feed Compositions</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <div className="overflow-x-auto">
-                    <table className="w-full text-sm">
-                      <thead>
-                        <tr className="bg-gray-100">
-                          <th className="p-2 text-left">Diet Treatment</th>
-                          <th className="p-2 text-left">CH₄ (ppm)</th>
-                          <th className="p-2 text-left">Total Gas (mL)</th>
-                          <th className="p-2 text-left">pH</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr className="bg-red-50">
-                          <td className="p-2">High Forage (80%)</td>
-                          <td className="p-2 font-bold text-red-600">482.45</td>
-                          <td className="p-2">374.10</td>
-                          <td className="p-2">6.80</td>
-                        </tr>
-                        <tr>
-                          <td className="p-2">Low Forage (20%)</td>
-                          <td className="p-2 font-bold text-yellow-600">293.72</td>
-                          <td className="p-2">384.17</td>
-                          <td className="p-2">6.31</td>
-                        </tr>
-                        <tr className="bg-gray-50">
-                          <td className="p-2">Control (50/50)</td>
-                          <td className="p-2 font-bold text-green-600">167.22</td>
-                          <td className="p-2">382.82</td>
-                          <td className="p-2">6.64</td>
-                        </tr>
-                        <tr className="bg-blue-50">
-                          <td className="p-2">+ Seaweed (Bromoform)</td>
-                          <td className="p-2 font-bold text-blue-600">1.41</td>
-                          <td className="p-2">327.98</td>
-                          <td className="p-2">6.57</td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                  <div className="mt-4 p-3 bg-blue-50 rounded-lg">
-                    <p className="text-sm text-blue-700 text-center">
-                      <strong>Key Finding:</strong> Seaweed supplement reduced methane by 99.2% (482.45 → 1.41 ppm)
+                  <div className="space-y-4">
+                    <div className="text-center">
+                      <div className="text-3xl font-bold text-green-700">25K+</div>
+                      <div className="text-sm text-green-600">annotated images</div>
+                    </div>
+                    <div className="text-center">
+                      <div className="text-3xl font-bold text-green-700">100%</div>
+                      <div className="text-sm text-green-600">dietary classification accuracy</div>
+                    </div>
+                    <p className="text-sm text-gray-700">
+                      Systematic progression from proof-of-concept to practical real-world applications with demonstrated farm deployment capability.
                     </p>
                   </div>
                 </CardContent>
               </Card>
             </div>
 
-            {/* Interactive Results Visualization */}
-            <div className="space-y-8 mt-12">
-              <ModelPerformanceChart />
+            <div className="bg-gray-50 rounded-xl p-8">
+              <p className="text-lg text-gray-700 leading-relaxed mb-6">
+                Livestock methane emissions represent a critical challenge in climate science, accounting for <strong className="text-red-700">32% of human-caused methane production</strong> globally. As the world&apos;s population is projected to reach 9.7 billion by 2050, the demand for livestock products will increase by <strong className="text-blue-700">70%</strong>, making automated monitoring systems essential for developing effective climate mitigation strategies.
+              </p>
+              <p className="text-lg text-gray-700 leading-relaxed">
+                Our comprehensive research program addresses this challenge through the development of cutting-edge artificial intelligence techniques combined with optical gas imaging technology to detect, segment, and quantify methane emissions from livestock operations. This three-phase research initiative demonstrates a systematic progression from fundamental proof-of-concept work to practical real-world applications.
+              </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Access Research */}
-      <section className="py-16 bg-blue-700 text-white">
+      {/* Research Phases */}
+      <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold text-gray-900 mb-6">Research Phases</h2>
+              <p className="text-xl text-gray-600 max-w-4xl mx-auto">
+                A systematic three-phase progression from fundamental algorithmic development to practical real-world deployment.
+              </p>
+            </div>
+
+            <Tabs defaultValue="phase1" className="w-full">
+              <TabsList className="grid w-full grid-cols-3 mb-8">
+                <TabsTrigger value="phase1" className="flex items-center gap-2">
+                  <Brain className="h-4 w-4" />
+                  Phase 1: Foundation
+                </TabsTrigger>
+                <TabsTrigger value="phase2" className="flex items-center gap-2">
+                  <Microscope className="h-4 w-4" />
+                  Phase 2: Validation
+                </TabsTrigger>
+                <TabsTrigger value="phase3" className="flex items-center gap-2">
+                  <Users className="h-4 w-4" />
+                  Phase 3: Application
+                </TabsTrigger>
+              </TabsList>
+
+              {/* Phase 1 */}
+              <TabsContent value="phase1" className="space-y-8">
+                <Card className="border-2 border-blue-200">
+                  <CardHeader className="bg-blue-50">
+                    <div className="flex items-center justify-between">
+                      <div>
+                        <CardTitle className="text-2xl text-blue-800 mb-2">Phase 1: Foundation - Gasformer (2024)</CardTitle>
+                        <CardDescription className="text-lg text-blue-700">
+                          Establishing Transformer-Based Methane Detection
+                        </CardDescription>
+                      </div>
+                      <Badge className="bg-blue-200 text-blue-800">2024</Badge>
+                    </div>
+                  </CardHeader>
+                  <CardContent className="p-8">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                      <div>
+                        <div className="research-phase space-y-6">
+                          <div className="bg-blue-50 p-6 rounded-lg">
+                            <h3 className="text-lg font-semibold text-blue-800 mb-3 flex items-center">
+                              <Target className="h-5 w-5 mr-2" />
+                              Research Goal
+                            </h3>
+                            <p className="text-gray-700">
+                              Develop the first transformer-based architecture for low-flow rate methane emission segmentation in livestock applications.
+                            </p>
+                          </div>
+
+                          <div className="bg-white p-6 rounded-lg border border-blue-200">
+                            <h3 className="text-lg font-semibold text-blue-800 mb-3 flex items-center">
+                              <Brain className="h-5 w-5 mr-2" />
+                              Key Innovation: Gasformer Architecture
+                            </h3>
+                            <ul className="space-y-2 text-gray-700">
+                              <li>• <strong>Encoder:</strong> Mix Vision Transformer (MiT-B0) for multi-scale feature extraction</li>
+                              <li>• <strong>Decoder:</strong> Light-Ham decoder with Hamburger Matrix Decomposition</li>
+                              <li>• <strong>Breakthrough:</strong> Effective detection at concentrations as low as 10 SCCM</li>
+                            </ul>
+                          </div>
+
+                          <div className="bg-white p-6 rounded-lg border border-blue-200">
+                            <h3 className="text-lg font-semibold text-blue-800 mb-3 flex items-center">
+                              <Settings className="h-5 w-5 mr-2" />
+                              Experimental Setup
+                            </h3>
+                            <ul className="space-y-2 text-gray-700">
+                              <li>• <strong>Equipment:</strong> FLIR GF77 OGI Camera (uncooled LWIR, 320×240 resolution)</li>
+                              <li>• <strong>Detection Range:</strong> 7-8.5 μm spectral range, optimized for methane&apos;s 7.7±0.1 μm absorption band</li>
+                              <li>• <strong>Environment:</strong> Ice background for consistent temperature contrast</li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div>
+                        <div className="space-y-6">
+                          <div className="bg-white p-6 rounded-lg border border-blue-200">
+                            <h3 className="text-lg font-semibold text-blue-800 mb-3 flex items-center">
+                              <Database className="h-5 w-5 mr-2" />
+                              Datasets Created
+                            </h3>
+                            <div className="space-y-4">
+                              <div className="bg-gray-50 p-4 rounded-lg">
+                                <h4 className="font-medium text-gray-800 mb-2">Controlled Methane Release (MR) Dataset</h4>
+                                <ul className="text-sm text-gray-600 space-y-1">
+                                  <li>• 9,237 images across 10-100 SCCM flow rates</li>
+                                  <li>• Precision gas flow controller for accurate control</li>
+                                  <li>• Multiple color modes (white hot, black hot, rainbow)</li>
+                                </ul>
+                              </div>
+                              <div className="bg-gray-50 p-4 rounded-lg">
+                                <h4 className="font-medium text-gray-800 mb-2">Dairy Cow Rumen Gas (CR) Dataset</h4>
+                                <ul className="text-sm text-gray-600 space-y-1">
+                                  <li>• 340 images from real dairy cow rumen gas samples</li>
+                                  <li>• 24-hour ANKOM batch culture system</li>
+                                  <li>• Direct livestock emission capture</li>
+                                </ul>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div className="bg-green-50 p-6 rounded-lg border border-green-200">
+                            <h3 className="text-lg font-semibold text-green-800 mb-3 flex items-center">
+                              <CheckCircle className="h-5 w-5 mr-2" />
+                              Results & Impact
+                            </h3>
+                            <div className="grid grid-cols-2 gap-4 mb-4">
+                              <div className="text-center">
+                                <div className="text-2xl font-bold text-green-700">88.56%</div>
+                                <div className="text-sm text-green-600">mIoU on livestock dataset</div>
+                              </div>
+                              <div className="text-center">
+                                <div className="text-2xl font-bold text-green-700">97.45</div>
+                                <div className="text-sm text-green-600">FPS processing speed</div>
+                              </div>
+                            </div>
+                            <p className="text-sm text-gray-700">
+                              <strong>Validation:</strong> Successful transfer learning from controlled to real livestock scenarios
+                            </p>
+                          </div>
+
+                          <div className="flex flex-wrap gap-3">
+                            <Button size="sm" className="bg-blue-600 hover:bg-blue-700">
+                              <FileText className="h-4 w-4 mr-2" />
+                              Read Full Paper
+                            </Button>
+                            <Button size="sm" variant="outline">
+                              <Code className="h-4 w-4 mr-2" />
+                              Access Code
+                            </Button>
+                            <Button size="sm" variant="outline">
+                              <Download className="h-4 w-4 mr-2" />
+                              Download Datasets
+                            </Button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </TabsContent>
+
+              {/* Phase 2 */}
+              <TabsContent value="phase2" className="space-y-8">
+                <Card className="border-2 border-green-200">
+                  <CardHeader className="bg-green-50">
+                    <div className="flex items-center justify-between">
+                      <div>
+                        <CardTitle className="text-2xl text-green-800 mb-2">Phase 2: Comprehensive Validation - Multi-Model Analysis (2025)</CardTitle>
+                        <CardDescription className="text-lg text-green-700">
+                          Quantifying Dietary Impact on Methane Emissions
+                        </CardDescription>
+                      </div>
+                      <Badge className="bg-green-200 text-green-800">2025</Badge>
+                    </div>
+                  </CardHeader>
+                  <CardContent className="p-8">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                      <div>
+                        <div className="research-phase space-y-6">
+                          <div className="bg-green-50 p-6 rounded-lg">
+                            <h3 className="text-lg font-semibold text-green-800 mb-3 flex items-center">
+                              <Target className="h-5 w-5 mr-2" />
+                              Research Goal
+                            </h3>
+                            <p className="text-gray-700">
+                              Validate OGI+AI approach against gold-standard analytical methods and investigate dietary treatment effects on methane production.
+                            </p>
+                          </div>
+
+                          <div className="bg-white p-6 rounded-lg border border-green-200">
+                            <h3 className="text-lg font-semibold text-green-800 mb-3 flex items-center">
+                              <Microscope className="h-5 w-5 mr-2" />
+                              Comprehensive Experimental Design
+                            </h3>
+                            <ul className="space-y-2 text-gray-700">
+                              <li>• <strong>Multi-instrument Validation:</strong> OGI + Gas Chromatography + Laser Methane Detector</li>
+                              <li>• <strong>Biological Realism:</strong> 4 single-flow continuous fermenters simulating cow rumen conditions</li>
+                              <li>• <strong>Dietary Treatments:</strong> Control, Control+Bromoform, Low Forage (20:80), High Forage (80:20)</li>
+                            </ul>
+                          </div>
+
+                          <div className="bg-white p-6 rounded-lg border border-green-200">
+                            <h3 className="text-lg font-semibold text-green-800 mb-3 flex items-center">
+                              <Database className="h-5 w-5 mr-2" />
+                              Advanced Dataset: Controlled Diet (CD)
+                            </h3>
+                            <ul className="space-y-2 text-gray-700">
+                              <li>• <strong>Scale:</strong> 4,885 CH₄ plume images across dietary treatments</li>
+                              <li>• <strong>Class-1:</strong> 166-171 ppm (Control diet)</li>
+                              <li>• <strong>Class-2:</strong> 300-334 ppm (Low Forage diet)</li>
+                              <li>• <strong>Class-3:</strong> 457-510 ppm (High Forage diet)</li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div>
+                        <div className="space-y-6">
+                          <div className="bg-amber-50 p-6 rounded-lg border border-amber-200">
+                            <h3 className="text-lg font-semibold text-amber-800 mb-3 flex items-center">
+                              <Award className="h-5 w-5 mr-2" />
+                              Breakthrough Findings
+                            </h3>
+                            <div className="space-y-3">
+                              <div className="bg-white p-3 rounded">
+                                <div className="font-medium text-amber-800">Method Validation</div>
+                                <div className="text-sm text-gray-600">LMD data followed similar patterns to GC results, confirming OGI reliability</div>
+                              </div>
+                              <div className="bg-white p-3 rounded">
+                                <div className="font-medium text-amber-800">Dietary Impact Quantification</div>
+                                <div className="text-sm text-gray-600">High Forage diet produced significantly more CH₄ (p &lt; 0.01)</div>
+                              </div>
+                              <div className="bg-white p-3 rounded">
+                                <div className="font-medium text-amber-800">Mitigation Evidence</div>
+                                <div className="text-sm text-gray-600">Bromoform completely inhibited CH₄ emission (98% reduction)</div>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div className="bg-white p-6 rounded-lg border border-green-200">
+                            <h3 className="text-lg font-semibold text-green-800 mb-3 flex items-center">
+                              <BarChart3 className="h-5 w-5 mr-2" />
+                              Comparative Model Performance
+                            </h3>
+                            <div className="space-y-3">
+                              <div className="bg-green-50 p-4 rounded-lg">
+                                <div className="font-medium text-green-800 mb-2">Gasformer Performance</div>
+                                <div className="grid grid-cols-2 gap-4">
+                                  <div className="text-center">
+                                    <div className="text-xl font-bold text-green-700">85.1%</div>
+                                    <div className="text-xs text-green-600">mIoU</div>
+                                  </div>
+                                  <div className="text-center">
+                                    <div className="text-xl font-bold text-green-700">91.72%</div>
+                                    <div className="text-xs text-green-600">mF-score</div>
+                                  </div>
+                                </div>
+                                <div className="text-sm text-gray-600 mt-2">
+                                  Most parameter-efficient (3.65M parameters) with highest FPS (64.5)
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div className="bg-blue-50 p-6 rounded-lg border border-blue-200">
+                            <h3 className="text-lg font-semibold text-blue-800 mb-3 flex items-center">
+                              <Globe className="h-5 w-5 mr-2" />
+                              Scientific Impact
+                            </h3>
+                            <ul className="space-y-2 text-sm text-gray-700">
+                              <li>• <strong>First Study:</strong> Combining OGI + deep learning for livestock methane quantification</li>
+                              <li>• <strong>Practical Validation:</strong> Correlation between visual plume characteristics and actual concentrations</li>
+                              <li>• <strong>Climate Relevance:</strong> Quantitative framework for evaluating dietary mitigation strategies</li>
+                            </ul>
+                          </div>
+
+                          <div className="flex flex-wrap gap-3">
+                            <Button size="sm" className="bg-green-600 hover:bg-green-700">
+                              <FileText className="h-4 w-4 mr-2" />
+                              Read Full Paper
+                            </Button>
+                            <Button size="sm" variant="outline">
+                              <Download className="h-4 w-4 mr-2" />
+                              Access CD Dataset
+                            </Button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </TabsContent>
+
+              {/* Phase 3 */}
+              <TabsContent value="phase3" className="space-y-8">
+                <Card className="border-2 border-purple-200">
+                  <CardHeader className="bg-purple-50">
+                    <div className="flex items-center justify-between">
+                      <div>
+                        <CardTitle className="text-2xl text-purple-800 mb-2">Phase 3: Real-World Application - GasTwinFormer (2025)</CardTitle>
+                        <CardDescription className="text-lg text-purple-700">
+                          Integrated Segmentation and Dietary Classification
+                        </CardDescription>
+                      </div>
+                      <Badge className="bg-purple-200 text-purple-800">2025</Badge>
+                    </div>
+                  </CardHeader>
+                  <CardContent className="p-8">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                      <div>
+                        <div className="research-phase space-y-6">
+                          <div className="bg-purple-50 p-6 rounded-lg">
+                            <h3 className="text-lg font-semibold text-purple-800 mb-3 flex items-center">
+                              <Target className="h-5 w-5 mr-2" />
+                              Research Goal
+                            </h3>
+                            <p className="text-gray-700">
+                              Develop a unified framework for simultaneous methane detection and dietary treatment classification in real livestock environments.
+                            </p>
+                          </div>
+
+                          <div className="bg-white p-6 rounded-lg border border-purple-200">
+                            <h3 className="text-lg font-semibold text-purple-800 mb-3 flex items-center">
+                              <Layers className="h-5 w-5 mr-2" />
+                              Novel Architecture: GasTwinFormer
+                            </h3>
+                            <ul className="space-y-2 text-gray-700">
+                              <li>• <strong>Hybrid Encoder:</strong> Mix Twin encoder alternating between EMA and LSA</li>
+                              <li>• <strong>Dual-Task Learning:</strong> Simultaneous methane segmentation and dietary classification</li>
+                              <li>• <strong>Advanced Decoder:</strong> Hierarchical LR-ASPP for multi-scale feature aggregation</li>
+                            </ul>
+                          </div>
+
+                          <div className="bg-white p-6 rounded-lg border border-purple-200">
+                            <h3 className="text-lg font-semibold text-purple-800 mb-3 flex items-center">
+                              <Users className="h-5 w-5 mr-2" />
+                              Real Livestock Validation
+                            </h3>
+                            <ul className="space-y-2 text-gray-700">
+                              <li>• <strong>Equipment:</strong> FLIR Gx320 OGI camera (320×240, 30 fps, &lt;15 mK thermal sensitivity)</li>
+                              <li>• <strong>Live Animal Study:</strong> 12 postpartum beef cows across 3 dietary treatments</li>
+                              <li>• <strong>Duration:</strong> 30-day controlled feeding trial with IACUC approval</li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div>
+                        <div className="space-y-6">
+                          <div className="bg-white p-6 rounded-lg border border-purple-200">
+                            <h3 className="text-lg font-semibold text-purple-800 mb-3 flex items-center">
+                              <Database className="h-5 w-5 mr-2" />
+                              Comprehensive Dataset: Beef Cattle Emissions
+                            </h3>
+                            <div className="space-y-3">
+                              <div className="text-center mb-4">
+                                <div className="text-2xl font-bold text-purple-700">11,694</div>
+                                <div className="text-sm text-purple-600">manually annotated frames from 19 recordings</div>
+                              </div>
+                              <div className="grid grid-cols-3 gap-3">
+                                <div className="bg-purple-50 p-3 rounded text-center">
+                                  <div className="font-bold text-purple-700">2,730</div>
+                                  <div className="text-xs text-purple-600">High Forage (23.4%)</div>
+                                </div>
+                                <div className="bg-purple-50 p-3 rounded text-center">
+                                  <div className="font-bold text-purple-700">4,658</div>
+                                  <div className="text-xs text-purple-600">Mixed Diet (39.8%)</div>
+                                </div>
+                                <div className="bg-purple-50 p-3 rounded text-center">
+                                  <div className="font-bold text-purple-700">4,306</div>
+                                  <div className="text-xs text-purple-600">High Grain (36.8%)</div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div className="bg-green-50 p-6 rounded-lg border border-green-200">
+                            <h3 className="text-lg font-semibold text-green-800 mb-3 flex items-center">
+                              <Award className="h-5 w-5 mr-2" />
+                              Breakthrough Achievements
+                            </h3>
+                            <div className="grid grid-cols-2 gap-4 mb-4">
+                              <div className="text-center">
+                                <div className="text-2xl font-bold text-green-700">74.47%</div>
+                                <div className="text-xs text-green-600">mIoU segmentation</div>
+                              </div>
+                              <div className="text-center">
+                                <div className="text-2xl font-bold text-green-700">100%</div>
+                                <div className="text-xs text-green-600">dietary classification</div>
+                              </div>
+                            </div>
+                            <div className="text-center">
+                              <div className="text-lg font-bold text-green-700">114.9 FPS</div>
+                              <div className="text-xs text-green-600">with only 3.348M parameters</div>
+                            </div>
+                          </div>
+
+                          <div className="bg-amber-50 p-6 rounded-lg border border-amber-200">
+                            <h3 className="text-lg font-semibold text-amber-800 mb-3 flex items-center">
+                              <Activity className="h-5 w-5 mr-2" />
+                              Innovation: Hybrid Encoder Architecture
+                            </h3>
+                            <ul className="space-y-2 text-sm text-gray-700">
+                              <li>• <strong>Alternating Attention:</strong> Multi-head attention and locally-grouped self-attention mechanisms</li>
+                              <li>• <strong>Optimal Balance:</strong> Global context understanding with fine-grained local feature detection</li>
+                              <li>• <strong>Real-World Adaptation:</strong> Handles increased variability in live livestock environments</li>
+                              <li>• <strong>Efficiency:</strong> 114.9 FPS processing with only 3.348M parameters</li>
+                            </ul>
+                          </div>
+
+                          <div className="flex flex-wrap gap-3">
+                            <Button size="sm" className="bg-purple-600 hover:bg-purple-700">
+                              <FileText className="h-4 w-4 mr-2" />
+                              Read Full Paper
+                            </Button>
+                            <Button size="sm" variant="outline">
+                              <Code className="h-4 w-4 mr-2" />
+                              Access Code
+                            </Button>
+                            <Button size="sm" variant="outline">
+                              <Download className="h-4 w-4 mr-2" />
+                              Download Dataset
+                            </Button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </TabsContent>
+            </Tabs>
+          </div>
+        </div>
+      </section>
+
+      {/* Research Evolution & Future Directions */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold text-gray-900 mb-6">Research Evolution & Future Directions</h2>
+              <p className="text-xl text-gray-600 max-w-4xl mx-auto">
+                The progression of our research program demonstrates a carefully orchestrated evolution from fundamental algorithmic development to practical real-world application.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+              <Card className="border-2 border-blue-200 bg-blue-50">
+                <CardHeader>
+                  <CardTitle className="text-blue-800">Technical Progression</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="space-y-4">
+                    <div className="flex items-center">
+                      <ArrowRight className="h-4 w-4 text-blue-600 mr-2" />
+                      <span className="text-sm text-gray-700">Single-task CNN → Transformer-based → Hybrid attention → Dual-task learning</span>
+                    </div>
+                    <div className="flex items-center">
+                      <ArrowRight className="h-4 w-4 text-blue-600 mr-2" />
+                      <span className="text-sm text-gray-700">Controlled lab → In vitro simulation → Real livestock</span>
+                    </div>
+                    <div className="flex items-center">
+                      <ArrowRight className="h-4 w-4 text-blue-600 mr-2" />
+                      <span className="text-sm text-gray-700">Visual assessment → Multi-instrument validation → Live animal studies</span>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card className="border-2 border-green-200 bg-green-50">
+                <CardHeader>
+                  <CardTitle className="text-green-800">Key Contributions to the Field</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <ul className="space-y-2 text-sm text-gray-700">
+                    <li>• First transformer architecture for livestock methane detection</li>
+                    <li>• Largest annotated dataset for agricultural gas emission analysis</li>
+                    <li>• Novel dual-task framework combining detection and classification</li>
+                    <li>• Comprehensive validation against analytical chemistry standards</li>
+                    <li>• Real-world deployment capability for practical farm applications</li>
+                  </ul>
+                </CardContent>
+              </Card>
+            </div>
+
+            <div className="bg-gradient-to-r from-purple-50 to-blue-50 rounded-xl p-8">
+              <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">Ongoing Research</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div className="text-center">
+                  <div className="bg-white p-4 rounded-lg shadow-sm">
+                    <Eye className="h-8 w-8 text-purple-600 mx-auto mb-2" />
+                    <h4 className="font-semibold text-purple-800 mb-1">Multi-gas Detection</h4>
+                    <p className="text-xs text-gray-600">Extending to CO₂ and N₂O emissions</p>
+                  </div>
+                </div>
+                <div className="text-center">
+                  <div className="bg-white p-4 rounded-lg shadow-sm">
+                    <Activity className="h-8 w-8 text-blue-600 mx-auto mb-2" />
+                    <h4 className="font-semibold text-blue-800 mb-1">Continuous Monitoring</h4>
+                    <p className="text-xs text-gray-600">24/7 automated farm surveillance systems</p>
+                  </div>
+                </div>
+                <div className="text-center">
+                  <div className="bg-white p-4 rounded-lg shadow-sm">
+                    <Brain className="h-8 w-8 text-green-600 mx-auto mb-2" />
+                    <h4 className="font-semibold text-green-800 mb-1">Mitigation Optimization</h4>
+                    <p className="text-xs text-gray-600">AI-driven dietary recommendation systems</p>
+                  </div>
+                </div>
+                <div className="text-center">
+                  <div className="bg-white p-4 rounded-lg shadow-sm">
+                    <Globe className="h-8 w-8 text-amber-600 mx-auto mb-2" />
+                    <h4 className="font-semibold text-amber-800 mb-1">Global Deployment</h4>
+                    <p className="text-xs text-gray-600">Adaptation to different livestock systems worldwide</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Publications & Recognition */}
+      <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold text-gray-900 mb-6">Publications & Recognition</h2>
+              <p className="text-xl text-gray-600 max-w-4xl mx-auto">
+                Our research has resulted in a strong publication record reflecting both technical innovation and practical impact.
+              </p>
+            </div>
+
+            <div className="space-y-6 mb-12">
+              <Card className="border-l-4 border-blue-500">
+                <CardContent className="p-6">
+                  <div className="flex items-start justify-between">
+                    <div className="flex-1">
+                      <h3 className="text-lg font-semibold text-blue-800 mb-2">
+                        Gasformer: A Transformer-based Architecture for Segmenting Methane Emissions from Livestock in Optical Gas Imaging
+                      </h3>
+                      <p className="text-gray-600 mb-2">
+                        Sarker, T.T., et al. • <strong>CVPR Workshop on Computer Vision for Agriculture</strong> • 2024
+                      </p>
+                      <p className="text-sm text-gray-600">
+                        Presented at the premier computer vision conference, receiving significant attention from both CV and agricultural research communities.
+                      </p>
+                    </div>
+                    <div className="flex gap-2 ml-4">
+                      <Button size="sm" variant="outline">
+                        <ExternalLink className="h-4 w-4" />
+                      </Button>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card className="border-l-4 border-green-500">
+                <CardContent className="p-6">
+                  <div className="flex items-start justify-between">
+                    <div className="flex-1">
+                      <h3 className="text-lg font-semibold text-green-800 mb-2">
+                        Optical gas imaging and deep learning for quantifying enteric methane emissions from rumen fermentation in vitro
+                      </h3>
+                      <p className="text-gray-600 mb-2">
+                        Embaby, M.G., et al. • <strong>IET Image Processing</strong> • vol. 19, no. 1 • 2025
+                      </p>
+                      <p className="text-sm text-gray-600">
+                        Provides detailed methodological information enabling replication and extension by other research groups.
+                      </p>
+                    </div>
+                    <div className="flex gap-2 ml-4">
+                      <Button size="sm" variant="outline">
+                        <ExternalLink className="h-4 w-4" />
+                      </Button>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card className="border-l-4 border-purple-500">
+                <CardContent className="p-6">
+                  <div className="flex items-start justify-between">
+                    <div className="flex-1">
+                      <h3 className="text-lg font-semibold text-purple-800 mb-2">
+                        GasTwinFormer: A Hybrid Vision Transformer for Livestock Methane Emission Segmentation and Dietary Classification in Optical Gas Imaging
+                      </h3>
+                      <p className="text-gray-600 mb-2">
+                        Sarker, T.T., et al. • <strong>Submitted to ICCV</strong> • 2025
+                      </p>
+                      <p className="text-sm text-gray-600">
+                        Represents the transition to high-impact computer vision venues and recognition of agricultural AI as a legitimate area for technical innovation.
+                      </p>
+                    </div>
+                    <div className="flex gap-2 ml-4">
+                      <Badge variant="secondary">Under Review</Badge>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+
+            <div className="bg-white rounded-xl p-8 shadow-lg">
+              <div className="text-center mb-8">
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">Funding Support</h3>
+                <p className="text-gray-600">
+                  This research is supported by prestigious funding agencies, reflecting confidence in both the technical approach and potential for practical impact.
+                </p>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div className="text-center">
+                  <Award className="h-12 w-12 text-green-600 mx-auto mb-4" />
+                  <h4 className="text-lg font-semibold text-green-800 mb-2">USDA NIFA Award</h4>
+                  <p className="text-green-600 font-medium">2022-70001-37404</p>
+                  <p className="text-sm text-gray-600 mt-2">Primary funding for comprehensive research program</p>
+                </div>
+                <div className="text-center">
+                  <BookOpen className="h-12 w-12 text-blue-600 mx-auto mb-4" />
+                  <h4 className="text-lg font-semibold text-blue-800 mb-2">SIU Office of Vice Chancellor for Research</h4>
+                  <p className="text-blue-600 font-medium">Institutional Support</p>
+                  <p className="text-sm text-gray-600 mt-2">Additional funding for equipment and personnel</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Call to Action */}
+      <section className="py-16 bg-gradient-to-r from-blue-700 to-purple-700 text-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl font-bold mb-6">
-              Access Our Complete Research
-            </h2>
+            <h2 className="text-3xl font-bold mb-6">Advancing Agricultural AI Research</h2>
             <p className="text-xl mb-8 opacity-90">
-              All research papers, datasets, and source code are available for download. 
-              Use our work to advance climate research and agricultural sustainability.
+              This research represents a significant advancement in agricultural AI applications, providing practical tools for climate-smart livestock management while contributing to global methane emission reduction efforts.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild size="lg" className="bg-white text-blue-700 hover:bg-gray-100">
                 <Link href="/resources">
-                  📊 Download Data & Code
+                  <Download className="mr-2 h-5 w-5" />
+                  Access All Resources
                 </Link>
               </Button>
               <Button asChild size="lg" className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-blue-700">
                 <Link href="/team">
-                  👥 Contact Research Team
+                  <Users className="mr-2 h-5 w-5" />
+                  Meet the Research Team
                 </Link>
               </Button>
             </div>
