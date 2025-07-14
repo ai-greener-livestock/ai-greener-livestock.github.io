@@ -1,7 +1,7 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { Download, Github, FileText, Database, ExternalLink, Book, Users } from "lucide-react"
+import { Download, Github, FileText, Database, ExternalLink, Book } from "lucide-react"
 
 export default function ResourcesPage() {
   const publications = [
@@ -15,7 +15,6 @@ export default function ResourcesPage() {
       type: "Conference Paper",
       status: "Published",
       doi: "10.1109/CVPRW63382.2024.00558",
-      abstract: "This paper introduces Gasformer, a novel semantic segmentation architecture for detecting low-flow rate methane emissions from livestock using optical gas imaging. The model achieves 88.56% mIoU on livestock datasets.",
       links: {
         pdf: "#",
         github: "https://github.com/toqitahamid/Gasformer",
@@ -34,7 +33,6 @@ export default function ResourcesPage() {
       type: "Journal Article",
       status: "Published",
       doi: "10.1049/ipr2.12934",
-      abstract: "This study evaluates deep learning models for quantifying methane emissions from cattle using optical gas imaging across different dietary treatments, demonstrating practical applications for emission monitoring.",
       links: {
         pdf: "#",
         doi: "https://doi.org/10.1049/ipr2.12934"
@@ -137,7 +135,7 @@ export default function ResourcesPage() {
               </p>
             </div>
 
-            <div className="space-y-8">
+            <div className="space-y-6">
               {publications.map((paper) => (
                 <Card key={paper.id} className="border-l-4 border-blue-500">
                   <CardHeader>
@@ -163,19 +161,6 @@ export default function ResourcesPage() {
                     </div>
                   </CardHeader>
                   <CardContent className="space-y-4">
-                    <div className="bg-gray-50 p-4 rounded-lg">
-                      <h4 className="font-medium text-gray-800 mb-2">Abstract</h4>
-                      <p className="text-sm text-gray-600">{paper.abstract}</p>
-                      <div className="mt-4">
-                        <h4 className="font-medium text-gray-800 text-sm mb-2">Main Contributions:</h4>
-                        <ul className="text-sm text-gray-600 space-y-1">
-                          <li>• We propose Gasformer, a novel segmentation architecture for methane gas detection and quantification.</li>
-                          <li>• We introduce two new datasets with corresponding labels for segmenting low-flow rate methane gas and dairy cow rumen gas.</li>
-                          <li>• We evaluate Gasformer’s performance on both datasets and compare it with state-of-the-art segmentation models.</li>
-                        </ul>
-                      </div>
-                    </div>
-
                     <div className="flex flex-wrap gap-3">
                       <Button size="sm" variant="default" asChild>
                         <a href={paper.links.doi} target="_blank" rel="noopener noreferrer">
@@ -203,26 +188,6 @@ export default function ResourcesPage() {
                   </CardContent>
                 </Card>
               ))}
-
-              {/* Add specific contributions for IET paper */}
-              {publications.map((paper) => 
-                paper.id === 2 ? (
-                  <div key={`${paper.id}-contributions`} className="mt-4">
-                    <Card className="border-l-4 border-green-500">
-                      <CardContent className="pt-6">
-                        <div className="bg-gray-50 p-4 rounded-lg">
-                          <h4 className="font-medium text-gray-800 mb-2">Main Contributions:</h4>
-                          <ul className="text-sm text-gray-600 space-y-1">
-                            <li>• We present a novel approach for detecting and quantifying enteric methane emissions from ruminants in vitro using LMD and OGI, validated by GC analysis.</li>
-                            <li>• We introduce the CD dataset, which consists of methane plume images captured using a FLIR GF77 OGI camera, categorized by GC-measured concentration ranges.</li>
-                            <li>• We compare the performance of six semantic segmentation models on the CD dataset, demonstrating the effectiveness of the Gasformer architecture.</li>
-                          </ul>
-                        </div>
-                      </CardContent>
-                    </Card>
-                  </div>
-                ) : null
-              )}
             </div>
           </div>
         </div>
@@ -308,7 +273,7 @@ export default function ResourcesPage() {
                       )}
                       {dataset.status === "Private" && (
                         <p className="text-xs text-gray-500 mt-2">
-                          Contact PIs for research collaboration access
+                          Contact research team for collaboration access
                         </p>
                       )}
                     </div>
@@ -431,54 +396,32 @@ export default function ResourcesPage() {
       </section>
 
       {/* Contact for Access */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-green-700 text-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <Card className="max-w-4xl mx-auto text-center border-2 border-gray-200">
-            <CardContent className="py-12">
-              <Users className="h-12 w-12 text-blue-600 mx-auto mb-4" />
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                Need Help or Have Questions?
-              </h3>
-              <p className="text-lg text-gray-600 mb-6">
-                Contact our research team for assistance with datasets, code implementation, or collaboration opportunities.
-              </p>
-              <div className="text-sm text-gray-500 space-y-1">
-                <p><strong>Principal Investigator:</strong> Dr. Khaled R. Ahmed (khaled.ahmed@siu.edu)</p>
-                <p><strong>Co-Principal Investigator:</strong> Dr. Amer AbuGhazaleh (aabugha@siu.edu)</p>
-                <p><strong>Institution:</strong> Southern Illinois University, Carbondale</p>
-                <p><strong>Funding:</strong> USDA National Institute of Food and Agriculture</p>
-              </div>
-            </CardContent>
-          </Card>
-        </div>
-      </section>
-
-      {/* Grant Information */}
-      <section className="py-16 bg-blue-50">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto">
-            <Card className="mt-8">
-              <CardHeader>
-                <CardTitle>Grant Information</CardTitle>
-                <CardDescription>Funding and Support</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600">This research was supported by the National Institute of Food and Agriculture, United States Department of Agriculture, under Award Number 2022-70001-37404.</p>
-                <div className="mt-4">
-                  <h4 className="font-medium text-gray-800 mb-2">Research Team:</h4>
-                  <ul className="text-sm text-gray-600 space-y-1">
-                    <li>• Dr. Khaled R. Ahmed - Principal Investigator, School of Computing, SIU</li>
-                    <li>• Dr. Amer AbuGhazaleh - Co-Principal Investigator, School of Agricultural Sciences, SIU</li>
-                    <li>• Toqi Tahamid Sarker - Graduate Researcher, School of Computing, SIU</li>
-                    <li>• Mohamed G. Embaby - Graduate Researcher, School of Agricultural Sciences, SIU</li>
-                  </ul>
-                </div>
-                <div className="mt-4">
-                  <h4 className="font-medium text-gray-800 mb-2">Acknowledgments:</h4>
-                  <p className="text-sm text-gray-600">The authors thank Siraj O. Mohammed for his assistance with the statistical analysis and the Office of the Vice Chancellor for Research at Southern Illinois University Carbondale.</p>
-                </div>
-              </CardContent>
-            </Card>
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-3xl font-bold mb-6">
+              Need Help or Collaboration?
+            </h2>
+            <p className="text-xl mb-8 opacity-90">
+              Contact our research team for dataset access, code implementation assistance, 
+              or collaboration opportunities in climate and agricultural research.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button asChild size="lg" className="bg-white text-green-700 hover:bg-gray-100">
+                <a href="/team">
+                  👥 Meet the Research Team
+                </a>
+              </Button>
+              <Button asChild size="lg" className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-green-700">
+                <a href="mailto:khaled.ahmed@siu.edu">
+                  ✉️ Contact Principal Investigator
+                </a>
+              </Button>
+            </div>
+            <div className="text-sm mt-6 opacity-75">
+              <p>USDA National Institute of Food and Agriculture Award #2022-70001-37404</p>
+              <p>Southern Illinois University Carbondale</p>
+            </div>
           </div>
         </div>
       </section>
