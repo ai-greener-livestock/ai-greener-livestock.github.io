@@ -33,19 +33,6 @@ export default function TeamPage() {
     },
     {
       id: 3,
-      name: "Toqi Tahamid Sarker",
-      role: "PhD Student",
-      title: "Graduate Research Assistant",
-      department: "School of Computing",
-      institution: "Southern Illinois University Carbondale", 
-      email: "toqitahamid.sarker@siu.edu",
-      expertise: ["Computer Vision", "Semantic Segmentation", "Transformer Architectures", "PyTorch"],
-      description: "Toqi is pursuing his PhD in Computer Science, focusing on developing the Gasformer architecture and advancing AI techniques for environmental monitoring applications.",
-      education: "M.S. in Computer Science, pursuing Ph.D.",
-      photo: "/team/toqi-sarker.jpg" // placeholder
-    },
-    {
-      id: 4,
       name: "Mohamed G. Embaby",
       role: "Postdoctoral Researcher",
       title: "Postdoctoral Research Associate",
@@ -56,7 +43,20 @@ export default function TeamPage() {
       description: "Dr. Embaby contributes expertise in experimental design, laboratory analysis, and data interpretation for the agricultural and nutritional aspects of the research.",
       education: "Ph.D. in Animal Sciences",
       photo: "/team/mohamed-embaby.jpg" // placeholder
-    }
+    },
+    {
+        id: 4,
+        name: "Toqi Tahamid Sarker",
+        role: "PhD Student",
+        title: "Graduate Research Assistant",
+        department: "School of Computing",
+        institution: "Southern Illinois University Carbondale", 
+        email: "toqitahamid.sarker@siu.edu",
+        expertise: ["Computer Vision", "Semantic Segmentation", "Transformer Architectures", "PyTorch"],
+        description: "Toqi is pursuing his PhD in Computer Science, focusing on developing the Gasformer architecture and advancing AI techniques for environmental monitoring applications.",
+        education: "M.S. in Computer Science, pursuing Ph.D.",
+        photo: "/team/toqi-sarker.jpg" // placeholder
+      },
   ]
 
   return (
