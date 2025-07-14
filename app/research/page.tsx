@@ -3,6 +3,7 @@ import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { Beaker, BarChart3, Database } from "lucide-react"
+import { ModelPerformanceChart } from "@/components/ResearchCharts"
 
 export default function ResearchPage() {
   const equipmentList = [
@@ -394,6 +395,11 @@ export default function ResearchPage() {
                   </div>
                 </CardContent>
               </Card>
+            </div>
+
+            {/* Interactive Results Visualization */}
+            <div className="space-y-8 mt-12">
+              <ModelPerformanceChart />
             </div>
           </div>
         </div>

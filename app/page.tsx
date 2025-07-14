@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { BarChart3, Users, FileText } from "lucide-react"
+import { DietImpactChart, ModelPerformanceChart } from "@/components/ResearchCharts"
 
 export default function HomePage() {
   return (
@@ -147,6 +148,12 @@ export default function HomePage() {
                 </div>
               </CardContent>
             </Card>
+          </div>
+
+          {/* Interactive Research Data */}
+          <div className="space-y-8 mb-12">
+            <DietImpactChart />
+            <ModelPerformanceChart />
           </div>
 
           <Card className="bg-yellow-50 border-yellow-200">

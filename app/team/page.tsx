@@ -1,7 +1,7 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { Mail, GraduationCap, Users } from "lucide-react"
+import { Mail } from "lucide-react"
 
 export default function TeamPage() {
   const teamMembers = [
@@ -9,14 +9,14 @@ export default function TeamPage() {
       id: 1,
       name: "Dr. Khaled R. Ahmed",
       role: "Principal Investigator",
-      title: "Assistant Professor",
+      title: "Associate Professor & Graduate Program Director",
       department: "School of Computing",
       institution: "Southern Illinois University Carbondale",
       email: "khaled.ahmed@siu.edu",
-      expertise: ["Computer Vision", "Machine Learning", "Optical Gas Imaging", "Deep Learning"],
-      description: "Dr. Ahmed leads the AI and computer vision aspects of the project, focusing on developing advanced deep learning models for methane detection and quantification.",
+      expertise: ["Computer Vision", "Machine Learning", "Deep Learning", "Software Engineering", "Distributed Systems", "Parallel Computing", "Big Data", "Intelligent Transport Systems"],
+      description: "Dr. Ahmed leads the AI and computer vision aspects of the project, focusing on developing advanced deep learning models for methane detection and quantification. With over 19 years of experience in academia, research, and industry, he previously served as Associate Professor at King Faisal University and was a postdoctoral researcher at University of Tokyo, Japan. He has authored 69 publications and edited four books, serving as PI and Co-PI on 11 funded research projects including three current federal/state research funds.",
       education: "Ph.D. in Computer Science",
-      photo: "/team/khaled-ahmed.jpg" // placeholder
+      photo: "/team/khaled-ahmed.png"
     },
     {
       id: 2,
@@ -27,22 +27,22 @@ export default function TeamPage() {
       institution: "Southern Illinois University Carbondale",
       email: "aabugha@siu.edu",
       expertise: ["Animal Nutrition", "Ruminant Physiology", "Methane Mitigation", "Feed Science"],
-      description: "Dr. AbuGhazaleh brings expertise in livestock nutrition and methane production, leading the experimental design and biological validation aspects of the research.",
-      education: "Ph.D. in Animal Sciences",
-      photo: "/team/amer-abughazaleh.jpg" // placeholder
+      description: "Dr. AbuGhazaleh brings expertise in livestock nutrition and methane production, leading the experimental design and biological validation aspects of the research. After completing his PhD, he worked as a research scientist in the Department of Animal Science at Clemson University, South Carolina. He currently serves as coordinator for the department's Online Companion Animal Nutrition Program and advisor for the Saluki Service Dawgs Club.",
+      education: "Ph.D. in Dairy Science, South Dakota State University",
+      photo: "/team/amer-abughazaleh.png"
     },
     {
       id: 3,
-      name: "Mohamed G. Embaby",
+      name: "Mohamed G. Embaby, PhD",
       role: "Postdoctoral Researcher",
-      title: "Postdoctoral Research Associate",
-      department: "School of Agricultural Sciences", 
-      institution: "Southern Illinois University Carbondale",
+      title: "Postdoctoral Researcher at UC Davis (Clear Center)",
+      department: "University of California, Davis", 
+      institution: "Formerly: Southern Illinois University Carbondale",
       email: "mohamed.embaby@siu.edu",
-      expertise: ["Animal Nutrition", "Gas Chromatography", "In Vitro Fermentation", "Statistical Analysis"],
-      description: "Dr. Embaby contributes expertise in experimental design, laboratory analysis, and data interpretation for the agricultural and nutritional aspects of the research.",
-      education: "Ph.D. in Animal Sciences",
-      photo: "/team/mohamed-embaby.jpg" // placeholder
+      expertise: ["Animal Nutrition", "Gas Chromatography", "In Vitro Fermentation", "Statistical Analysis", "Remote Sensing", "GIS", "Environmental Sciences", "Dairy Cattle Production"],
+      description: "Dr. Embaby contributed expertise in experimental design, laboratory analysis, and data interpretation for the agricultural and nutritional aspects of the research during his time at SIU. He has over 8 years of research experience, previously serving as Research Assistant at the National Research Centre in Egypt's Dairy Cattle Production Department, and has background in statistics and geoinformation systems. He is now continuing his postdoctoral research at UC Davis.",
+      education: "Ph.D. in Agricultural Sciences, Southern Illinois University Carbondale (2018-2024); M.Sc. in Geoinformation in Environmental Management, Mediterranean Agronomic Institute of Chania (2013-2016)",
+      photo: "/team/mohamed-embaby.png"
     },
     {
         id: 4,
@@ -52,10 +52,10 @@ export default function TeamPage() {
         department: "School of Computing",
         institution: "Southern Illinois University Carbondale", 
         email: "toqitahamid.sarker@siu.edu",
-        expertise: ["Computer Vision", "Semantic Segmentation", "Transformer Architectures", "PyTorch"],
-        description: "Toqi is pursuing his PhD in Computer Science, focusing on developing the Gasformer architecture and advancing AI techniques for environmental monitoring applications.",
-        education: "M.S. in Computer Science, pursuing Ph.D.",
-        photo: "/team/toqi-sarker.jpg" // placeholder
+        expertise: ["Computer Vision", "Semantic Segmentation", "Object Detection/Tracking", "Transformer Architectures", "Deep Learning", "PyTorch"],
+        description: "Toqi is a second-year PhD student in Computer Science, focusing on developing the Gasformer architecture and advancing AI techniques for environmental monitoring applications. ",
+        education: "Ph.D. in Computer Science, Southern Illinois University Carbondale (Fall 2023 - Present); B.Sc. in Computer Science and Engineering, BRAC University, Bangladesh (2012-2016)",
+        photo: "/team/toqi-tahamid-sarker.png"
       },
   ]
 
@@ -87,8 +87,12 @@ export default function TeamPage() {
               {teamMembers.map((member) => (
                 <Card key={member.id} className="h-full border-l-4 border-blue-400 hover:shadow-lg transition-shadow">
                   <CardHeader className="text-center">
-                    <div className="w-24 h-24 bg-gray-200 rounded-full mx-auto mb-4 flex items-center justify-center">
-                      <Users className="h-12 w-12 text-gray-400" />
+                    <div className="w-24 h-24 rounded-full mx-auto mb-4 overflow-hidden">
+                      <img 
+                        src={member.photo} 
+                        alt={member.name}
+                        className="w-full h-full object-cover"
+                      />
                     </div>
                     <CardTitle className="text-xl">{member.name}</CardTitle>
                     <div className="space-y-1">
@@ -97,7 +101,8 @@ export default function TeamPage() {
                       </Badge>
                       <CardDescription className="text-sm">
                         {member.title}<br/>
-                        {member.department}
+                        {member.department}<br/>
+                        {member.institution}
                       </CardDescription>
                     </div>
                   </CardHeader>
@@ -136,45 +141,7 @@ export default function TeamPage() {
         </div>
       </section>
 
-      {/* Collaboration */}
-      <section className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto">
-            <Card className="text-center border-2 border-green-200">
-              <CardContent className="py-12">
-                <GraduationCap className="h-12 w-12 text-green-600 mx-auto mb-4" />
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                  Interdisciplinary Collaboration
-                </h3>
-                <p className="text-lg text-gray-600 mb-6">
-                  Our team brings together computer science and agricultural expertise to address 
-                  climate challenges through innovative AI and experimental approaches.
-                </p>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
-                  <div>
-                    <h4 className="font-medium text-green-800 mb-2">Computer Science Team:</h4>
-                    <ul className="text-gray-600 space-y-1">
-                      <li>• AI model development (Gasformer)</li>
-                      <li>• Computer vision and image processing</li>
-                      <li>• Deep learning architecture design</li>
-                      <li>• Real-time detection systems</li>
-                    </ul>
-                  </div>
-                  <div>
-                    <h4 className="font-medium text-green-800 mb-2">Agricultural Sciences Team:</h4>
-                    <ul className="text-gray-600 space-y-1">
-                      <li>• Experimental design and execution</li>
-                      <li>• Ruminant nutrition and physiology</li>
-                      <li>• Gas chromatography analysis</li>
-                      <li>• Feed formulation and testing</li>
-                    </ul>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
+
 
       {/* Contact */}
       <section className="py-16 bg-blue-700 text-white">
@@ -198,9 +165,7 @@ export default function TeamPage() {
               </a>
             </Button>
           </div>
-          <p className="text-sm mt-6 opacity-75">
-            USDA NIFA Award #2022-70001-37404 • Southern Illinois University Carbondale
-          </p>
+
         </div>
       </section>
     </div>

@@ -2,6 +2,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Download, Github, FileText, Database, ExternalLink, Book } from "lucide-react"
+import { DatasetOverview } from "@/components/ResearchCharts"
 
 export default function ResourcesPage() {
   const publications = [
@@ -192,6 +193,11 @@ export default function ResourcesPage() {
                 Labeled datasets for methane detection research. The Controlled Diet (CD) dataset is openly available, 
                 while other datasets require permission for research collaboration.
               </p>
+            </div>
+
+            {/* Dataset Overview Chart */}
+            <div className="mb-12">
+              <DatasetOverview />
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
