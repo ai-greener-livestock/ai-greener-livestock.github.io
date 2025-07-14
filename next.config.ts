@@ -6,8 +6,7 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true
   },
-  basePath: '/ai-greener-livestock',
-  assetPrefix: '/ai-greener-livestock/',
+  // No basePath needed for organization pages
 };
 
 export default nextConfig;
