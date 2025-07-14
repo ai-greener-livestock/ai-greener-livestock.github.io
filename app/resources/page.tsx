@@ -90,17 +90,6 @@ export default function ResourcesPage() {
       features: ["Pre-trained models", "Training scripts", "Evaluation metrics", "Data loaders"],
       documentation: "Complete setup and usage instructions",
       license: "MIT License"
-    },
-    {
-      id: 2,
-      title: "Dataset Processing Tools",
-      description: "Data preprocessing and augmentation utilities for optical gas imaging",
-      language: "Python",
-      framework: "OpenCV, NumPy",
-      repository: "https://github.com/toqitahamid/Gasformer-Data-Tools",
-      features: ["Image preprocessing", "Annotation tools", "Data validation", "Format conversion"],
-      documentation: "API documentation and examples",
-      license: "MIT License"
     }
   ]
 
