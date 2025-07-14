@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: "AI Greener Livestock | USDA Research Project",
   description: "Artificial Intelligence for Greener Livestock: Educational and Research. USDA-funded project developing AI-powered solutions to monitor and reduce methane emissions from livestock.",
   keywords: "AI, livestock, methane emissions, USDA, research, optical gas imaging, computer vision, sustainability",
-  authors: [{ name: "Southern Illinois University Carbondale Research Team" }],
+  authors: [{ name: "Dr. Khaled R. Ahmed & Dr. Amer AbuGhazaleh - Southern Illinois University Carbondale" }],
   creator: "Southern Illinois University Carbondale",
   publisher: "Southern Illinois University Carbondale",
   openGraph: {

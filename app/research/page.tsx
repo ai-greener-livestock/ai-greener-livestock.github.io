@@ -1,653 +1,374 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
 import Link from "next/link"
-import { Camera, Download, ExternalLink, Image as ImageIcon, Brain, BarChart3, CheckCircle, ArrowUp, ArrowDown, TrendingUp, Zap, Target } from "lucide-react"
+import { Download, Beaker, BarChart3, FileText, Database } from "lucide-react"
 
 export default function ResearchPage() {
   const equipmentList = [
     {
       id: 1,
-      title: "FLIR GF77 OGI Camera",
-      description: "Optical gas imaging camera for methane detection",
-      specifications: "320×240 resolution, spectral range 8.0-9.2 μm",
-      category: "Imaging",
-      purpose: "Makes invisible methane gas visible to cameras"
+      title: "FLIR GF77 Optical Gas Imaging Camera",
+      description: "Special camera that can detect methane gas invisible to human eyes",
+      specifications: "320×240 resolution, 7-8.5 μm spectral range, 100 ppm-m sensitivity",
+      purpose: "Captures images showing methane plumes as visible shapes"
     },
     {
       id: 2,
-      title: "Laser Methane Detector",
-      description: "Quantitative methane concentration measurement",
-      specifications: "1 ppm sensitivity, real-time readings",
-      category: "Measurement", 
-      purpose: "Measures exact amounts of methane in the air"
+      title: "Laser Methane Detector (LMD)",
+      description: "Device that measures exact methane concentrations",
+      specifications: "5 ppm sensitivity, 0-50,000 ppm range, <0.1s response time",
+      purpose: "Validates our AI measurements with precise readings"
     },
     {
       id: 3,
       title: "Fermentation System",
-      description: "In vitro rumen fermentation setup",
-      specifications: "4 single-flow continuous fermenters",
-      category: "Laboratory",
-      purpose: "Simulates cow stomach to test different diets"
+      description: "Laboratory setup that simulates cow stomach conditions",
+      specifications: "4 single-flow continuous fermenters, 39°C temperature",
+      purpose: "Creates controlled conditions to test different cow diets"
     },
     {
       id: 4,
-      title: "Computing Hardware",
-      description: "AI model training and inference systems",
-      specifications: "GPU-accelerated processing",
-      category: "Computing",
-      purpose: "Runs AI models to analyze gas images automatically"
+      title: "Gas Chromatography (GC)",
+      description: "Laboratory instrument that analyzes gas composition",
+      specifications: "SRI 8610C with thermal conductivity detector",
+      purpose: "Measures exact amounts of methane, CO2, and H2 in samples"
     }
   ]
 
-  const researchImages = [
+  const datasets = [
     {
       id: 1,
-      title: "FLIR GF77 Camera",
-      description: "Special camera that can see methane gas invisible to human eyes",
-      category: "Equipment",
-      type: "image"
+      title: "Controlled Methane Release (MR) Dataset",
+      description: "Images of methane released at known flow rates",
+      size: "9,237 labeled images",
+      purpose: "Train AI to recognize different amounts of methane",
+      details: "10-100 SCCM flow rates, controlled laboratory conditions"
     },
     {
       id: 2,
-      title: "Methane Plume Detection",
-      description: "Example of how our AI spots methane emissions from cows",
-      category: "AI Results",
-      type: "image"
+      title: "Dairy Cow Rumen Gas (CR) Dataset", 
+      description: "Images of actual methane from cow stomach contents",
+      size: "340 labeled images",
+      purpose: "Test if AI works on real cow emissions",
+      details: "24-hour batch culture from Holstein dairy cow rumen"
     },
     {
       id: 3,
-      title: "Laboratory Setup",
-      description: "Controlled experiments to test how diet affects methane production",
-      category: "Research",
-      type: "image"
+      title: "Controlled Diet (CD) Dataset",
+      description: "Images showing how different diets affect methane",
+      size: "4,885 labeled images",
+      purpose: "Study relationship between cow diet and emissions",
+      details: "4 different diets including seaweed supplement"
+    }
+  ]
+
+  const methodologySteps = [
+    {
+      title: "Sample Collection",
+      description: "We collected rumen liquid (cow stomach contents) from a dairy farm and used it in laboratory fermentation systems that mimic cow digestion.",
+      details: "Holstein dairy cow rumen → 700 mL fermentation vessels → 39°C controlled temperature"
     },
     {
-      id: 4,
-      title: "Data Analysis",
-      description: "Our AI learning to recognize methane patterns",
-      category: "Technology",
-      type: "image"
+      title: "Diet Testing",
+      description: "We tested 4 different diets to see how each affects methane production: control (50/50 grass/grain), low forage (20/80), high forage (80/20), and seaweed supplement.",
+      details: "24-hour batch culture → Gas collection in TEDLAR bags → Multiple measurement methods"
+    },
+    {
+      title: "Image Capture",
+      description: "We used special cameras to photograph methane gas (invisible to our eyes) against an ice background to create contrast.",
+      details: "FLIR GF77 camera → 12 inches distance → 640×480 resolution → Multiple color modes"
+    },
+    {
+      title: "AI Training",
+      description: "We trained an AI system called 'Gasformer' to automatically detect and measure methane in thousands of images.",
+      details: "Transformer architecture → 160,000 training iterations → 88.56% accuracy achieved"
     }
   ]
 
   return (
     <div className="flex flex-col">
-      {/* Hero Section */}
-      <section className="bg-gradient-to-br from-green-50 to-blue-50 py-16">
+      {/* Header */}
+      <section className="bg-gradient-to-br from-blue-50 to-green-50 py-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center">
-            <Badge variant="secondary" className="bg-green-100 text-green-800 mb-4">
-              How Our Technology Works
+            <Badge variant="secondary" className="bg-blue-100 text-blue-800 mb-4">
+              Research Methodology
             </Badge>
             <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-              AI That Sees Invisible Greenhouse Gases
+              How We Studied Methane Emissions from Cows
             </h1>
             <p className="text-xl text-gray-600 leading-relaxed">
-              We've created artificial intelligence that can automatically detect and measure methane emissions 
-              from livestock – helping farmers reduce their environmental impact while improving efficiency.
+              A detailed look at our research methods, equipment, and findings. 
+              We used laboratory experiments, special cameras, and artificial intelligence 
+              to study how cow diet affects methane emissions.
             </p>
           </div>
         </div>
       </section>
 
-      {/* How It Works - Simple 3-Step Process */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">How Our Technology Works</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Think of it like giving farmers "super vision" to see harmful emissions they couldn't detect before, 
-              then using AI to automatically measure and analyze them.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {/* Step 1 */}
-            <Card className="text-center">
-              <CardHeader>
-                <div className="w-16 h-16 bg-blue-100 rounded-full mx-auto mb-4 flex items-center justify-center">
-                  <Camera className="h-8 w-8 text-blue-700" />
-                </div>
-                <CardTitle>1. See the Invisible</CardTitle>
-                <CardDescription>
-                  Special thermal cameras detect methane gas that's completely invisible to human eyes
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <p className="text-sm text-gray-600">
-                  Our FLIR cameras work like night-vision goggles, but instead of seeing heat, 
-                  they see methane gas by detecting how it absorbs specific types of light.
-                </p>
-              </CardContent>
-            </Card>
-
-            {/* Step 2 */}
-            <Card className="text-center">
-              <CardHeader>
-                <div className="w-16 h-16 bg-green-100 rounded-full mx-auto mb-4 flex items-center justify-center">
-                  <Brain className="h-8 w-8 text-green-700" />
-                </div>
-                <CardTitle>2. AI Recognition</CardTitle>
-                <CardDescription>
-                  Our "Gasformer" AI instantly analyzes images to find and outline methane plumes
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <p className="text-sm text-gray-600">
-                  Like how your phone can automatically recognize faces in photos, our AI recognizes 
-                  methane gas patterns with 88.56% accuracy – better than any previous method.
-                </p>
-              </CardContent>
-            </Card>
-
-            {/* Step 3 */}
-            <Card className="text-center">
-              <CardHeader>
-                <div className="w-16 h-16 bg-purple-100 rounded-full mx-auto mb-4 flex items-center justify-center">
-                  <BarChart3 className="h-8 w-8 text-purple-700" />
-                </div>
-                <CardTitle>3. Instant Insights</CardTitle>
-                <CardDescription>
-                  Get real-time measurements and recommendations for reducing emissions
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <p className="text-sm text-gray-600">
-                  The system tells farmers exactly how much methane their animals are producing 
-                  and suggests feed changes that could reduce it by up to 98%.
-                </p>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
-
-      {/* Research Results - Key Achievements */}
-      <section className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">What We've Achieved</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Our research has produced breakthrough results that make methane monitoring practical 
-              for real farms and provide clear solutions for reducing emissions.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-            <Card className="text-center border-l-4 border-green-500">
-              <CardHeader className="pb-3">
-                <TrendingUp className="h-8 w-8 text-green-700 mx-auto mb-2" />
-                <CardDescription className="text-xs uppercase tracking-wide">AI Accuracy</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="text-3xl font-bold text-green-700 mb-1">88.56%</div>
-                <div className="text-sm text-gray-600">Detection Accuracy</div>
-                <div className="flex items-center justify-center mt-2">
-                  <ArrowUp className="h-4 w-4 text-green-600 mr-1" />
-                  <span className="text-xs text-green-600">Best performance ever</span>
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card className="text-center border-l-4 border-blue-500">
-              <CardHeader className="pb-3">
-                <Zap className="h-8 w-8 text-blue-700 mx-auto mb-2" />
-                <CardDescription className="text-xs uppercase tracking-wide">Processing Speed</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="text-3xl font-bold text-blue-700 mb-1">115</div>
-                <div className="text-sm text-gray-600">Images per Second</div>
-                <div className="flex items-center justify-center mt-2">
-                  <CheckCircle className="h-4 w-4 text-green-600 mr-1" />
-                  <span className="text-xs text-green-600">Real-time ready</span>
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card className="text-center border-l-4 border-purple-500">
-              <CardHeader className="pb-3">
-                <BarChart3 className="h-8 w-8 text-purple-700 mx-auto mb-2" />
-                <CardDescription className="text-xs uppercase tracking-wide">Training Data</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="text-3xl font-bold text-purple-700 mb-1">15K+</div>
-                <div className="text-sm text-gray-600">Labeled Images</div>
-                <div className="flex items-center justify-center mt-2">
-                  <CheckCircle className="h-4 w-4 text-green-600 mr-1" />
-                  <span className="text-xs text-green-600">Largest public dataset</span>
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card className="text-center border-l-4 border-red-500">
-              <CardHeader className="pb-3">
-                <Target className="h-8 w-8 text-red-700 mx-auto mb-2" />
-                <CardDescription className="text-xs uppercase tracking-wide">Emission Reduction</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="text-3xl font-bold text-red-700 mb-1">98%</div>
-                <div className="text-sm text-gray-600">With Feed Additive</div>
-                <div className="flex items-center justify-center mt-2">
-                  <ArrowDown className="h-4 w-4 text-green-600 mr-1" />
-                  <span className="text-xs text-green-600">Seaweed supplement</span>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-
-          {/* Diet Impact Results */}
-          <Card className="mb-8">
-            <CardHeader>
-              <CardTitle className="text-center">How Diet Affects Methane Emissions</CardTitle>
-              <CardDescription className="text-center">
-                We tested different cow diets to see which ones produce less harmful emissions
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                <div className="text-center p-4 bg-red-50 rounded-lg border-l-4 border-red-500">
-                  <div className="text-2xl font-bold text-red-700 mb-2">482 ppm</div>
-                  <div className="text-sm font-medium text-gray-800">High Grass Diet</div>
-                  <div className="text-xs text-gray-600">(80% forage, 20% grain)</div>
-                  <div className="text-xs text-red-600 mt-1">❌ Highest emissions</div>
-                </div>
-                <div className="text-center p-4 bg-yellow-50 rounded-lg border-l-4 border-yellow-500">
-                  <div className="text-2xl font-bold text-yellow-700 mb-2">294 ppm</div>
-                  <div className="text-sm font-medium text-gray-800">Low Grass Diet</div>
-                  <div className="text-xs text-gray-600">(20% forage, 80% grain)</div>
-                  <div className="text-xs text-yellow-600 mt-1">⚠️ Moderate emissions</div>
-                </div>
-                <div className="text-center p-4 bg-green-50 rounded-lg border-l-4 border-green-500">
-                  <div className="text-2xl font-bold text-green-700 mb-2">167 ppm</div>
-                  <div className="text-sm font-medium text-gray-800">Balanced Diet</div>
-                  <div className="text-xs text-gray-600">(50% forage, 50% grain)</div>
-                  <div className="text-xs text-green-600 mt-1">✅ Good balance</div>
-                </div>
-                <div className="text-center p-4 bg-blue-50 rounded-lg border-l-4 border-blue-500">
-                  <div className="text-2xl font-bold text-blue-700 mb-2">6.5 ppm</div>
-                  <div className="text-sm font-medium text-gray-800">Seaweed Added</div>
-                  <div className="text-xs text-gray-600">(Balanced + bromoform)</div>
-                  <div className="text-xs text-blue-600 mt-1">🌟 98% reduction!</div>
-                </div>
-              </div>
-              <div className="mt-6 bg-blue-50 p-4 rounded-lg">
-                <h4 className="font-semibold text-blue-800 mb-2">Key Discovery:</h4>
-                <p className="text-sm text-blue-700">
-                  Adding a small amount of seaweed extract (bromoform) to cow feed almost completely eliminated 
-                  methane production, offering farmers a practical solution to dramatically reduce their environmental impact.
-                </p>
-              </div>
-            </CardContent>
-          </Card>
-        </div>
-      </section>
-
-      {/* Technical Deep Dive */}
+      {/* Research Overview */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-gray-900 mb-4">Technical Details</h2>
-              <p className="text-xl text-gray-600">
-                For those interested in the science behind our breakthrough technology
+              <h2 className="text-3xl font-bold text-gray-900 mb-4">Research Overview</h2>
+              <p className="text-lg text-gray-600">
+                What we wanted to learn and what we discovered
               </p>
             </div>
 
-            <Tabs defaultValue="equipment" className="w-full">
-              <TabsList className="grid w-full grid-cols-1 md:grid-cols-3">
-                <TabsTrigger value="equipment">Equipment & Setup</TabsTrigger>
-                <TabsTrigger value="ai">AI Technology</TabsTrigger>
-                <TabsTrigger value="validation">Scientific Validation</TabsTrigger>
-              </TabsList>
-
-              <TabsContent value="equipment" className="mt-8">
-                <div className="space-y-8">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    {equipmentList.map((equipment) => (
-                      <Card key={equipment.id}>
-                        <CardHeader className="p-0">
-                          <div className="aspect-video bg-gradient-to-br from-blue-100 to-green-100 rounded-t-lg flex items-center justify-center">
-                            <div className="text-center">
-                              <Camera className="h-12 w-12 text-blue-600 mx-auto mb-2" />
-                              <div className="text-sm text-gray-600">{equipment.category}</div>
-                            </div>
-                          </div>
-                        </CardHeader>
-                        <CardContent className="p-4">
-                          <div className="flex justify-between items-start mb-2">
-                            <h3 className="font-semibold text-sm">{equipment.title}</h3>
-                            <Badge variant="outline" className="text-xs">{equipment.category}</Badge>
-                          </div>
-                          <p className="text-xs text-gray-600 mb-2">{equipment.description}</p>
-                          <p className="text-xs text-blue-600 mb-2 font-medium">{equipment.purpose}</p>
-                          <p className="text-xs text-gray-500">{equipment.specifications}</p>
-                        </CardContent>
-                      </Card>
-                    ))}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+              <Card>
+                <CardHeader>
+                  <CardTitle className="flex items-center">
+                    <Beaker className="h-5 w-5 text-blue-600 mr-2" />
+                    Research Questions
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  <div>
+                    <h4 className="font-medium text-gray-900 mb-2">1. Can AI detect methane gas?</h4>
+                    <p className="text-sm text-gray-600">We wanted to see if artificial intelligence could automatically detect methane gas in camera images as accurately as human experts.</p>
                   </div>
-                  
-                  <Card>
-                    <CardHeader>
-                      <CardTitle>How Optical Gas Imaging Works</CardTitle>
-                    </CardHeader>
-                    <CardContent className="space-y-4">
-                      <p className="text-gray-600">
-                        Optical Gas Imaging (OGI) is like thermal night-vision, but instead of seeing heat differences, 
-                        it sees gas molecules that absorb specific wavelengths of infrared light.
-                      </p>
-                      <div className="bg-blue-50 p-4 rounded-lg">
-                        <h4 className="font-semibold text-blue-800 mb-2">Simple Explanation:</h4>
-                        <ol className="list-decimal list-inside text-sm text-blue-700 space-y-1">
-                          <li>Methane gas absorbs infrared light at specific wavelengths (around 7.7 micrometers)</li>
-                          <li>Our FLIR camera is tuned to see exactly those wavelengths</li>
-                          <li>When methane is present, it shows up as dark areas against the background</li>
-                          <li>Our AI then automatically identifies and measures these dark areas</li>
-                        </ol>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </div>
-              </TabsContent>
+                  <div>
+                    <h4 className="font-medium text-gray-900 mb-2">2. How does diet affect emissions?</h4>
+                    <p className="text-sm text-gray-600">We tested different cow diets to measure exactly how much methane each one produces.</p>
+                  </div>
+                  <div>
+                    <h4 className="font-medium text-gray-900 mb-2">3. Can this work in practice?</h4>
+                    <p className="text-sm text-gray-600">We evaluated whether our methods could be used by farmers and researchers in real-world conditions.</p>
+                  </div>
+                </CardContent>
+              </Card>
 
-              <TabsContent value="ai" className="mt-8">
-                <div className="space-y-8">
-                  <Card>
-                    <CardHeader>
-                      <CardTitle className="flex items-center">
-                        <Brain className="h-5 w-5 text-green-700 mr-2" />
-                        Our "Gasformer" AI Model
-                      </CardTitle>
-                    </CardHeader>
-                    <CardContent className="space-y-4">
-                      <p className="text-gray-600">
-                        We developed a custom AI model called "Gasformer" specifically designed to recognize 
-                        methane gas patterns in thermal images. Think of it as training a computer to become 
-                        an expert at spotting gas that even humans can't see.
-                      </p>
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div className="space-y-4">
-                          <h4 className="font-semibold">What Makes It Special:</h4>
-                          <ul className="text-sm text-gray-600 space-y-2">
-                            <li>• <strong>Transformer Architecture:</strong> Uses advanced "attention" mechanisms like ChatGPT</li>
-                            <li>• <strong>Multi-scale Analysis:</strong> Looks at images at different zoom levels simultaneously</li>
-                            <li>• <strong>Real-time Processing:</strong> Can analyze 115 images per second</li>
-                            <li>• <strong>Low-contrast Detection:</strong> Finds methane even when barely visible</li>
-                          </ul>
-                        </div>
-                        <div className="space-y-4">
-                          <h4 className="font-semibold">Performance Comparison:</h4>
-                          <div className="space-y-2">
-                            <div className="flex justify-between items-center p-2 bg-green-50 rounded">
-                              <span className="text-sm font-medium">Gasformer (Ours)</span>
-                              <span className="text-lg font-bold text-green-700">88.56%</span>
-                            </div>
-                            <div className="flex justify-between items-center p-2 bg-gray-50 rounded">
-                              <span className="text-sm">SegNeXt</span>
-                              <span className="text-lg font-bold text-gray-700">85.42%</span>
-                            </div>
-                            <div className="flex justify-between items-center p-2 bg-gray-50 rounded">
-                              <span className="text-sm">DeepLabv3+</span>
-                              <span className="text-lg font-bold text-gray-700">82.31%</span>
-                            </div>
-                            <div className="flex justify-between items-center p-2 bg-gray-50 rounded">
-                              <span className="text-sm">Standard Methods</span>
-                              <span className="text-lg font-bold text-gray-700">79.84%</span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </CardContent>
-                  </Card>
-
-                  <Card>
-                    <CardHeader>
-                      <CardTitle>Training Process</CardTitle>
-                    </CardHeader>
-                    <CardContent className="space-y-4">
-                      <p className="text-gray-600">
-                        Like teaching a child to recognize objects, we trained our AI by showing it thousands 
-                        of images where we manually outlined where the methane gas appeared.
-                      </p>
-                      <div className="grid grid-cols-3 gap-4 text-center">
-                        <div className="bg-blue-50 p-4 rounded-lg">
-                          <div className="text-2xl font-bold text-blue-700">14,462</div>
-                          <div className="text-sm text-gray-600">Total Training Images</div>
-                        </div>
-                        <div className="bg-green-50 p-4 rounded-lg">
-                          <div className="text-2xl font-bold text-green-700">3</div>
-                          <div className="text-sm text-gray-600">Different Datasets</div>
-                        </div>
-                        <div className="bg-purple-50 p-4 rounded-lg">
-                          <div className="text-2xl font-bold text-purple-700">160K</div>
-                          <div className="text-sm text-gray-600">Training Iterations</div>
-                        </div>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </div>
-              </TabsContent>
-
-              <TabsContent value="validation" className="mt-8">
-                <div className="space-y-8">
-                  <Card>
-                    <CardHeader>
-                      <CardTitle>Scientific Validation</CardTitle>
-                      <CardDescription>How we proved our technology actually works</CardDescription>
-                    </CardHeader>
-                    <CardContent className="space-y-6">
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div className="space-y-4">
-                          <h4 className="font-semibold">Laboratory Validation</h4>
-                          <ul className="text-sm text-gray-600 space-y-2">
-                            <li>• <strong>Gas Chromatography:</strong> Gold standard lab equipment confirmed our measurements</li>
-                            <li>• <strong>Controlled Experiments:</strong> Precise methane release at known concentrations</li>
-                            <li>• <strong>Rumen Simulation:</strong> Lab systems that mimic cow stomachs exactly</li>
-                            <li>• <strong>Multiple Diets:</strong> Tested 4 different feeding strategies</li>
-                          </ul>
-                        </div>
-                        <div className="space-y-4">
-                          <h4 className="font-semibold">Real-World Testing</h4>
-                          <ul className="text-sm text-gray-600 space-y-2">
-                            <li>• <strong>Live Animals:</strong> Tested on actual dairy cows</li>
-                            <li>• <strong>Farm Conditions:</strong> Various environmental conditions</li>
-                            <li>• <strong>Multiple Cameras:</strong> FLIR GF77 and Gx320 systems</li>
-                            <li>• <strong>Cross-Validation:</strong> Multiple measurement methods compared</li>
-                          </ul>
-                        </div>
-                      </div>
-                      
-                      <div className="bg-green-50 p-6 rounded-lg">
-                        <h4 className="font-semibold text-green-800 mb-4">Correlation with Standard Methods</h4>
-                        <div className="text-center mb-4">
-                          <div className="text-4xl font-bold text-green-700">R² = 0.94</div>
-                          <div className="text-sm text-gray-600">Correlation with Gas Chromatography</div>
-                        </div>
-                        <p className="text-sm text-green-700 text-center">
-                          Our optical imaging results matched laboratory gas analysis 94% of the time – 
-                          proving our method is scientifically accurate and reliable.
-                        </p>
-                      </div>
-                    </CardContent>
-                  </Card>
-
-                  <Card>
-                    <CardHeader>
-                      <CardTitle>Research Publications</CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <div className="space-y-4">
-                        <div className="border-l-4 border-green-500 pl-4">
-                          <h4 className="font-semibold">IEEE CVPR 2024 Workshop</h4>
-                          <p className="text-sm text-gray-600">
-                            "Gasformer: A Transformer-based Architecture for Segmenting Methane Emissions from Livestock"
-                          </p>
-                          <p className="text-xs text-gray-500 mt-1">
-                            Peer-reviewed and presented at the world's leading computer vision conference
-                          </p>
-                        </div>
-                        <div className="border-l-4 border-blue-500 pl-4">
-                          <h4 className="font-semibold">IET Image Processing 2025</h4>
-                          <p className="text-sm text-gray-600">
-                            "Optical gas imaging and deep learning for quantifying enteric methane emissions"
-                          </p>
-                          <p className="text-xs text-gray-500 mt-1">
-                            Published in prestigious engineering journal with rigorous peer review
-                          </p>
-                        </div>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </div>
-              </TabsContent>
-            </Tabs>
+              <Card>
+                <CardHeader>
+                  <CardTitle className="flex items-center">
+                    <BarChart3 className="h-5 w-5 text-green-600 mr-2" />
+                    Key Findings
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  <div className="bg-green-50 p-3 rounded-lg">
+                    <h4 className="font-medium text-green-800 mb-1">AI Detection Works</h4>
+                    <p className="text-sm text-green-700">Our AI achieved 88.56% accuracy - as good as human experts</p>
+                  </div>
+                  <div className="bg-yellow-50 p-3 rounded-lg">
+                    <h4 className="font-medium text-yellow-800 mb-1">Diet Makes Huge Difference</h4>
+                    <p className="text-sm text-yellow-700">High-grass diets produce 3x more methane than balanced diets</p>
+                  </div>
+                  <div className="bg-blue-50 p-3 rounded-lg">
+                    <h4 className="font-medium text-blue-800 mb-1">Seaweed Almost Eliminates Methane</h4>
+                    <p className="text-sm text-blue-700">Adding seaweed supplement reduced emissions by 98%</p>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Visual Gallery */}
+      {/* Equipment Section */}
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-gray-900 mb-4">See Our Technology in Action</h2>
-              <p className="text-xl text-gray-600">
-                Visual examples of how our AI detects invisible methane emissions
+              <h2 className="text-3xl font-bold text-gray-900 mb-4">Our Equipment</h2>
+              <p className="text-lg text-gray-600">
+                The specialized tools we used to detect and measure methane emissions
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {researchImages.map((image) => (
-                <Dialog key={image.id}>
-                  <DialogTrigger asChild>
-                    <Card className="cursor-pointer hover:shadow-lg transition-shadow">
-                      <CardHeader className="p-0">
-                        <div className="aspect-video bg-gradient-to-br from-gray-100 to-gray-200 rounded-t-lg flex items-center justify-center">
-                          <div className="text-center">
-                            <ImageIcon className="h-12 w-12 text-gray-400 mx-auto mb-2" />
-                            <div className="text-sm text-gray-500">{image.category}</div>
-                          </div>
-                        </div>
-                      </CardHeader>
-                      <CardContent className="p-4">
-                        <div className="flex justify-between items-start mb-2">
-                          <h3 className="font-semibold text-sm">{image.title}</h3>
-                          <Badge variant="outline" className="text-xs">{image.category}</Badge>
-                        </div>
-                        <p className="text-xs text-gray-600">{image.description}</p>
-                      </CardContent>
-                    </Card>
-                  </DialogTrigger>
-                  <DialogContent className="max-w-3xl">
-                    <DialogHeader>
-                      <DialogTitle>{image.title}</DialogTitle>
-                      <DialogDescription>{image.description}</DialogDescription>
-                    </DialogHeader>
-                    <div className="aspect-video bg-gradient-to-br from-gray-100 to-gray-200 rounded-lg flex items-center justify-center">
-                      <div className="text-center">
-                        <ImageIcon className="h-16 w-16 text-gray-400 mx-auto mb-4" />
-                        <p className="text-gray-500">High-resolution research image would be displayed here</p>
-                        <div className="flex gap-2 justify-center mt-4">
-                          <Button size="sm" variant="outline">
-                            <Download className="h-4 w-4 mr-2" />
-                            Download
-                          </Button>
-                          <Button size="sm" variant="outline">
-                            <ExternalLink className="h-4 w-4 mr-2" />
-                            View Full Size
-                          </Button>
-                        </div>
-                      </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {equipmentList.map((equipment) => (
+                <Card key={equipment.id} className="border-l-4 border-blue-400">
+                  <CardHeader>
+                    <CardTitle className="text-lg">{equipment.title}</CardTitle>
+                    <CardDescription>{equipment.description}</CardDescription>
+                  </CardHeader>
+                  <CardContent className="space-y-3">
+                    <div>
+                      <h4 className="font-medium text-gray-900 mb-1">How We Used It:</h4>
+                      <p className="text-sm text-gray-600">{equipment.purpose}</p>
                     </div>
-                  </DialogContent>
-                </Dialog>
+                    <div>
+                      <h4 className="font-medium text-gray-900 mb-1">Technical Details:</h4>
+                      <p className="text-sm text-gray-500 font-mono">{equipment.specifications}</p>
+                    </div>
+                  </CardContent>
+                </Card>
               ))}
             </div>
           </div>
         </div>
       </section>
 
-      {/* Real-World Applications */}
+      {/* Methodology Section */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Real-World Benefits</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              How our technology helps different people tackle climate change and improve farming
-            </p>
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold text-gray-900 mb-4">How We Did It</h2>
+              <p className="text-lg text-gray-600">
+                Step-by-step breakdown of our research process
+              </p>
+            </div>
+
+            <div className="space-y-8">
+              {methodologySteps.map((step, index) => (
+                <Card key={index} className="border-l-4 border-green-400">
+                  <CardHeader>
+                    <CardTitle className="flex items-center">
+                      <div className="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center mr-3">
+                        <span className="text-green-700 font-bold">{index + 1}</span>
+                      </div>
+                      {step.title}
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-gray-600 mb-3">{step.description}</p>
+                    <div className="bg-gray-50 p-3 rounded-lg">
+                      <p className="text-sm text-gray-500 font-mono">{step.details}</p>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
           </div>
+        </div>
+      </section>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <Card>
-              <CardHeader>
-                <CardTitle className="text-green-700">For Farmers</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-3">
-                <div className="flex items-start space-x-2">
-                  <CheckCircle className="h-5 w-5 text-green-600 mt-0.5 flex-shrink-0" />
-                  <span className="text-sm text-gray-600"><strong>Save Money:</strong> Reduce wasted feed energy (up to 15% loss from methane)</span>
-                </div>
-                <div className="flex items-start space-x-2">
-                  <CheckCircle className="h-5 w-5 text-green-600 mt-0.5 flex-shrink-0" />
-                  <span className="text-sm text-gray-600"><strong>Improve Efficiency:</strong> Get instant feedback on feed choices</span>
-                </div>
-                <div className="flex items-start space-x-2">
-                  <CheckCircle className="h-5 w-5 text-green-600 mt-0.5 flex-shrink-0" />
-                  <span className="text-sm text-gray-600"><strong>Environmental Certification:</strong> Prove your farm is climate-friendly</span>
-                </div>
-                <div className="flex items-start space-x-2">
-                  <CheckCircle className="h-5 w-5 text-green-600 mt-0.5 flex-shrink-0" />
-                  <span className="text-sm text-gray-600"><strong>Future-Proof:</strong> Stay ahead of environmental regulations</span>
-                </div>
-              </CardContent>
-            </Card>
+      {/* Datasets Section */}
+      <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold text-gray-900 mb-4">Our Research Datasets</h2>
+              <p className="text-lg text-gray-600">
+                We created three datasets with over 14,000 labeled images to train and test our AI system.
+              </p>
+            </div>
 
-            <Card>
-              <CardHeader>
-                <CardTitle className="text-green-700">For Researchers</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-3">
-                <div className="flex items-start space-x-2">
-                  <CheckCircle className="h-5 w-5 text-green-600 mt-0.5 flex-shrink-0" />
-                  <span className="text-sm text-gray-600"><strong>Precise Measurements:</strong> Accurate data for scientific studies</span>
-                </div>
-                <div className="flex items-start space-x-2">
-                  <CheckCircle className="h-5 w-5 text-green-600 mt-0.5 flex-shrink-0" />
-                  <span className="text-sm text-gray-600"><strong>Large-Scale Studies:</strong> Monitor many animals simultaneously</span>
-                </div>
-                <div className="flex items-start space-x-2">
-                  <CheckCircle className="h-5 w-5 text-green-600 mt-0.5 flex-shrink-0" />
-                  <span className="text-sm text-gray-600"><strong>Diet Testing:</strong> Quickly validate emission reduction strategies</span>
-                </div>
-                <div className="flex items-start space-x-2">
-                  <CheckCircle className="h-5 w-5 text-green-600 mt-0.5 flex-shrink-0" />
-                  <span className="text-sm text-gray-600"><strong>Open Data:</strong> Access our datasets and code for free</span>
-                </div>
-              </CardContent>
-            </Card>
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+              {datasets.map((dataset) => (
+                <Card key={dataset.id} className="text-center">
+                  <CardHeader>
+                    <Database className="h-10 w-10 text-purple-600 mx-auto mb-4" />
+                    <CardTitle className="text-lg">{dataset.title}</CardTitle>
+                    <CardDescription>{dataset.description}</CardDescription>
+                  </CardHeader>
+                  <CardContent className="space-y-4">
+                    <div className="text-2xl font-bold text-purple-700">{dataset.size}</div>
+                    <div>
+                      <h4 className="font-medium text-gray-900 mb-2">Purpose:</h4>
+                      <p className="text-sm text-gray-600">{dataset.purpose}</p>
+                    </div>
+                    <div className="bg-purple-50 p-3 rounded-lg">
+                      <p className="text-xs text-purple-700">{dataset.details}</p>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
 
-            <Card>
+      {/* Results Summary */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold text-gray-900 mb-4">Research Results Summary</h2>
+              <p className="text-lg text-gray-600">
+                Here&apos;s what our experiments revealed about methane detection and dietary impacts.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+              <Card>
+                <CardHeader>
+                  <CardTitle className="text-center">AI Performance Results</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="space-y-4">
+                    <div className="flex justify-between items-center">
+                      <span className="text-gray-600">Detection Accuracy:</span>
+                      <span className="font-bold text-green-600">88.56%</span>
+                    </div>
+                    <div className="flex justify-between items-center">
+                      <span className="text-gray-600">Images Processed:</span>
+                      <span className="font-bold text-blue-600">14,462</span>
+                    </div>
+                    <div className="flex justify-between items-center">
+                      <span className="text-gray-600">Processing Speed:</span>
+                      <span className="font-bold text-purple-600">97.45 FPS</span>
+                    </div>
+                    <div className="flex justify-between items-center">
+                      <span className="text-gray-600">Model Size:</span>
+                      <span className="font-bold text-orange-600">3.65M parameters</span>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card>
+                <CardHeader>
+                  <CardTitle className="text-center">Diet Impact Results</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="space-y-3">
+                    <div className="flex justify-between items-center">
+                      <span className="text-gray-600">High Forage (80%):</span>
+                      <span className="font-bold text-red-600">482 ppm CH₄</span>
+                    </div>
+                    <div className="flex justify-between items-center">
+                      <span className="text-gray-600">Low Forage (20%):</span>
+                      <span className="font-bold text-yellow-600">294 ppm CH₄</span>
+                    </div>
+                    <div className="flex justify-between items-center">
+                      <span className="text-gray-600">Balanced (50/50):</span>
+                      <span className="font-bold text-green-600">167 ppm CH₄</span>
+                    </div>
+                    <div className="flex justify-between items-center">
+                      <span className="text-gray-600">+ Seaweed:</span>
+                      <span className="font-bold text-blue-600">1.4 ppm CH₄</span>
+                    </div>
+                    <div className="mt-4 p-3 bg-blue-50 rounded-lg">
+                      <p className="text-sm text-blue-700 text-center">
+                        <strong>98% reduction</strong> with seaweed supplement
+                      </p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+
+            <Card className="bg-green-50 border-green-200">
               <CardHeader>
-                <CardTitle className="text-green-700">For Policymakers</CardTitle>
+                <CardTitle className="text-center text-green-800">What This Means</CardTitle>
               </CardHeader>
-              <CardContent className="space-y-3">
-                <div className="flex items-start space-x-2">
-                  <CheckCircle className="h-5 w-5 text-green-600 mt-0.5 flex-shrink-0" />
-                  <span className="text-sm text-gray-600"><strong>Evidence-Based Policy:</strong> Make decisions backed by real data</span>
-                </div>
-                <div className="flex items-start space-x-2">
-                  <CheckCircle className="h-5 w-5 text-green-600 mt-0.5 flex-shrink-0" />
-                  <span className="text-sm text-gray-600"><strong>Monitor Compliance:</strong> Verify farm emission reduction claims</span>
-                </div>
-                <div className="flex items-start space-x-2">
-                  <CheckCircle className="h-5 w-5 text-green-600 mt-0.5 flex-shrink-0" />
-                  <span className="text-sm text-gray-600"><strong>Carbon Credits:</strong> Enable accurate carbon trading systems</span>
-                </div>
-                <div className="flex items-start space-x-2">
-                  <CheckCircle className="h-5 w-5 text-green-600 mt-0.5 flex-shrink-0" />
-                  <span className="text-sm text-gray-600"><strong>Climate Goals:</strong> Track progress toward emission targets</span>
+              <CardContent>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
+                  <div>
+                    <h4 className="font-medium text-green-800 mb-2">For Farmers:</h4>
+                    <ul className="text-green-700 space-y-1">
+                      <li>• Simple diet changes can dramatically reduce emissions</li>
+                      <li>• Balanced feeds produce less methane than high-grass diets</li>
+                      <li>• Seaweed supplements offer huge reduction potential</li>
+                      <li>• Technology exists to monitor emissions automatically</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 className="font-medium text-green-800 mb-2">For Researchers:</h4>
+                    <ul className="text-green-700 space-y-1">
+                      <li>• AI can reliably detect methane in optical gas images</li>
+                      <li>• Our datasets and models are freely available</li>
+                      <li>• Method works for both controlled and real conditions</li>
+                      <li>• Opens possibilities for real-time farm monitoring</li>
+                    </ul>
+                  </div>
                 </div>
               </CardContent>
             </Card>
@@ -655,28 +376,153 @@ export default function ResearchPage() {
         </div>
       </section>
 
-      {/* Call to Action */}
-      <section className="py-16 bg-green-700 text-white">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl lg:text-4xl font-bold mb-6">
-            Want to Learn More or Get Involved?
-          </h2>
-          <p className="text-xl mb-8 max-w-2xl mx-auto opacity-90">
-            Explore our published research, access our data and code, or reach out to discuss 
-            how this technology could work for your farm, research, or organization.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button asChild size="lg" className="bg-white text-green-700 hover:bg-gray-100">
-              <Link href="/resources">
-                📚 Get All Research Materials
-              </Link>
-            </Button>
-            <Button asChild size="lg" className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-green-700">
-              <Link href="/project">
-                👥 Meet Our Team
-              </Link>
-            </Button>
+      {/* Detailed Findings */}
+      <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold text-gray-900 mb-4">Detailed Findings from Our Studies</h2>
+              <p className="text-lg text-gray-600">
+                Excerpts from our research papers highlighting key findings.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+              <Card>
+                <CardHeader>
+                  <CardTitle>AI Model Performance</CardTitle>
+                  <CardDescription>From Gasformer Paper (CVPR 2024)</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-600 mb-4">Gasformer outperformed other models in segmenting methane plumes:</p>
+                  <div className="overflow-x-auto">
+                    <table className="w-full text-sm">
+                      <thead>
+                        <tr className="bg-gray-100">
+                          <th className="p-2 text-left">Model</th>
+                          <th className="p-2 text-left">mIoU</th>
+                          <th className="p-2 text-left">mFscore</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td className="p-2">Gasformer</td>
+                          <td className="p-2">88.56</td>
+                          <td className="p-2">93.61</td>
+                        </tr>
+                        <tr className="bg-gray-50">
+                          <td className="p-2">Segformer B0</td>
+                          <td className="p-2">88.41</td>
+                          <td className="p-2">93.52</td>
+                        </tr>
+                        <tr>
+                          <td className="p-2">DeepLabv3+</td>
+                          <td className="p-2">88.18</td>
+                          <td className="p-2">93.37</td>
+                        </tr>
+                        <tr className="bg-gray-50">
+                          <td className="p-2">SegNeXt-T</td>
+                          <td className="p-2">88.00</td>
+                          <td className="p-2">93.26</td>
+                        </tr>
+                        <tr>
+                          <td className="p-2">FCN</td>
+                          <td className="p-2">86.41</td>
+                          <td className="p-2">92.24</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </CardContent>
+              </Card>
+              <Card>
+                <CardHeader>
+                  <CardTitle>Diet Impact Results</CardTitle>
+                  <CardDescription>From IET Paper (2025)</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-600 mb-4">Effects of different diets on methane production:</p>
+                  <div className="overflow-x-auto">
+                    <table className="w-full text-sm">
+                      <thead>
+                        <tr className="bg-gray-100">
+                          <th className="p-2 text-left">Diet</th>
+                          <th className="p-2 text-left">CH4 (ppm)</th>
+                          <th className="p-2 text-left">Total Gas (mL)</th>
+                          <th className="p-2 text-left">pH</th>
+                          <th className="p-2 text-left">Ammonia (mg/dL)</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td className="p-2">Control</td>
+                          <td className="p-2">167.22</td>
+                          <td className="p-2">382.82</td>
+                          <td className="p-2">6.64</td>
+                          <td className="p-2">9.78</td>
+                        </tr>
+                        <tr className="bg-gray-50">
+                          <td className="p-2">+ Bromoform</td>
+                          <td className="p-2">1.41</td>
+                          <td className="p-2">327.98</td>
+                          <td className="p-2">6.57</td>
+                          <td className="p-2">4.22</td>
+                        </tr>
+                        <tr>
+                          <td className="p-2">High Forage</td>
+                          <td className="p-2">482.45</td>
+                          <td className="p-2">374.10</td>
+                          <td className="p-2">6.80</td>
+                          <td className="p-2">32.83</td>
+                        </tr>
+                        <tr className="bg-gray-50">
+                          <td className="p-2">Low Forage</td>
+                          <td className="p-2">293.72</td>
+                          <td className="p-2">384.17</td>
+                          <td className="p-2">6.31</td>
+                          <td className="p-2">20.87</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
           </div>
+        </div>
+      </section>
+
+      {/* Access Research */}
+      <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <Card className="max-w-4xl mx-auto text-center border-2 border-blue-200">
+            <CardContent className="py-12">
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">
+                Access Our Complete Research
+              </h3>
+              <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
+                All our research papers, datasets, AI models, and analysis code are freely available. 
+                Use our work to advance your own research or develop practical applications.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Button asChild size="lg" className="bg-blue-700 hover:bg-blue-800">
+                  <Link href="/resources">
+                    <FileText className="h-5 w-5 mr-2" />
+                    Publications & Datasets
+                  </Link>
+                </Button>
+                <Button asChild size="lg" variant="outline">
+                  <a href="https://github.com/toqitahamid/Gasformer" target="_blank" rel="noopener noreferrer">
+                    <Download className="h-5 w-5 mr-2" />
+                    Download Code & Models
+                  </a>
+                </Button>
+              </div>
+              <p className="text-sm text-gray-500 mt-6">
+                Open source • Free to use • Peer-reviewed • USDA funded
+              </p>
+            </CardContent>
+          </Card>
         </div>
       </section>
     </div>
