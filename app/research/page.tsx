@@ -10,81 +10,122 @@ export default function ResearchPage() {
     {
       id: 1,
       title: "FLIR GF77 Optical Gas Imaging Camera",
-      description: "Special camera that can detect methane gas invisible to human eyes",
-      specifications: "320×240 resolution, 7-8.5 μm spectral range, 100 ppm-m sensitivity",
-      purpose: "Captures images showing methane plumes as visible shapes"
+      description: "Uncooled LWIR camera that visualizes methane plumes invisible to the naked eye",
+      specifications: "320×240 resolution, 7-8.5 μm spectral range, 100 ppm-m NECL sensitivity, <25 mK thermal sensitivity",
+      purpose: "Captures infrared images of methane plumes for AI analysis and segmentation",
+      image: "/equipment/flir-gf77.png"
     },
     {
       id: 2,
       title: "Laser Methane Detector (LMD)",
-      description: "Device that measures exact methane concentrations",
-      specifications: "5 ppm sensitivity, 0-50,000 ppm range, <0.1s response time",
-      purpose: "Validates our AI measurements with precise readings"
+      description: "TopCruz® LZ-30 detector using Tunable Diode Laser Absorption Spectroscopy",
+      specifications: "5 ppm sensitivity at 15m, 0-50,000 ppm range, <0.1s response time, 20cm beam diameter at 30m",
+      purpose: "Provides precise methane concentration measurements for validating AI model results",
+      image: "/equipment/laser-methane-detector.jpeg"
     },
     {
       id: 3,
-      title: "Fermentation System",
-      description: "Laboratory setup that simulates cow stomach conditions",
-      specifications: "4 single-flow continuous fermenters, 39°C temperature",
-      purpose: "Creates controlled conditions to test different cow diets"
+      title: "ANKOM Gas Production System",
+      description: "Automated batch culture system for measuring total gas and methane production",
+      specifications: "24-hour incubation, 39°C water bath, anaerobic conditions with CO₂ flushing",
+      purpose: "Simulates rumen fermentation conditions and collects gas samples for analysis",
+      image: "/equipment/ankom-module.jpeg"
     },
     {
       id: 4,
-      title: "Gas Chromatography (GC)",
-      description: "Laboratory instrument that analyzes gas composition",
-      specifications: "SRI 8610C with thermal conductivity detector",
-      purpose: "Measures exact amounts of methane, CO2, and H2 in samples"
-    }
+      title: "Precision Gas Flow Controller",
+      description: "Cole-Parmer Digital Pressure Controller for controlled methane release experiments",
+      specifications: "0-15 psi pressure range, 1/8\" NPT(F) fitting, 10-100 SCCM flow control",
+      purpose: "Creates controlled methane releases at specific flow rates for dataset generation",
+      image: "/equipment/control-flow-meter.jpeg"
+    },
+    {
+      id: 5,
+      title: "Experimental Camera Setup",
+      description: "Standardized imaging configuration for consistent methane plume capture",
+      specifications: "12-inch camera distance, 2-inch gas-to-background distance, ice block background",
+      purpose: "Ensures reproducible imaging conditions and optimal temperature contrast for detection",
+      image: "/equipment/camera-setup.jpeg"
+    },
+         {
+       id: 6,
+       title: "FLIR Gx320 OGI Camera (In Vivo)",
+       description: "Cooled mid-wave infrared camera for detecting methane emissions from live cattle",
+       specifications: "640×480 resolution, 30 fps, cooled InSb detector, superior sensitivity for field conditions",
+       purpose: "Captures methane emissions directly from live cattle in farm environments for real-world validation",
+       image: "/equipment/cow-hero-2.jpeg"
+     },
+     {
+       id: 7,
+       title: "Gas Chromatography System",
+       description: "SRI 8610C gas chromatograph with thermal conductivity detector for gas analysis",
+       specifications: "Shin Carbon detector, Hayesep D column, 50°C operation, argon carrier gas",
+       purpose: "Provides ground truth measurements of CH₄, CO₂, and H₂ concentrations for validation",
+       image: "/equipment/ankom-module.jpeg"
+     }
   ]
 
   const datasets = [
     {
       id: 1,
-      title: "Controlled Methane Release (MR) Dataset",
-      description: "Images of methane released at known flow rates",
-      size: "9,237 labeled images",
-      purpose: "Train AI to recognize different amounts of methane",
-      details: "10-100 SCCM flow rates, controlled laboratory conditions"
+      title: "Controlled Diet (CD) Dataset",
+      description: "Methane plume images categorized by GC-validated concentration ranges from different dietary treatments",
+      size: "4,885 labeled images",
+      purpose: "Quantify methane emissions across dietary interventions using AI segmentation",
+      details: "Class-1 (166-171 ppm), Class-2 (300-334 ppm), Class-3 (457-510 ppm) from control, low forage, and high forage diets"
     },
     {
       id: 2,
-      title: "Dairy Cow Rumen Gas (CR) Dataset", 
-      description: "Images of actual methane from cow stomach contents",
-      size: "340 labeled images",
-      purpose: "Test if AI works on real cow emissions",
-      details: "24-hour batch culture from Holstein dairy cow rumen"
+      title: "Controlled Methane Release (MR) Dataset",
+      description: "Calibrated methane release images at precise flow rates using gas cylinder and flow controller",
+      size: "9,237 labeled images",
+      purpose: "Train AI models to detect and quantify methane at known concentrations",
+      details: "10-100 SCCM flow rates, FLIR GF77 camera, ice background for temperature contrast"
     },
-    {
-      id: 3,
-      title: "Controlled Diet (CD) Dataset",
-      description: "Images showing how different diets affect methane",
-      size: "4,885 labeled images",
-      purpose: "Study relationship between cow diet and emissions",
-      details: "4 different diets including seaweed supplement"
-    }
+         {
+       id: 3,
+       title: "Dairy Cow Rumen Gas (CR) Dataset", 
+       description: "Real-world methane emission images from Holstein dairy cow rumen fermentation samples",
+       size: "340 labeled images",
+       purpose: "Validate AI performance on actual livestock methane emissions",
+       details: "24-hour ANKOM batch culture, TEDLAR gas collection, challenging low-contrast conditions"
+     },
+     {
+       id: 4,
+       title: "Beef Cattle Methane Emission Dataset (In Vivo)",
+       description: "Live cattle methane emission detection from actual farm conditions using FLIR Gx320 camera",
+       size: "208,149 total frames with 11,694 annotated methane plumes",
+       purpose: "Real-world validation of AI models on live cattle with dietary classification",
+       details: "30 fps capture, 5.6% plume occurrence rate, three dietary treatments, intermittent eructation events"
+     }
   ]
 
   const methodologySteps = [
     {
-      title: "Sample Collection",
-      description: "We collected rumen liquid (cow stomach contents) from a dairy farm and used it in laboratory fermentation systems that mimic cow digestion.",
-      details: "Holstein dairy cow rumen → 700 mL fermentation vessels → 39°C controlled temperature"
+      title: "Continuous Culture Fermentation",
+      description: "We used four single-flow continuous fermenters to simulate cow rumen conditions, each containing 700 mL of rumen liquor from fistulated dairy cattle fed different diets for 10 days.",
+      details: "700 mL rumen liquor → 39°C temperature → 45 RPM stirring → 70 mL/h artificial saliva buffer → CO₂ flushing for anaerobic conditions"
     },
     {
-      title: "Diet Testing",
-      description: "We tested 4 different diets to see how each affects methane production: control (50/50 grass/grain), low forage (20/80), high forage (80/20), and seaweed supplement.",
-      details: "24-hour batch culture → Gas collection in TEDLAR bags → Multiple measurement methods"
+      title: "Controlled Diet Testing",
+      description: "Four different treatments were tested: Control (50:50 forage:concentrate), Low Forage (20:80), High Forage (80:20), and Bromoform supplement (seaweed extract at 0.14 g/L/day).",
+      details: "10-day incubation → 54g diet fed 3x daily → pH monitoring → Transfer to 24-hour ANKOM batch culture"
     },
     {
-      title: "Image Capture",
-      description: "We used special cameras to photograph methane gas (invisible to our eyes) against an ice background to create contrast.",
-      details: "FLIR GF77 camera → 12 inches distance → 640×480 resolution → Multiple color modes"
+      title: "Gas Collection and Analysis",
+      description: "Methane gas was collected in TEDLAR gas bags and analyzed using gas chromatography, laser methane detection, and optical gas imaging with standardized protocols.",
+      details: "ANKOM batch culture → TEDLAR gas collection → GC analysis (SRI 8610C) → LMD measurements → OGI capture"
     },
     {
-      title: "AI Training",
-      description: "We trained an AI system called 'Gasformer' to automatically detect and measure methane in thousands of images.",
-      details: "Transformer architecture → 160,000 training iterations → 88.56% accuracy achieved"
-    }
+      title: "Optical Gas Imaging Setup",
+      description: "We developed a novel imaging configuration using FLIR GF77 camera with ice background to create sufficient temperature contrast for methane visualization at low concentrations.",
+      details: "12-inch camera distance → 2-inch gas-to-background distance → Ice block background → 640×480 resolution → Multiple color modes"
+    },
+          {
+        title: "AI Model Development and Training",
+        description: "We developed two specialized AI architectures: Gasformer for in vitro laboratory analysis and GasTwinFormer for in vivo live cattle detection with dietary classification capabilities.",
+        details: "Gasformer (in vitro): 85.1% mIoU, 91.72% mF1 → GasTwinFormer (in vivo): 74.47% mIoU, 83.63% mF1, 100% dietary classification accuracy"
+      }
   ]
 
   return (
@@ -104,6 +145,62 @@ export default function ResearchPage() {
               We used laboratory experiments, special cameras, and artificial intelligence 
               to study how cow diet affects methane emissions.
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Visual Research Context */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-8">
+              <h2 className="text-3xl font-bold text-gray-900 mb-4">Understanding Methane from Dairy Cattle</h2>
+              <p className="text-lg text-gray-600">
+                Holstein dairy cows produce methane through enteric fermentation in their rumen. 
+                Our research focuses on developing non-invasive methods to detect and quantify these emissions.
+              </p>
+            </div>
+            
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+              <div className="relative overflow-hidden rounded-lg shadow-lg">
+                <img 
+                  src="/equipment/cow-hero.jpeg" 
+                  alt="Holstein dairy cow in research setting"
+                  className="w-full h-64 object-cover"
+                />
+                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+                  <p className="text-white text-sm">Holstein dairy cows are the primary focus of our methane emission research</p>
+                </div>
+              </div>
+              <div className="relative overflow-hidden rounded-lg shadow-lg">
+                <img 
+                  src="/equipment/cow-hero-2.jpeg" 
+                  alt="Live beef cattle during in vivo methane emission detection experiment"
+                  className="w-full h-64 object-cover"
+                />
+                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+                  <p className="text-white text-sm">In vivo methane detection from live cattle using FLIR Gx320 OGI camera</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-blue-50 rounded-lg p-6">
+              <h3 className="text-lg font-semibold text-blue-900 mb-3">Research Impact</h3>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+                <div className="bg-white p-3 rounded">
+                  <div className="text-blue-700 font-bold text-lg">6%</div>
+                  <p className="text-gray-600">of global greenhouse gas emissions come from ruminant livestock</p>
+                </div>
+                <div className="bg-white p-3 rounded">
+                  <div className="text-blue-700 font-bold text-lg">6-12%</div>
+                  <p className="text-gray-600">of dietary energy is lost as methane that could be used for milk/meat production</p>
+                </div>
+                <div className="bg-white p-3 rounded">
+                  <div className="text-blue-700 font-bold text-lg">36x</div>
+                  <p className="text-gray-600">more potent warming effect than CO₂ over 100-year period</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -156,8 +253,8 @@ export default function ResearchPage() {
                     <p className="text-sm text-green-700">Combined computer science, animal nutrition, and agricultural engineering expertise</p>
                   </div>
                   <div className="bg-blue-50 p-3 rounded-lg">
-                    <h4 className="font-medium text-blue-800 mb-1">Controlled Laboratory Study</h4>
-                    <p className="text-sm text-blue-700">Used standardized fermentation systems to ensure reproducible results</p>
+                    <h4 className="font-medium text-blue-800 mb-1">Dual In Vitro & In Vivo Approach</h4>
+                    <p className="text-sm text-blue-700">Combined controlled laboratory studies with real-world live cattle experiments</p>
                   </div>
                   <div className="bg-purple-50 p-3 rounded-lg">
                     <h4 className="font-medium text-purple-800 mb-1">Validated with Multiple Methods</h4>
@@ -183,7 +280,14 @@ export default function ResearchPage() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {equipmentList.map((equipment) => (
-                <Card key={equipment.id} className="border-l-4 border-blue-400">
+                <Card key={equipment.id} className="border-l-4 border-blue-400 overflow-hidden">
+                  <div className="aspect-video w-full overflow-hidden">
+                    <img 
+                      src={equipment.image} 
+                      alt={equipment.title}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
                   <CardHeader>
                     <CardTitle className="text-lg">{equipment.title}</CardTitle>
                     <CardDescription>{equipment.description}</CardDescription>
@@ -247,7 +351,7 @@ export default function ResearchPage() {
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold text-gray-900 mb-4">Research Datasets</h2>
               <p className="text-lg text-gray-600">
-                We created three datasets with over 14,000 labeled images to train and test our AI system.
+                We created four comprehensive datasets with over 26,000 labeled images from both laboratory and live cattle studies to train and test our AI systems.
               </p>
             </div>
 
