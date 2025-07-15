@@ -888,7 +888,7 @@ export default function HomePage() {
                     </p>
                   </div>
                   <Button asChild className="bg-green-700 text-white hover:bg-green-800 transition-colors w-full">
-                    <Link href="/research" className="flex items-center justify-center">
+                    <Link href="/research">
                       Explore Timeline <ArrowRight className="ml-2 h-4 w-4" />
                     </Link>
                   </Button>
@@ -905,7 +905,7 @@ export default function HomePage() {
                     </p>
                   </div>
                   <Button asChild className="bg-blue-700 text-white hover:bg-blue-800 transition-colors w-full">
-                    <Link href="/resources" className="flex items-center justify-center">
+                    <Link href="/resources">
                       Download Resources <ArrowRight className="ml-2 h-4 w-4" />
                     </Link>
                   </Button>
@@ -922,7 +922,7 @@ export default function HomePage() {
                     </p>
                   </div>
                   <Button asChild className="bg-purple-700 text-white hover:bg-purple-800 transition-colors w-full">
-                    <Link href="/team" className="flex items-center justify-center">
+                    <Link href="/team">
                       Meet the Team <ArrowRight className="ml-2 h-4 w-4" />
                     </Link>
                   </Button>
