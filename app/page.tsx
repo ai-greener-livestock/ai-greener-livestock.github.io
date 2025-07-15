@@ -1,10 +1,10 @@
 import Link from "next/link"
+import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { 
-  BarChart3, 
   Users, 
   FileText, 
   Target, 
@@ -34,6 +34,7 @@ export default function HomePage() {
             <a href="#hero" className="text-xs px-3 py-1 rounded hover:bg-gray-100 transition-colors">Overview</a>
             <a href="#challenge" className="text-xs px-3 py-1 rounded hover:bg-gray-100 transition-colors">Challenge</a>
             <a href="#solution" className="text-xs px-3 py-1 rounded hover:bg-gray-100 transition-colors">Solution</a>
+            <a href="#methodology" className="text-xs px-3 py-1 rounded hover:bg-gray-100 transition-colors">Methodology</a>
             <a href="#achievements" className="text-xs px-3 py-1 rounded hover:bg-gray-100 transition-colors">Achievements</a>
             <a href="#journey" className="text-xs px-3 py-1 rounded hover:bg-gray-100 transition-colors">Journey</a>
             <a href="#impact" className="text-xs px-3 py-1 rounded hover:bg-gray-100 transition-colors">Impact</a>
@@ -60,15 +61,36 @@ export default function HomePage() {
 
             <div className="hero-section bg-white/70 backdrop-blur-sm rounded-2xl p-8 lg:p-12 shadow-xl mb-16">
               <div className="max-w-6xl mx-auto">
-                <p className="text-lg lg:text-xl text-gray-700 leading-relaxed mb-6">
-                  The agriculture industry faces an unprecedented challenge: meeting the food demands of a growing global population while dramatically reducing greenhouse gas emissions. Livestock operations contribute <strong className="text-green-700">32% of human-caused methane emissions</strong>, making automated monitoring essential for effective climate mitigation.
-                </p>
-                <p className="text-lg lg:text-xl text-gray-700 leading-relaxed mb-6">
-                  Our groundbreaking research program combines cutting-edge artificial intelligence with optical gas imaging technology to create the <strong className="text-blue-700">world&apos;s first practical, real-time methane detection system</strong> for livestock operations.
-                </p>
-                <p className="text-lg lg:text-xl text-gray-700 leading-relaxed">
-                  Through three years of intensive research and development, we have progressed from fundamental algorithmic innovation to proven real-world deployment, creating tools that enable farmers to monitor and reduce methane emissions while optimizing productivity. Our work represents the <strong className="text-purple-700">largest and most comprehensive study of AI-based livestock methane detection ever conducted</strong>.
-                </p>
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+                  <div className="space-y-6">
+                    <p className="text-lg lg:text-xl text-gray-700 leading-relaxed">
+                      The agriculture industry faces an unprecedented challenge: meeting the food demands of a growing global population while dramatically reducing greenhouse gas emissions. Livestock operations contribute <strong className="text-green-700">32% of human-caused methane emissions</strong>, making automated monitoring essential for effective climate mitigation.
+                    </p>
+                    <p className="text-lg lg:text-xl text-gray-700 leading-relaxed">
+                      Our groundbreaking research program combines cutting-edge artificial intelligence with optical gas imaging technology to create the <strong className="text-blue-700">world&apos;s first practical, real-time methane detection system</strong> for livestock operations.
+                    </p>
+                    <p className="text-lg lg:text-xl text-gray-700 leading-relaxed">
+                      Through three years of intensive research and development, we have progressed from fundamental algorithmic innovation to real-world validation with live animals, creating tools that demonstrate the potential to enable farmers to monitor and reduce methane emissions while optimizing productivity. Our work represents the <strong className="text-purple-700">largest and most comprehensive study of AI-based livestock methane detection ever conducted</strong>.
+                    </p>
+                  </div>
+                  <div>
+                    <div className="relative rounded-xl overflow-hidden shadow-lg">
+                      <Image
+                        src="/equipment/cow-hero.jpeg"
+                        alt="Live cattle in farm environment for AI-powered methane monitoring research"
+                        width={600}
+                        height={400}
+                        className="w-full h-auto object-cover"
+                      />
+                      <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+                        <div className="text-white">
+                          <h4 className="text-lg font-semibold mb-1">Real-World Research Environment</h4>
+                          <p className="text-sm opacity-90">Live cattle data was used for model training, validation and testing</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
 
@@ -182,14 +204,7 @@ export default function HomePage() {
                       </p>
                     </div>
                   </div>
-                  
-                  {/* Placeholder for infographic */}
-                  <div className="mt-8 bg-white rounded-lg p-6 border-2 border-dashed border-gray-300">
-                    <div className="text-center text-gray-500">
-                      <BarChart3 className="h-16 w-16 mx-auto mb-4 opacity-50" />
-                      <p className="text-sm">📊 <strong>Image needed:</strong> Infographic showing methane emission sources and monitoring challenges</p>
-                    </div>
-                  </div>
+
                 </div>
               </div>
             </div>
@@ -224,7 +239,7 @@ export default function HomePage() {
                 </TabsTrigger>
                 <TabsTrigger value="deployment" className="flex items-center gap-2">
                   <Zap className="h-4 w-4" />
-                  Deployment
+                  Live Testing
                 </TabsTrigger>
               </TabsList>
 
@@ -250,10 +265,16 @@ export default function HomePage() {
                           <li>• Real-time processing capabilities</li>
                         </ul>
                       </div>
-                      <div className="bg-white rounded-lg p-6 border-2 border-dashed border-gray-300">
-                        <div className="text-center text-gray-500">
-                          <Code className="h-12 w-12 mx-auto mb-2 opacity-50" />
-                          <p className="text-sm">🔬 <strong>Image needed:</strong> AI architecture diagram showing GasTwinFormer structure</p>
+                      <div className="bg-white rounded-lg p-6 border-2 border-gray-200">
+                        <div className="text-center">
+                          <Image
+                            src="/equipment/flir-gf77.png"
+                            alt="FLIR GF77 thermal camera for gas detection"
+                            width={400}
+                            height={300}
+                            className="mx-auto rounded-lg shadow-md"
+                          />
+                          <p className="text-sm text-gray-600 mt-3">FLIR GF77 optical gas imaging camera - one of two core thermal cameras used for methane visualization (GF77 and GX320)</p>
                         </div>
                       </div>
                     </div>
@@ -283,10 +304,16 @@ export default function HomePage() {
                           <li>• Continuous operation capability</li>
                         </ul>
                       </div>
-                      <div className="bg-white rounded-lg p-6 border-2 border-dashed border-gray-300">
-                        <div className="text-center text-gray-500">
-                          <Eye className="h-12 w-12 mx-auto mb-2 opacity-50" />
-                          <p className="text-sm">📷 <strong>Image needed:</strong> Thermal camera setup and methane plume visualization</p>
+                      <div className="bg-white rounded-lg p-6 border-2 border-gray-200">
+                        <div className="text-center">
+                          <Image
+                            src="/equipment/camera-setup.jpeg"
+                            alt="Thermal camera setup for methane detection"
+                            width={400}
+                            height={300}
+                            className="mx-auto rounded-lg shadow-md"
+                          />
+                          <p className="text-sm text-gray-600 mt-3">FLIR thermal camera setup for in vitro methane detection experiments</p>
                         </div>
                       </div>
                     </div>
@@ -313,13 +340,19 @@ export default function HomePage() {
                           <li>• Gas chromatography correlation</li>
                           <li>• Laser methane detection validation</li>
                           <li>• Multi-instrument comparison</li>
-                                                     <li>• Correlation coefficients &gt; 0.95</li>
+                          <li>• Correlation coefficients &gt; 0.95</li>
                         </ul>
                       </div>
-                      <div className="bg-white rounded-lg p-6 border-2 border-dashed border-gray-300">
-                        <div className="text-center text-gray-500">
-                          <Microscope className="h-12 w-12 mx-auto mb-2 opacity-50" />
-                          <p className="text-sm">🔬 <strong>Image needed:</strong> Laboratory validation setup with multiple instruments</p>
+                      <div className="bg-white rounded-lg p-6 border-2 border-gray-200">
+                        <div className="text-center">
+                          <Image
+                            src="/equipment/laser-methane-detector.jpeg"
+                            alt="Laser methane detector for validation"
+                            width={400}
+                            height={300}
+                            className="mx-auto rounded-lg shadow-md"
+                          />
+                          <p className="text-sm text-gray-600 mt-3">Laser methane detector used for additional validation alongside gas chromatography</p>
                         </div>
                       </div>
                     </div>
@@ -332,27 +365,33 @@ export default function HomePage() {
                   <CardHeader>
                     <CardTitle className="flex items-center text-2xl">
                       <Zap className="h-6 w-6 text-orange-600 mr-3" />
-                      Real-World Deployment
+                      Live Animal Testing
                     </CardTitle>
                   </CardHeader>
                   <CardContent className="space-y-4">
                     <p className="text-lg text-gray-700">
-                      Our technology has been successfully tested in actual livestock operations with live animals, demonstrating practical viability for commercial farm deployment. The system operates in real-time at over 100 frames per second while maintaining high accuracy, making it suitable for continuous monitoring applications.
+                      Our AI models have been successfully validated using data collected from live cattle in actual farm conditions. We conducted controlled studies with 12 postpartum beef cows under different dietary treatments, collecting thermal imaging data that our models processed at over 100 frames per second with high accuracy, demonstrating the technology&apos;s potential for future commercial deployment.
                     </p>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       <div className="bg-orange-50 p-6 rounded-lg">
                         <h4 className="font-semibold text-orange-800 mb-3">Performance Metrics:</h4>
                         <ul className="space-y-2 text-sm text-orange-700">
                           <li>• 114.9 frames per second processing</li>
-                          <li>• Real-time continuous monitoring</li>
+                          <li>• Real-time data processing capability</li>
                           <li>• Live animal testing validated</li>
-                          <li>• Commercial deployment ready</li>
+                          <li>• Demonstrates deployment potential</li>
                         </ul>
                       </div>
-                      <div className="bg-white rounded-lg p-6 border-2 border-dashed border-gray-300">
-                        <div className="text-center text-gray-500">
-                          <Zap className="h-12 w-12 mx-auto mb-2 opacity-50" />
-                          <p className="text-sm">🐄 <strong>Image needed:</strong> Live cattle monitoring system in farm environment</p>
+                      <div className="bg-white rounded-lg p-6 border-2 border-gray-200">
+                        <div className="text-center">
+                          <Image
+                            src="/equipment/flir-gx320.png"
+                            alt="Live cattle monitoring in farm environment"
+                            width={400}
+                            height={300}
+                            className="mx-auto rounded-lg shadow-md"
+                          />
+                          <p className="text-sm text-gray-600 mt-3">Data collection from live cattle in farm conditions for AI model development and validation</p>
                         </div>
                       </div>
                     </div>
@@ -363,6 +402,8 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      
 
       {/* Achievements Section */}
       <section id="achievements" className="py-20 bg-white">
@@ -484,7 +525,7 @@ export default function HomePage() {
                 </CardContent>
               </Card>
 
-              <Card className="border-2 border-green-200 bg-green-50 hover:shadow-lg transition-shadow md:col-span-2 lg:col-span-1">
+              <Card className="border-2 border-green-200 bg-green-50 hover:shadow-lg transition-shadow md:col-span-2 lg:col-span-3">
                 <CardHeader className="pb-3">
                   <div className="flex items-center justify-between">
                     <Leaf className="h-8 w-8 text-green-600" />
@@ -549,10 +590,16 @@ export default function HomePage() {
                     <span className="text-white font-bold text-sm">1</span>
                   </div>
                   <div className="w-1/2 pl-8">
-                    <div className="bg-white rounded-lg p-6 border-2 border-dashed border-gray-300">
-                      <div className="text-center text-gray-500">
-                        <Brain className="h-12 w-12 mx-auto mb-2 opacity-50" />
-                        <p className="text-sm">🧠 <strong>Image needed:</strong> Gasformer architecture diagram and initial concept visualization</p>
+                    <div className="bg-white rounded-lg p-6 border-2 border-gray-200">
+                      <div className="text-center">
+                        <Image
+                          src="/equipment/control-flow-meter.jpeg"
+                          alt="Control flow meter for gas measurement"
+                          width={400}
+                          height={300}
+                          className="mx-auto rounded-lg shadow-md"
+                        />
+                        <p className="text-sm text-gray-600 mt-3">Control flow meter for precise gas measurement in Phase 1 laboratory studies</p>
                       </div>
                     </div>
                   </div>
@@ -561,10 +608,16 @@ export default function HomePage() {
                 {/* Phase 2 */}
                 <div className="relative flex items-center">
                   <div className="w-1/2 pr-8">
-                    <div className="bg-white rounded-lg p-6 border-2 border-dashed border-gray-300">
-                      <div className="text-center text-gray-500">
-                        <Microscope className="h-12 w-12 mx-auto mb-2 opacity-50" />
-                        <p className="text-sm">🔬 <strong>Image needed:</strong> Multi-instrument validation setup and correlation analysis</p>
+                    <div className="bg-white rounded-lg p-6 border-2 border-gray-200">
+                      <div className="text-center">
+                        <Image
+                          src="/equipment/ankom-module.jpeg"
+                          alt="Ankom module for gas analysis"
+                          width={400}
+                          height={300}
+                          className="mx-auto rounded-lg shadow-md"
+                        />
+                        <p className="text-sm text-gray-600 mt-3">Ankom gas production module used in Phase 2 validation studies</p>
                       </div>
                     </div>
                   </div>
@@ -621,10 +674,16 @@ export default function HomePage() {
                     <span className="text-white font-bold text-sm">3</span>
                   </div>
                   <div className="w-1/2 pl-8">
-                    <div className="bg-white rounded-lg p-6 border-2 border-dashed border-gray-300">
-                      <div className="text-center text-gray-500">
-                        <Users className="h-12 w-12 mx-auto mb-2 opacity-50" />
-                        <p className="text-sm">🐄 <strong>Image needed:</strong> GasTwinFormer deployment in live cattle environment</p>
+                    <div className="bg-white rounded-lg p-6 border-2 border-gray-200">
+                      <div className="text-center">
+                        <Image
+                          src="/equipment/cow-hero-2.jpeg"
+                          alt="FLIR GX320 camera capturing methane emissions from live cattle"
+                          width={400}
+                          height={300}
+                          className="mx-auto rounded-lg shadow-md"
+                        />
+                        <p className="text-sm text-gray-600 mt-3">FLIR GX320 capturing cow methane emissions for GasTwinFormer data collection and validation</p>
                       </div>
                     </div>
                   </div>
@@ -743,15 +802,15 @@ export default function HomePage() {
             {/* Global Recognition */}
             <Card className="bg-gradient-to-r from-blue-50 to-purple-50 border-2 border-blue-200">
               <CardHeader>
-                <CardTitle className="text-2xl text-center text-gray-900">Global Recognition & Support</CardTitle>
+                <CardTitle className="text-2xl text-center text-gray-900">Research Support & Publications</CardTitle>
               </CardHeader>
               <CardContent className="space-y-6">
                 <div className="text-center">
                   <p className="text-lg text-gray-700 mb-6">
-                    Our research has received substantial recognition from both the scientific community and funding agencies, with publications in premier venues and ongoing collaboration with agricultural research institutions worldwide.
+                    Our research has received support from USDA NIFA funding and has been published in computer vision workshops at major conferences, demonstrating the technical quality and practical relevance of our agricultural AI approach.
                   </p>
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="text-center">
                     <Award className="h-8 w-8 text-blue-600 mx-auto mb-2" />
                     <h4 className="font-medium text-blue-800 mb-1">USDA NIFA Support</h4>
@@ -759,13 +818,8 @@ export default function HomePage() {
                   </div>
                   <div className="text-center">
                     <FileText className="h-8 w-8 text-green-600 mx-auto mb-2" />
-                    <h4 className="font-medium text-green-800 mb-1">Premier Publications</h4>
-                    <p className="text-sm text-gray-600">IEEE CVPR, IET Image Processing</p>
-                  </div>
-                  <div className="text-center">
-                    <Globe className="h-8 w-8 text-purple-600 mx-auto mb-2" />
-                    <h4 className="font-medium text-purple-800 mb-1">Global Collaboration</h4>
-                    <p className="text-sm text-gray-600">International research institutions</p>
+                    <h4 className="font-medium text-green-800 mb-1">Publications</h4>
+                    <p className="text-sm text-gray-600">CVPR Workshop, ICCV Workshop, IET Image Processing</p>
                   </div>
                 </div>
               </CardContent>

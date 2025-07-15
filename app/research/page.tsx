@@ -146,9 +146,15 @@ export default function ResearchPage() {
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold text-gray-900 mb-6">Research Phases</h2>
-              <p className="text-xl text-gray-600 max-w-4xl mx-auto">
+              <p className="text-xl text-gray-600 max-w-4xl mx-auto mb-6">
                 A systematic three-phase progression from fundamental algorithmic development to practical real-world deployment.
               </p>
+              <Button asChild size="lg" className="bg-blue-600 hover:bg-blue-700">
+                <Link href="/research/technical-details">
+                  <FileText className="mr-2 h-5 w-5" />
+                  View Complete Technical Details
+                </Link>
+              </Button>
             </div>
 
             <Tabs defaultValue="phase1" className="w-full">
@@ -615,7 +621,7 @@ export default function ResearchPage() {
 
             <div className="bg-gradient-to-r from-purple-50 to-blue-50 rounded-xl p-8">
               <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">Ongoing Research</h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
                 <div className="text-center">
                   <div className="bg-white p-4 rounded-lg shadow-sm">
                     <Eye className="h-8 w-8 text-purple-600 mx-auto mb-2" />
@@ -644,6 +650,15 @@ export default function ResearchPage() {
                     <p className="text-xs text-gray-600">Adaptation to different livestock systems worldwide</p>
                   </div>
                 </div>
+              </div>
+              
+              <div className="text-center">
+                <Button asChild size="lg" className="bg-white text-purple-700 hover:bg-gray-100">
+                  <Link href="/research/technical-details">
+                    <FileText className="mr-2 h-5 w-5" />
+                    Read Complete Technical Documentation
+                  </Link>
+                </Button>
               </div>
             </div>
           </div>
