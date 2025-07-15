@@ -13,14 +13,23 @@ export const metadata: Metadata = {
   openGraph: {
     title: "AI Greener Livestock | USDA Research Project",
     description: "Developing AI-powered solutions to monitor and reduce methane emissions from livestock using optical gas imaging technology.",
-    url: "https://ai-greener-livestock.org",
+    url: "https://https://ai-greener-livestock.github.io",
     siteName: "AI Greener Livestock",
     type: "website",
+    images: [
+      {
+        url: "/logo-og.svg",
+        width: 1200,
+        height: 630,
+        alt: "AI Greener Livestock - Climate-Smart Agriculture Research",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "AI Greener Livestock | USDA Research Project",
     description: "AI-powered solutions for sustainable livestock management and methane emission reduction.",
+    images: ["/logo-og.svg"],
   },
   robots: {
     index: true,
