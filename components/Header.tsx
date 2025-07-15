@@ -29,7 +29,7 @@ export default function Header() {
           <Link href="/" className="flex items-center space-x-2">
             <div className="flex flex-col">
               <span className="text-sm sm:text-base lg:text-lg font-bold text-green-700">AI Greener Livestock</span>
-              <span className="text-xs text-muted-foreground">USDA Research Project</span>
+                              <span className="text-xs sm:text-sm text-muted-foreground">USDA Research Project</span>
             </div>
           </Link>
 

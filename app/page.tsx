@@ -909,20 +909,7 @@ export default function HomePage() {
                 </CardContent>
               </Card>
 
-              <Card className="bg-white/10 backdrop-blur-sm border-white/20 hover:bg-white/20 transition-all">
-                <CardContent className="p-6">
-                  <FileText className="h-8 w-8 text-white mb-4 mx-auto" />
-                  <h3 className="text-base sm:text-lg lg:text-xl font-semibold text-white mb-2">📄 Publications</h3>
-                  <p className="text-white/80 mb-4">
-                    Read our peer-reviewed publications that establish new standards for agricultural environmental monitoring research.
-                  </p>
-                  <Button asChild className="bg-white text-purple-700 hover:bg-gray-100">
-                    <Link href="/publications">
-                      View Publications <ArrowRight className="ml-2 h-4 w-4" />
-                    </Link>
-                  </Button>
-                </CardContent>
-              </Card>
+
 
               <Card className="bg-white/10 backdrop-blur-sm border-white/20 hover:bg-white/20 transition-all">
                 <CardContent className="p-6">

@@ -32,7 +32,7 @@ export default function TechnicalDetailsPage() {
               <h1 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-gray-900 mb-4">
                 Comprehensive Research Timeline
               </h1>
-              <p className="text-xl text-gray-600 max-w-4xl mx-auto">
+              <p className="text-sm sm:text-base lg:text-lg xl:text-xl text-gray-600 max-w-4xl mx-auto">
                 AI-Driven Methane Detection for Livestock Monitoring - Complete Technical Documentation
               </p>
             </div>
@@ -70,9 +70,9 @@ export default function TechnicalDetailsPage() {
                 <div className="flex items-center justify-between">
                   <div>
                     <CardTitle className="text-lg sm:text-2xl lg:text-3xl text-blue-800 mb-3">Phase 1: Foundation - Gasformer (2024)</CardTitle>
-                    <p className="text-xl text-blue-700">Establishing Transformer-Based Methane Detection</p>
+                    <p className="text-sm sm:text-base lg:text-lg xl:text-xl text-blue-700">Establishing Transformer-Based Methane Detection</p>
                   </div>
-                  <Badge className="bg-blue-600 text-white text-lg px-4 py-2">2024</Badge>
+                  <Badge className="bg-blue-600 text-white text-sm sm:text-base lg:text-lg px-4 py-2">2024</Badge>
                 </div>
               </CardHeader>
               <CardContent className="p-8">
@@ -135,9 +135,9 @@ export default function TechnicalDetailsPage() {
                 <div className="flex items-center justify-between">
                   <div>
                     <CardTitle className="text-lg sm:text-2xl lg:text-3xl text-green-800 mb-3">Phase 2: Comprehensive Validation - Multi-Model Analysis (2025)</CardTitle>
-                    <p className="text-xl text-green-700">Quantifying Dietary Impact on Methane Emissions</p>
+                    <p className="text-sm sm:text-base lg:text-lg xl:text-xl text-green-700">Quantifying Dietary Impact on Methane Emissions</p>
                   </div>
-                  <Badge className="bg-green-600 text-white text-lg px-4 py-2">2025</Badge>
+                  <Badge className="bg-green-600 text-white text-sm sm:text-base lg:text-lg px-4 py-2">2025</Badge>
                 </div>
               </CardHeader>
               <CardContent className="p-8">
@@ -200,9 +200,9 @@ export default function TechnicalDetailsPage() {
                 <div className="flex items-center justify-between">
                   <div>
                     <CardTitle className="text-lg sm:text-2xl lg:text-3xl text-purple-800 mb-3">Phase 3: Real-World Application - GasTwinFormer (2025)</CardTitle>
-                    <p className="text-xl text-purple-700">Integrated Segmentation and Dietary Classification</p>
+                    <p className="text-sm sm:text-base lg:text-lg xl:text-xl text-purple-700">Integrated Segmentation and Dietary Classification</p>
                   </div>
-                  <Badge className="bg-purple-600 text-white text-lg px-4 py-2">2025</Badge>
+                  <Badge className="bg-purple-600 text-white text-sm sm:text-base lg:text-lg px-4 py-2">2025</Badge>
                 </div>
               </CardHeader>
               <CardContent className="p-8">
@@ -333,29 +333,6 @@ export default function TechnicalDetailsPage() {
               <p className="text-gray-700 leading-relaxed">
                 The work represents a significant advancement in agricultural AI applications, providing practical tools for climate-smart livestock management while contributing to global methane emission reduction efforts. The combination of rigorous scientific validation, technical innovation, and demonstrated practical utility positions this research program as a model for how artificial intelligence can address pressing environmental challenges in agriculture.
               </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Navigation */}
-      <section className="py-12 bg-gradient-to-r from-blue-700 to-purple-700 text-white">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto text-center">
-                          <h2 className="text-lg sm:text-xl lg:text-2xl font-bold mb-4">Explore More Research</h2>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button asChild size="lg" className="bg-white text-blue-700 hover:bg-gray-100">
-                <Link href="/research">
-                  <ArrowLeft className="mr-2 h-5 w-5" />
-                  Research Overview
-                </Link>
-              </Button>
-              <Button asChild size="lg" className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-blue-700">
-                <Link href="/resources">
-                  <Download className="mr-2 h-5 w-5" />
-                  Access Resources
-                </Link>
-              </Button>
             </div>
           </div>
         </div>

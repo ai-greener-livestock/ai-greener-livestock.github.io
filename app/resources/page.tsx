@@ -138,7 +138,7 @@ export default function ResourcesPage() {
                           <Badge variant="outline">{paper.type}</Badge>
                           <span className="text-sm text-gray-500">{paper.year}</span>
                         </div>
-                        <CardTitle className="text-xl leading-tight mb-2">{paper.title}</CardTitle>
+                        <CardTitle className="text-lg sm:text-xl lg:text-2xl leading-tight mb-2">{paper.title}</CardTitle>
                         <CardDescription className="text-gray-600 text-sm mb-2">{paper.authors}</CardDescription>
                         <div className="text-sm text-gray-700">
                           <strong>{paper.venue}</strong>
@@ -213,33 +213,33 @@ export default function ResourcesPage() {
                         {dataset.status}
                       </Badge>
                     </div>
-                    <CardTitle className="text-lg">{dataset.title}</CardTitle>
+                    <CardTitle className="text-sm sm:text-base lg:text-lg">{dataset.title}</CardTitle>
                     <CardDescription>{dataset.description}</CardDescription>
                   </CardHeader>
                   <CardContent className="space-y-4">
                     <div className="grid grid-cols-2 gap-4 text-sm">
                       <div>
-                        <span className="font-medium text-gray-700">Size:</span>
+                        <span className="text-sm sm:text-base font-medium text-gray-700">Size:</span>
                         <p className="text-gray-600">{dataset.size}</p>
                       </div>
                       <div>
-                        <span className="font-medium text-gray-700">Download:</span>
+                        <span className="text-sm sm:text-base font-medium text-gray-700">Download:</span>
                         <p className="text-gray-600">{dataset.downloadSize}</p>
                       </div>
                     </div>
 
                     <div>
-                      <span className="font-medium text-gray-700 text-sm">Format:</span>
+                      <span className="text-sm sm:text-base font-medium text-gray-700">Format:</span>
                       <p className="text-sm text-gray-600">{dataset.format}</p>
                     </div>
 
                     <div>
-                      <span className="font-medium text-gray-700 text-sm">Specifications:</span>
-                      <p className="text-xs text-gray-600">{dataset.specifications}</p>
+                      <span className="text-sm sm:text-base font-medium text-gray-700">Specifications:</span>
+                      <p className="text-xs sm:text-sm text-gray-600">{dataset.specifications}</p>
                     </div>
 
                     <div className="pt-2 border-t">
-                      <div className="flex justify-between text-xs text-gray-500 mb-3">
+                      <div className="flex justify-between text-xs sm:text-sm text-gray-500 mb-3">
                         <span>License: {dataset.license}</span>
                         <span>Updated: {dataset.lastUpdated}</span>
                       </div>
@@ -267,7 +267,7 @@ export default function ResourcesPage() {
                         </div>
                       )}
                       {dataset.status === "Private" && (
-                        <p className="text-xs text-gray-500 mt-2">
+                        <p className="text-xs sm:text-sm text-gray-500 mt-2">
                           Contact research team for collaboration access
                         </p>
                       )}
@@ -286,7 +286,7 @@ export default function ResourcesPage() {
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
               <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900 mb-4">💻 Source Code</h2>
-              <p className="text-lg text-gray-600">
+              <p className="text-sm sm:text-base lg:text-lg text-gray-600">
                 Complete implementation code and tools for reproducing our results
               </p>
             </div>
@@ -300,18 +300,18 @@ export default function ResourcesPage() {
                       <Badge variant="outline">{repo.language}</Badge>
                       <Badge variant="secondary">{repo.license}</Badge>
                     </div>
-                    <CardTitle className="text-lg">{repo.title}</CardTitle>
+                    <CardTitle className="text-sm sm:text-base lg:text-lg">{repo.title}</CardTitle>
                     <CardDescription>{repo.description}</CardDescription>
                   </CardHeader>
                   <CardContent className="space-y-4">
                     <div>
-                      <span className="font-medium text-gray-700 text-sm">Framework:</span>
+                      <span className="text-sm sm:text-base font-medium text-gray-700">Framework:</span>
                       <p className="text-sm text-gray-600">{repo.framework}</p>
                     </div>
 
                     <div>
-                      <span className="font-medium text-gray-700 text-sm">Features:</span>
-                      <ul className="text-sm text-gray-600 ml-4 mt-1">
+                      <span className="text-sm sm:text-base font-medium text-gray-700">Features:</span>
+                      <ul className="text-sm sm:text-base text-gray-600 ml-4 mt-1">
                         {repo.features.map((feature, index) => (
                           <li key={index}>• {feature}</li>
                         ))}
@@ -346,7 +346,7 @@ export default function ResourcesPage() {
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-8">
               <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900 mb-4">📝 How to Cite</h2>
-              <p className="text-lg text-gray-600">
+              <p className="text-sm sm:text-base lg:text-lg text-gray-600">
                 If you use our work, please cite the appropriate papers using these references
               </p>
             </div>
@@ -360,7 +360,7 @@ export default function ResourcesPage() {
                   <div className="bg-white p-4 rounded border">
                     <div className="text-blue-800 font-medium mb-2">Conference Paper (CVPR 2024)</div>
                     <div className="bg-gray-50 p-3 rounded text-sm font-mono text-gray-700 overflow-x-auto">
-                      <pre className="whitespace-pre text-xs">
+                      <pre className="whitespace-pre text-xs sm:text-sm">
 {`@InProceedings{Sarker_2024_CVPR,
   author = {Sarker, Toqi Tahamid and Embaby, Mohamed G and Ahmed, Khaled R and Abughazaleh, Amer},
   title = {Gasformer: A Transformer-based Architecture for Segmenting Methane Emissions from Livestock in Optical Gas Imaging},
@@ -374,7 +374,7 @@ export default function ResourcesPage() {
                   <div className="bg-white p-4 rounded border">
                     <div className="text-blue-800 font-medium mb-2">Journal Article (IET 2025)</div>
                     <div className="bg-gray-50 p-3 rounded text-sm font-mono text-gray-700 overflow-x-auto">
-                      <pre className="whitespace-pre text-xs">
+                      <pre className="whitespace-pre text-xs sm:text-sm">
 {`@article{embaby2025optical,
   title={Optical gas imaging and deep learning for quantifying enteric methane emissions from cattle under different diets},
   author={Embaby, Mohamed G and Sarker, Toqi Tahamid and AbuGhazaleh, Amer and Ahmed, Khaled R},
@@ -397,7 +397,7 @@ export default function ResourcesPage() {
             <h2 className="text-3xl font-bold mb-6">
               Need Help or Collaboration?
             </h2>
-            <p className="text-xl mb-8 opacity-90">
+            <p className="text-sm sm:text-base lg:text-lg xl:text-xl mb-8 opacity-90">
               Contact our research team for dataset access, code implementation assistance, 
               or collaboration opportunities in climate and agricultural research.
             </p>

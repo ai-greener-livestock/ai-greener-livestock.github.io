@@ -107,7 +107,7 @@ export default function TeamPage() {
                         className="w-full h-full object-cover"
                       />
                     </div>
-                    <CardTitle className="text-xl">{member.name}</CardTitle>
+                    <CardTitle className="text-lg sm:text-xl lg:text-2xl">{member.name}</CardTitle>
                     <div className="space-y-1">
                       <Badge variant="default" className="bg-blue-600">
                         {member.role}
@@ -123,15 +123,15 @@ export default function TeamPage() {
                     <p className="text-sm text-gray-600">{member.description}</p>
                     
                     <div>
-                      <h4 className="font-medium text-gray-800 text-sm mb-2">Education:</h4>
+                      <h4 className="text-sm sm:text-base font-medium text-gray-800 mb-2">Education:</h4>
                       <p className="text-sm text-gray-600">{member.education}</p>
                     </div>
 
                     <div>
-                      <h4 className="font-medium text-gray-800 text-sm mb-2">Expertise:</h4>
+                      <h4 className="text-sm sm:text-base font-medium text-gray-800 mb-2">Expertise:</h4>
                       <div className="flex flex-wrap gap-1">
                         {member.expertise.map((skill, index) => (
-                          <Badge key={index} variant="secondary" className="text-xs">
+                          <Badge key={index} variant="secondary" className="text-xs sm:text-sm">
                             {skill}
                           </Badge>
                         ))}
