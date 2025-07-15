@@ -1,89 +1,75 @@
 import Link from "next/link"
-import { Github, Mail, ExternalLink } from "lucide-react"
+import { Mail, MapPin } from "lucide-react"
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-50 border-t">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {/* Project Information */}
+    <footer className="bg-gradient-to-r from-gray-50 via-white to-gray-50 border-t border-gray-200">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        {/* Main Footer Content */}
+        <div className="text-center space-y-8">
+          {/* Project Title & Description */}
           <div className="space-y-4">
-            <h3 className="text-base sm:text-lg font-semibold text-green-700">AI Greener Livestock</h3>
-            <p className="text-sm sm:text-base text-gray-600">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent">
+              AI Greener Livestock
+            </h2>
+            <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
               Artificial Intelligence for Greener Livestock: Educational and Research
             </p>
-            <div className="space-y-2">
-              <p className="text-xs sm:text-sm text-gray-500">
-                Award Number: 2022-70001-37404
-              </p>
-              <p className="text-xs sm:text-sm text-gray-500">
-                Funded by USDA National Institute of Food and Agriculture
-              </p>
-            </div>
           </div>
 
-          {/* Quick Links */}
-          <div className="space-y-4">
-            <h3 className="text-base sm:text-lg font-semibold text-gray-900">Quick Links</h3>
-            <div className="grid grid-cols-2 gap-2">
-              <Link href="/" className="text-sm sm:text-base text-gray-600 hover:text-green-700 transition-colors">
-                Home
-              </Link>
-              <Link href="/project" className="text-sm sm:text-base text-gray-600 hover:text-green-700 transition-colors">
-                About Project
-              </Link>
-              <Link href="/research" className="text-sm sm:text-base text-gray-600 hover:text-green-700 transition-colors">
-                Research
-              </Link>
-              <Link href="/resources" className="text-sm sm:text-base text-gray-600 hover:text-green-700 transition-colors">
-                Publications
-              </Link>
-              <Link href="/resources" className="text-sm sm:text-base text-gray-600 hover:text-green-700 transition-colors">
-                Datasets
-              </Link>
-              <Link href="mailto:khaled.ahmed@siu.edu" className="text-sm sm:text-base text-gray-600 hover:text-green-700 transition-colors">
-                Contact
-              </Link>
-            </div>
+          {/* Navigation Links */}
+          <div className="flex flex-wrap justify-center gap-6 sm:gap-8 lg:gap-12">
+            <Link 
+              href="/" 
+              className="text-gray-700 hover:text-green-600 transition-all duration-300 text-lg font-medium hover:scale-105"
+            >
+              Home
+            </Link>
+            <Link 
+              href="/research" 
+              className="text-gray-700 hover:text-green-600 transition-all duration-300 text-lg font-medium hover:scale-105"
+            >
+              Research
+            </Link>
+            <Link 
+              href="/team" 
+              className="text-gray-700 hover:text-green-600 transition-all duration-300 text-lg font-medium hover:scale-105"
+            >
+              Team
+            </Link>
+            <Link 
+              href="/resources" 
+              className="text-gray-700 hover:text-green-600 transition-all duration-300 text-lg font-medium hover:scale-105"
+            >
+              Resources
+            </Link>
           </div>
 
-          {/* Contact & Social */}
-          <div className="space-y-4">
-            <h3 className="text-base sm:text-lg font-semibold text-gray-900">Connect</h3>
-            <div className="space-y-3">
-              <div className="flex items-center space-x-2">
-                <Mail className="h-4 w-4 text-gray-500" />
+          {/* Contact & University Info */}
+          <div className="space-y-6 pt-8">
+            <div className="flex flex-col sm:flex-row justify-center items-center gap-6 sm:gap-12">
+              <div className="flex items-center space-x-3 text-gray-600">
+                <Mail className="h-5 w-5 text-green-600" />
                 <a 
-                  href="mailto:toqitahamid.sarker@siu.edu"
-                  className="text-sm sm:text-base text-gray-600 hover:text-green-700 transition-colors"
+                  href="mailto:khaled.ahmed@siu.edu"
+                  className="hover:text-green-600 transition-colors duration-300 text-lg"
                 >
                   Research Team
                 </a>
               </div>
-              <div className="flex items-center space-x-2">
-                <Github className="h-4 w-4 text-gray-500" />
-                <a 
-                  href="https://github.com/toqitahamid/Gasformer"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-sm sm:text-base text-gray-600 hover:text-green-700 transition-colors flex items-center space-x-1"
-                >
-                  <span>GitHub Repository</span>
-                  <ExternalLink className="h-3 w-3" />
-                </a>
-              </div>
-              <div className="text-sm sm:text-base text-gray-600">
-                <p>Southern Illinois University</p>
-                <p>Carbondale, Illinois</p>
+              <div className="flex items-center space-x-3 text-gray-600">
+                <MapPin className="h-5 w-5 text-green-600" />
+                <span className="text-lg">Southern Illinois University, Carbondale</span>
               </div>
             </div>
           </div>
         </div>
 
-        <div className="mt-8 pt-8 border-t border-gray-200">
+        {/* Bottom Border & Copyright */}
+        <div className="mt-12 pt-8 border-t border-gray-300">
           <div className="text-center">
-            <p className="text-xs sm:text-sm text-gray-500">
-              © 2024 Southern Illinois University. This research is supported by the USDA NIFA under award 2022-70001-37404.
+            <p className="text-gray-500 text-sm sm:text-base">
+              © 2025 Southern Illinois University. All rights reserved.
             </p>
           </div>
         </div>

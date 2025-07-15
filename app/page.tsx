@@ -34,7 +34,6 @@ export default function HomePage() {
             <a href="#hero" className="text-xs sm:text-sm px-3 py-1 rounded hover:bg-gray-100 transition-colors">Overview</a>
             <a href="#challenge" className="text-xs sm:text-sm px-3 py-1 rounded hover:bg-gray-100 transition-colors">Challenge</a>
             <a href="#solution" className="text-xs sm:text-sm px-3 py-1 rounded hover:bg-gray-100 transition-colors">Solution</a>
-            <a href="#methodology" className="text-xs sm:text-sm px-3 py-1 rounded hover:bg-gray-100 transition-colors">Methodology</a>
             <a href="#achievements" className="text-xs sm:text-sm px-3 py-1 rounded hover:bg-gray-100 transition-colors">Achievements</a>
             <a href="#journey" className="text-xs sm:text-sm px-3 py-1 rounded hover:bg-gray-100 transition-colors">Journey</a>
             <a href="#impact" className="text-xs sm:text-sm px-3 py-1 rounded hover:bg-gray-100 transition-colors">Impact</a>
