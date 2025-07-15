@@ -38,6 +38,18 @@ export default function ResourcesPage() {
         pdf: "#",
         doi: "https://doi.org/10.1049/ipr2.12934"
       }
+    },
+    {
+      id: 3,
+      title: "GasTwinFormer: A Hybrid Vision Transformer for Livestock Methane Emission Segmentation and Dietary Classification in Optical Gas Imaging",
+      authors: "Toqi Tahamid Sarker, Mohamed G Embaby, Taminul Islam, Amer AbuGhazaleh, Khaled R Ahmed",
+      venue: "IEEE International Conference on Computer Vision (ICCV) Workshop",
+      year: "2025",
+      type: "Conference Paper",
+      status: "Accepted",
+      links: {
+        pdf: "#"
+      }
     }
   ]
 
@@ -77,6 +89,18 @@ export default function ResourcesPage() {
       downloadSize: "1.5 GB",
       lastUpdated: "December 2024",
       status: "Available"
+    },
+    {
+      id: 4,
+      title: "Beef Cattle Methane Emissions Dataset",
+      description: "Comprehensive methane emission data from beef cattle under varying dietary conditions",
+      size: "11,694 manually annotated frames from 19 recordings",
+      format: "640×480 thermal images with emission segmentation masks",
+      specifications: "FLIR GX320 camera, 3 dietary treatments: High Forage (2,730), Mixed Diet (4,658), High Grain (4,306)",
+      license: "Restricted Access",
+      downloadSize: "3.2 GB",
+      lastUpdated: "December 2024",
+      status: "Private"
     }
   ]
 

@@ -11,16 +11,13 @@ import {
   Users, 
   Target,
   Award,
-  BookOpen,
   Code,
   Download,
-  ExternalLink,
   CheckCircle,
   TrendingUp,
   Globe,
   ArrowRight,
   FileText,
-  Eye,
   Layers,
   Settings,
   Activity
@@ -489,7 +486,7 @@ export default function ResearchPage() {
                           <div className="bg-white p-6 rounded-lg border border-purple-200">
                             <h3 className="text-sm sm:text-base lg:text-lg font-semibold text-purple-800 mb-3 flex items-center">
                               <Database className="h-5 w-5 mr-2" />
-                              Comprehensive Dataset: Beef Cattle Emissions
+                              Comprehensive Dataset: Beef Cattle Methane Emissions
                             </h3>
                             <div className="space-y-3">
                               <div className="text-center mb-4">
@@ -592,7 +589,7 @@ export default function ResearchPage() {
                   <div className="text-sm sm:text-base lg:text-lg space-y-4">
                     <div className="flex items-center">
                       <ArrowRight className="h-4 w-4 text-blue-600 mr-2" />
-                      <span className="text-sm text-gray-700">Single-task CNN → Transformer-based → Hybrid attention → Dual-task learning</span>
+                      <span className="text-sm text-gray-700">Transformer-based → Hybrid attention → Dual-task learning</span>
                     </div>
                     <div className="flex items-center">
                       <ArrowRight className="h-4 w-4 text-blue-600 mr-2" />
@@ -620,155 +617,6 @@ export default function ResearchPage() {
                   </ul>
                 </CardContent>
               </Card>
-            </div>
-
-            <div className="bg-gradient-to-r from-purple-50 to-blue-50 rounded-xl p-8">
-              <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-900 mb-6 text-center">Ongoing Research</h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-                <div className="text-center">
-                  <div className="bg-white p-4 rounded-lg shadow-sm">
-                    <Eye className="h-8 w-8 text-purple-600 mx-auto mb-2" />
-                    <h4 className="font-semibold text-purple-800 mb-1">Multi-gas Detection</h4>
-                    <p className="text-xs sm:text-sm text-gray-600">Extending to CO₂ and N₂O emissions</p>
-                  </div>
-                </div>
-                <div className="text-center">
-                  <div className="bg-white p-4 rounded-lg shadow-sm">
-                    <Activity className="h-8 w-8 text-blue-600 mx-auto mb-2" />
-                    <h4 className="font-semibold text-blue-800 mb-1">Continuous Monitoring</h4>
-                    <p className="text-xs sm:text-sm text-gray-600">24/7 automated farm surveillance systems</p>
-                  </div>
-                </div>
-                <div className="text-center">
-                  <div className="bg-white p-4 rounded-lg shadow-sm">
-                    <Brain className="h-8 w-8 text-green-600 mx-auto mb-2" />
-                    <h4 className="font-semibold text-green-800 mb-1">Mitigation Optimization</h4>
-                    <p className="text-xs sm:text-sm text-gray-600">AI-driven dietary recommendation systems</p>
-                  </div>
-                </div>
-                <div className="text-center">
-                  <div className="bg-white p-4 rounded-lg shadow-sm">
-                    <Globe className="h-8 w-8 text-amber-600 mx-auto mb-2" />
-                    <h4 className="font-semibold text-amber-800 mb-1">Global Deployment</h4>
-                    <p className="text-xs sm:text-sm text-gray-600">Adaptation to different livestock systems worldwide</p>
-                  </div>
-                </div>
-              </div>
-              
-              <div className="text-center">
-                <Button asChild size="lg" className="bg-white text-purple-700 hover:bg-gray-100">
-                  <Link href="/research/technical-details">
-                    <FileText className="mr-2 h-5 w-5" />
-                    Read Complete Technical Documentation
-                  </Link>
-                </Button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Publications & Recognition */}
-      <section className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-900 mb-6">Publications & Recognition</h2>
-              <p className="text-sm sm:text-base lg:text-lg text-gray-600 max-w-4xl mx-auto">
-                Our research has resulted in a strong publication record reflecting both technical innovation and practical impact.
-              </p>
-            </div>
-
-            <div className="space-y-6 mb-12">
-              <Card className="border-l-4 border-blue-500">
-                <CardContent className="p-6">
-                  <div className="flex items-start justify-between">
-                    <div className="flex-1">
-                      <h3 className="text-sm sm:text-base lg:text-lg font-semibold text-blue-800 mb-2">
-                        Gasformer: A Transformer-based Architecture for Segmenting Methane Emissions from Livestock in Optical Gas Imaging
-                      </h3>
-                      <p className="text-sm sm:text-base lg:text-lg text-gray-600 mb-2">
-                        Sarker, T.T., et al. • <strong>CVPR Workshop on Computer Vision for Agriculture</strong> • 2024
-                      </p>
-                      <p className="text-sm sm:text-base lg:text-lg text-gray-600">
-                        Presented at the premier computer vision conference, receiving significant attention from both CV and agricultural research communities.
-                      </p>
-                    </div>
-                    <div className="flex gap-2 ml-4">
-                      <Button size="sm" variant="outline">
-                        <ExternalLink className="h-4 w-4" />
-                      </Button>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-
-              <Card className="border-l-4 border-green-500">
-                <CardContent className="p-6">
-                  <div className="flex items-start justify-between">
-                    <div className="flex-1">
-                      <h3 className="text-sm sm:text-base lg:text-lg font-semibold text-green-800 mb-2">
-                        Optical gas imaging and deep learning for quantifying enteric methane emissions from rumen fermentation in vitro
-                      </h3>
-                      <p className="text-sm sm:text-base lg:text-lg text-gray-600 mb-2">
-                        Embaby, M.G., et al. • <strong>IET Image Processing</strong> • vol. 19, no. 1 • 2025
-                      </p>
-                      <p className="text-sm sm:text-base lg:text-lg text-gray-600">
-                        Provides detailed methodological information enabling replication and extension by other research groups.
-                      </p>
-                    </div>
-                    <div className="flex gap-2 ml-4">
-                      <Button size="sm" variant="outline">
-                        <ExternalLink className="h-4 w-4" />
-                      </Button>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-
-              <Card className="border-l-4 border-purple-500">
-                <CardContent className="p-6">
-                  <div className="flex items-start justify-between">
-                    <div className="flex-1">
-                      <h3 className="text-sm sm:text-base lg:text-lg font-semibold text-purple-800 mb-2">
-                        GasTwinFormer: A Hybrid Vision Transformer for Livestock Methane Emission Segmentation and Dietary Classification in Optical Gas Imaging
-                      </h3>
-                      <p className="text-sm sm:text-base lg:text-lg text-gray-600 mb-2">
-                        Sarker, T.T., et al. • <strong>Submitted to ICCV</strong> • 2025
-                      </p>
-                      <p className="text-sm sm:text-base lg:text-lg text-gray-600">
-                        Represents the transition to high-impact computer vision venues and recognition of agricultural AI as a legitimate area for technical innovation.
-                      </p>
-                    </div>
-                    <div className="flex gap-2 ml-4">
-                      <Badge variant="secondary">Under Review</Badge>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
-
-            <div className="bg-white rounded-xl p-8 shadow-lg">
-              <div className="text-center mb-8">
-                <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-900 mb-4">Funding Support</h3>
-                <p className="text-sm sm:text-base lg:text-lg text-gray-600">
-                  This research is supported by prestigious funding agencies, reflecting confidence in both the technical approach and potential for practical impact.
-                </p>
-              </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div className="text-center">
-                  <Award className="h-12 w-12 text-green-600 mx-auto mb-4" />
-                  <h4 className="text-sm sm:text-base lg:text-lg font-semibold text-green-800 mb-2">USDA NIFA Award</h4>
-                  <p className="text-sm sm:text-base lg:text-lg text-green-600 font-medium">2022-70001-37404</p>
-                  <p className="text-sm sm:text-base lg:text-lg text-gray-600 mt-2">Primary funding for comprehensive research program</p>
-                </div>
-                <div className="text-center">
-                  <BookOpen className="h-12 w-12 text-blue-600 mx-auto mb-4" />
-                  <h4 className="text-sm sm:text-base lg:text-lg font-semibold text-blue-800 mb-2">SIU Office of Vice Chancellor for Research</h4>
-                  <p className="text-sm sm:text-base lg:text-lg text-blue-600 font-medium">Institutional Support</p>
-                  <p className="text-sm sm:text-base lg:text-lg text-gray-600 mt-2">Additional funding for equipment and personnel</p>
-                </div>
-              </div>
             </div>
           </div>
         </div>

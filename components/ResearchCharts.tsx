@@ -56,6 +56,7 @@ const modelPerformanceData = [
 // Dataset Distribution Data
 const datasetData = [
   { name: "Controlled Methane Release", images: 9237, description: "Known flow rates" },
+  { name: "Beef Cattle Methane Emissions", images: 11694, description: "Live cattle, 3 diets" },
   { name: "Controlled Diet", images: 4885, description: "Different dietary treatments" },
   { name: "Dairy Cow Rumen", images: 340, description: "Real cow samples" }
 ]
@@ -227,14 +228,14 @@ export function ModelPerformanceChart() {
 
 // Dataset Overview Pie Chart
 export function DatasetOverview() {
-  const COLORS = ['#3b82f6', '#10b981', '#f59e0b']
+  const COLORS = ['#3b82f6', '#8b5cf6', '#10b981', '#f59e0b']
   
   return (
     <Card>
       <CardHeader>
         <CardTitle>Research Dataset Overview</CardTitle>
         <CardDescription>
-          14,462 total labeled images across three specialized datasets
+          26,156 total labeled images across four specialized datasets
         </CardDescription>
       </CardHeader>
       <CardContent>
@@ -263,7 +264,7 @@ export function DatasetOverview() {
           </ResponsiveContainer>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mt-4">
           {datasetData.map((dataset, index) => (
             <div key={dataset.name} className="text-center p-3 bg-gray-50 rounded-lg">
               <div 
