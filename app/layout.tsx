@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "AI Greener Livestock | USDA Research Project",
     description: "AI-powered solutions for sustainable livestock management and methane emission reduction.",
-    images: ["/logo-og.svg"],
+    images: ["public/logo-og.svg"],
   },
   robots: {
     index: true,
