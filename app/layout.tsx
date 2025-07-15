@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/logo-og.svg",
+        url: "public/logo-og.svg",
         width: 1200,
         height: 630,
         alt: "AI Greener Livestock - Climate-Smart Agriculture Research",
