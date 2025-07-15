@@ -57,6 +57,19 @@ export default function TeamPage() {
         education: "Ph.D. in Computer Science, Southern Illinois University Carbondale (Fall 2023 - Present); B.Sc. in Computer Science and Engineering, BRAC University, Bangladesh (2012-2016)",
         photo: "/team/toqi-tahamid-sarker.png"
       },
+      {
+        id: 5,
+        name: "Taminul Islam",
+        role: "Research Assistant",
+        title: "Graduate Research Assistant",
+        department: "School of Computing",
+        institution: "Southern Illinois University Carbondale",
+        email: "taminul.islam@siu.edu",
+        expertise: ["Computer Vision", "Deep Learning", "Semantic Segmentation", "Object Detection/Tracking", "Natural Language Processing", "Healthcare AI", "Agricultural AI", "Cybersecurity"],
+        description: "Taminul is a PhD student in Computer Science at the BASE: Bridging AI, Systems, and Environment Research lab, focusing on computer vision and deep learning applications in agriculture. He has published research papers in NLP, cybersecurity, healthcare, and agriculture through prestigious publishers including IEEE, Springer, Taylor & Francis, and Elsevier. As an active mentor, he has guided approximately 80 students in research projects and has reviewed over 25 articles for various journals and conferences.",
+        education: "Ph.D. in Computer Science, Southern Illinois University Carbondale (Present); B.Sc. in Computer Science and Engineering, Daffodil International University, Bangladesh (First-class honors with Full Free Scholarship)",
+        photo: "/team/taminul-islam.png"
+      },
   ]
 
   return (
