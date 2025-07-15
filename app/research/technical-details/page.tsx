@@ -50,7 +50,7 @@ export default function TechnicalDetailsPage() {
             
             <div className="prose prose-lg max-w-none">
               <p className="text-gray-700 leading-relaxed mb-6">
-                Livestock methane emissions represent a critical challenge in climate science, accounting for 32% of human-caused methane production globally. As the world&apos;s population is projected to reach 9.7 billion by 2050, the demand for livestock products will increase by 70%, making automated monitoring systems essential for developing effective climate mitigation strategies. Our comprehensive research program addresses this challenge through the development of cutting-edge artificial intelligence techniques combined with optical gas imaging technology to detect, segment, and quantify methane emissions from livestock operations.
+                Livestock methane emissions represent a critical challenge in climate science, accounting for 32% of human-caused methane production globally. As the world&apos;s population is projected to reach 9.7 billion by 2050, the demand for livestock products will increase by 70%, making automated monitoring systems essential for developing effective climate mitigation strategies. Our comprehensive research program addresses this challenge through the development of artificial intelligence techniques combined with optical gas imaging technology to detect, segment, and quantify methane emissions from livestock operations.
               </p>
               
               <p className="text-gray-700 leading-relaxed">
@@ -155,7 +155,7 @@ export default function TechnicalDetailsPage() {
                   </p>
                   
                   <p className="text-gray-700 leading-relaxed mb-6">
-                    The Controlled Diet dataset that emerged from this work represents the most comprehensive collection of its kind, containing 4,885 methane plume images categorized into three distinct concentration classes based on gas chromatography measurements. Class-1 images (166-171 ppm) corresponded to the control diet, Class-2 images (300-334 ppm) to the low forage treatment, and Class-3 images (457-510 ppm) to the high forage diet. This classification system provided an unprecedented opportunity to investigate the relationship between dietary composition and visual plume characteristics.
+                    The Controlled Diet dataset that emerged from this work represents a comprehensive collection, containing 4,885 methane plume images categorized into three distinct concentration classes based on gas chromatography measurements. Class-1 images (166-171 ppm) corresponded to the control diet, Class-2 images (300-334 ppm) to the low forage treatment, and Class-3 images (457-510 ppm) to the high forage diet. This classification system provided an opportunity to investigate the relationship between dietary composition and visual plume characteristics.
                   </p>
                   
                   <p className="text-gray-700 leading-relaxed mb-6">
@@ -282,7 +282,7 @@ export default function TechnicalDetailsPage() {
               </p>
               
               <p className="text-gray-700 leading-relaxed mb-6">
-                The dataset complexity progression from controlled laboratory conditions through in vitro fermentation simulations to live animal studies reflects the methodical approach necessary for developing robust AI systems for agricultural applications. Each phase provided validation of the previous work while introducing new challenges that drove further innovation. The cumulative dataset now represents the most comprehensive collection of annotated livestock methane emission data available to the research community.
+                The dataset complexity progression from controlled laboratory conditions through in vitro fermentation simulations to live animal studies reflects the methodical approach necessary for developing robust AI systems for agricultural applications. Each phase provided validation of the previous work while introducing new challenges that drove further innovation. The cumulative dataset now represents a comprehensive collection of annotated livestock methane emission data available to the research community.
               </p>
               
               <p className="text-gray-700 leading-relaxed mb-6">

@@ -131,7 +131,7 @@ export function DietImpactChart() {
             <h4 className="font-medium text-blue-800 mb-2">Key Finding</h4>
             <p className="text-sm text-blue-700">
               Seaweed supplement reduced methane emissions by <strong>99.2%</strong> compared to high forage diet 
-              (482.45 ppm → 1.41 ppm), representing a dramatic breakthrough in emission reduction.
+              (482.45 ppm → 1.41 ppm), representing significant emission reduction.
             </p>
           </div>
         )}
@@ -298,7 +298,7 @@ export function EmissionReductionTimeline() {
       <CardHeader>
         <CardTitle>Research Progress Timeline</CardTitle>
         <CardDescription>
-          Journey from traditional monitoring to breakthrough emission reduction
+          Journey from traditional monitoring to significant emission reduction
         </CardDescription>
       </CardHeader>
       <CardContent>

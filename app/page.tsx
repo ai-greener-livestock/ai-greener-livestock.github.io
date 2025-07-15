@@ -55,7 +55,7 @@ export default function HomePage() {
                 <span className="block text-green-700">Revolutionizing Methane Monitoring</span>
               </h1>
               <p className="text-lg sm:text-xl lg:text-2xl text-gray-600 mb-8 max-w-4xl mx-auto leading-relaxed">
-                Transforming Climate-Smart Agriculture Through Artificial Intelligence
+                Advancing Climate-Smart Agriculture Through Artificial Intelligence
               </p>
             </div>
 
@@ -64,10 +64,10 @@ export default function HomePage() {
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
                   <div className="space-y-6">
                     <p className="text-sm sm:text-base lg:text-lg xl:text-xl text-gray-700 leading-relaxed">
-                      The agriculture industry faces an unprecedented challenge: meeting the food demands of a growing global population while dramatically reducing greenhouse gas emissions. Livestock operations contribute <strong className="text-green-700">32% of human-caused methane emissions</strong>, making automated monitoring essential for effective climate mitigation.
+                      The agriculture industry faces a significant challenge: meeting the food demands of a growing global population while reducing greenhouse gas emissions. Livestock operations contribute <strong className="text-green-700">32% of human-caused methane emissions</strong>, making automated monitoring essential for effective climate mitigation.
                     </p>
                     <p className="text-sm sm:text-base lg:text-lg xl:text-xl text-gray-700 leading-relaxed">
-                      Our groundbreaking research program combines cutting-edge artificial intelligence with optical gas imaging technology to create the <strong className="text-blue-700">world&apos;s first practical, real-time methane detection system</strong> for livestock operations.
+                      Our research program combines artificial intelligence with optical gas imaging technology to create a <strong className="text-blue-700">practical, real-time methane detection system</strong> for livestock operations.
                     </p>
                     <p className="text-sm sm:text-base lg:text-lg xl:text-xl text-gray-700 leading-relaxed">
                       Through three years of intensive research and development, we have progressed from fundamental algorithmic innovation to real-world validation with live animals, creating tools that demonstrate the potential to enable farmers to monitor and reduce methane emissions while optimizing productivity. Our work represents the <strong className="text-purple-700">largest and most comprehensive study of AI-based livestock methane detection ever conducted</strong>.
@@ -219,7 +219,7 @@ export default function HomePage() {
             <div className="text-center mb-16">
               <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-6">Our Solution</h2>
                               <p className="text-base sm:text-lg lg:text-xl text-gray-600 max-w-4xl mx-auto">
-                  Four breakthrough innovations working together to create the world&apos;s first practical methane monitoring system for livestock operations.
+                  Four key innovations working together to create a practical methane monitoring system for livestock operations.
                 </p>
             </div>
 
@@ -414,9 +414,9 @@ export default function HomePage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-16">
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-6">Breakthrough Achievements</h2>
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-6">Key Achievements</h2>
               <p className="text-base sm:text-lg lg:text-xl text-gray-600 max-w-4xl mx-auto">
-                Seven groundbreaking milestones that establish new standards for agricultural AI and environmental monitoring.
+                Seven research milestones that advance agricultural AI and environmental monitoring.
               </p>
             </div>
 
@@ -431,10 +431,10 @@ export default function HomePage() {
                 </CardHeader>
                 <CardContent>
                   <p className="text-sm text-gray-700 mb-3">
-                    Our Gasformer model achieved unprecedented accuracy in detecting methane from dairy cow rumen gas samples in controlled laboratory conditions.
+                    Our Gasformer model achieved high accuracy in detecting methane from dairy cow rumen gas samples in controlled laboratory conditions.
                   </p>
                   <div className="text-xs sm:text-sm text-green-600 font-medium">
-                    Laboratory Validation • Surpassed all previous approaches
+                    Laboratory Validation • High performance achieved
                   </div>
                 </CardContent>
               </Card>
@@ -705,7 +705,7 @@ export default function HomePage() {
             <div className="text-center mb-16">
               <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-6">Impact & Applications</h2>
               <p className="text-base sm:text-lg lg:text-xl text-gray-600 max-w-4xl mx-auto">
-                Our research creates transformative opportunities across multiple sectors, from advancing scientific understanding to enabling practical farm management solutions.
+                Our research creates significant opportunities across multiple sectors, from advancing scientific understanding to enabling practical farm management solutions.
               </p>
             </div>
 
@@ -838,7 +838,7 @@ export default function HomePage() {
           <div className="max-w-4xl mx-auto text-center">
                           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-6">Future Vision</h2>
                           <p className="text-base sm:text-lg lg:text-xl text-gray-600 leading-relaxed mb-8">
-              As we look toward widespread deployment of intelligent livestock monitoring systems, our research provides the foundation for transforming how the agricultural industry approaches environmental stewardship.
+              As we look toward widespread deployment of intelligent livestock monitoring systems, our research provides the foundation for advancing how the agricultural industry approaches environmental stewardship.
             </p>
             <div className="bg-white rounded-xl p-8 shadow-lg">
               <p className="text-sm sm:text-base lg:text-lg text-gray-700 mb-6">
@@ -870,56 +870,60 @@ export default function HomePage() {
       </section>
 
       {/* Explore Our Research CTA */}
-      <section className="py-20 bg-gradient-to-r from-green-700 to-blue-700 text-white">
+      <section className="py-20 bg-gradient-to-br from-green-50 via-blue-50 to-purple-50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-8">Explore Our Research</h2>
-            <p className="text-base sm:text-lg lg:text-xl mb-12 opacity-90">
-              Dive deeper into our comprehensive research program and access all the tools and data that are transforming agricultural monitoring.
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-8">Explore Our Research</h2>
+            <p className="text-base sm:text-lg lg:text-xl text-gray-600 mb-12">
+              Dive deeper into our comprehensive research program and access all the tools and data that advance agricultural monitoring.
             </p>
             
-            <div className="cta-section grid grid-cols-1 md:grid-cols-2 gap-6">
-              <Card className="bg-white/10 backdrop-blur-sm border-white/20 hover:bg-white/20 transition-all">
-                <CardContent className="p-6">
-                  <BookOpen className="h-8 w-8 text-white mb-4 mx-auto" />
-                  <h3 className="text-base sm:text-lg lg:text-xl font-semibold text-white mb-2">📖 Detailed Research Timeline</h3>
-                  <p className="text-white/80 mb-4">
-                    Dive deep into our three-phase research journey, from initial concept development through real-world deployment validation.
-                  </p>
-                  <Button asChild className="bg-white text-green-700 hover:bg-gray-100">
-                    <Link href="/research">
+            <div className="cta-section grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <Card className="bg-white/80 backdrop-blur-sm border-2 border-green-200 hover:shadow-xl transition-all duration-300 hover:scale-105 h-full">
+                <CardContent className="p-6 flex flex-col h-full">
+                  <div className="flex-grow">
+                    <BookOpen className="h-10 w-10 text-green-600 mb-4 mx-auto" />
+                    <h3 className="text-lg lg:text-xl font-semibold text-green-800 mb-3 text-center">Detailed Research Timeline</h3>
+                    <p className="text-gray-700 mb-6 text-center leading-relaxed">
+                      Dive deep into our three-phase research journey, from initial concept development through real-world deployment validation.
+                    </p>
+                  </div>
+                  <Button asChild className="bg-green-700 text-white hover:bg-green-800 transition-colors w-full">
+                    <Link href="/research" className="flex items-center justify-center">
                       Explore Timeline <ArrowRight className="ml-2 h-4 w-4" />
                     </Link>
                   </Button>
                 </CardContent>
               </Card>
 
-              <Card className="bg-white/10 backdrop-blur-sm border-white/20 hover:bg-white/20 transition-all">
-                <CardContent className="p-6">
-                  <Code className="h-8 w-8 text-white mb-4 mx-auto" />
-                  <h3 className="text-base sm:text-lg lg:text-xl font-semibold text-white mb-2">💻 Code & Datasets</h3>
-                  <p className="text-white/80 mb-4">
-                    Access our open-source implementations and comprehensive datasets that are advancing agricultural AI research worldwide.
-                  </p>
-                  <Button asChild className="bg-white text-blue-700 hover:bg-gray-100">
-                    <Link href="/resources">
+              <Card className="bg-white/80 backdrop-blur-sm border-2 border-blue-200 hover:shadow-xl transition-all duration-300 hover:scale-105 h-full">
+                <CardContent className="p-6 flex flex-col h-full">
+                  <div className="flex-grow">
+                    <Code className="h-10 w-10 text-blue-600 mb-4 mx-auto" />
+                    <h3 className="text-lg lg:text-xl font-semibold text-blue-800 mb-3 text-center">Code & Datasets</h3>
+                    <p className="text-gray-700 mb-6 text-center leading-relaxed">
+                      Access our open-source implementations and comprehensive datasets that are advancing agricultural AI research worldwide.
+                    </p>
+                  </div>
+                  <Button asChild className="bg-blue-700 text-white hover:bg-blue-800 transition-colors w-full">
+                    <Link href="/resources" className="flex items-center justify-center">
                       Download Resources <ArrowRight className="ml-2 h-4 w-4" />
                     </Link>
                   </Button>
                 </CardContent>
               </Card>
 
-
-
-              <Card className="bg-white/10 backdrop-blur-sm border-white/20 hover:bg-white/20 transition-all">
-                <CardContent className="p-6">
-                  <UserCheck className="h-8 w-8 text-white mb-4 mx-auto" />
-                  <h3 className="text-base sm:text-lg lg:text-xl font-semibold text-white mb-2">👥 Meet the Team</h3>
-                  <p className="text-sm sm:text-base text-white/80 mb-4">
-                    Learn about the interdisciplinary research team combining expertise in computer vision, agricultural science, and environmental monitoring.
-                  </p>
-                  <Button asChild className="bg-white text-green-700 hover:bg-gray-100">
-                    <Link href="/team">
+              <Card className="bg-white/80 backdrop-blur-sm border-2 border-purple-200 hover:shadow-xl transition-all duration-300 hover:scale-105 h-full md:col-span-2 lg:col-span-1">
+                <CardContent className="p-6 flex flex-col h-full">
+                  <div className="flex-grow">
+                    <UserCheck className="h-10 w-10 text-purple-600 mb-4 mx-auto" />
+                    <h3 className="text-lg lg:text-xl font-semibold text-purple-800 mb-3 text-center">Meet the Team</h3>
+                    <p className="text-gray-700 mb-6 text-center leading-relaxed">
+                      Learn about the interdisciplinary research team combining expertise in computer vision, AI, and animal science.
+                    </p>
+                  </div>
+                  <Button asChild className="bg-purple-700 text-white hover:bg-purple-800 transition-colors w-full">
+                    <Link href="/team" className="flex items-center justify-center">
                       Meet the Team <ArrowRight className="ml-2 h-4 w-4" />
                     </Link>
                   </Button>
@@ -931,28 +935,28 @@ export default function HomePage() {
       </section>
 
       {/* Footer Acknowledgment */}
-      <section className="py-16 bg-gray-900 text-white">
+      <section className="py-16 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="footer-acknowledgment max-w-4xl mx-auto">
             <div className="text-center mb-12">
-              <h3 className="text-lg sm:text-xl lg:text-2xl font-bold mb-4">Acknowledgments</h3>
-              <p className="text-sm sm:text-base text-gray-300">
+              <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-900 mb-4">Acknowledgments</h3>
+              <p className="text-sm sm:text-base text-gray-600">
                 This research is made possible through the generous support of our funding partners and institutional collaborators.
               </p>
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div>
-                <h4 className="text-sm sm:text-base lg:text-lg font-semibold text-green-400 mb-4">Funding Support</h4>
-                <div className="space-y-2 text-sm sm:text-base text-gray-300">
+                <h4 className="text-sm sm:text-base lg:text-lg font-semibold text-green-700 mb-4">Funding Support</h4>
+                <div className="space-y-2 text-sm sm:text-base text-gray-700">
                   <p>• USDA National Institute of Food and Agriculture (Award: 2022-70001-37404)</p>
                   <p>• Southern Illinois University Office of the Vice Chancellor for Research</p>
                 </div>
               </div>
               
               <div>
-                <h4 className="text-sm sm:text-base lg:text-lg font-semibold text-blue-400 mb-4">Institutional Partners</h4>
-                <div className="space-y-2 text-sm sm:text-base text-gray-300">
+                <h4 className="text-sm sm:text-base lg:text-lg font-semibold text-blue-700 mb-4">Institutional Partners</h4>
+                <div className="space-y-2 text-sm sm:text-base text-gray-700">
                   <p>• School of Computing, Southern Illinois University</p>
                   <p>• School of Agricultural Sciences, Southern Illinois University</p>
                 </div>

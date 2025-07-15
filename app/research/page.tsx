@@ -37,7 +37,7 @@ export default function ResearchPage() {
               AI-Driven Methane Detection for Livestock Monitoring
             </h1>
             <p className="text-base sm:text-lg lg:text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-              A comprehensive three-phase research program developing cutting-edge artificial intelligence techniques combined with optical gas imaging technology to detect, segment, and quantify methane emissions from livestock operations.
+              A comprehensive three-phase research program developing artificial intelligence techniques combined with optical gas imaging technology to detect, segment, and quantify methane emissions from livestock operations.
             </p>
           </div>
         </div>
@@ -94,7 +94,7 @@ export default function ResearchPage() {
                       <div className="text-sm text-blue-600">integrated solution</div>
                     </div>
                     <p className="text-sm text-gray-700">
-                      Combining cutting-edge artificial intelligence with optical gas imaging technology for real-time methane detection and quantification.
+                      Combining artificial intelligence with optical gas imaging technology for real-time methane detection and quantification.
                     </p>
                   </div>
                 </CardContent>
@@ -130,7 +130,7 @@ export default function ResearchPage() {
                 Livestock methane emissions represent a critical challenge in climate science, accounting for <strong className="text-red-700">32% of human-caused methane production</strong> globally. As the world&apos;s population is projected to reach 9.7 billion by 2050, the demand for livestock products will increase by <strong className="text-blue-700">70%</strong>, making automated monitoring systems essential for developing effective climate mitigation strategies.
               </p>
               <p className="text-sm sm:text-base lg:text-lg text-gray-700 leading-relaxed">
-                Our comprehensive research program addresses this challenge through the development of cutting-edge artificial intelligence techniques combined with optical gas imaging technology to detect, segment, and quantify methane emissions from livestock operations. This three-phase research initiative demonstrates a systematic progression from fundamental proof-of-concept work to practical real-world applications.
+                Our comprehensive research program addresses this challenge through the development of artificial intelligence techniques combined with optical gas imaging technology to detect, segment, and quantify methane emissions from livestock operations. This three-phase research initiative demonstrates a systematic progression from fundamental proof-of-concept work to practical real-world applications.
               </p>
             </div>
           </div>
@@ -209,7 +209,7 @@ export default function ResearchPage() {
                             <ul className="space-y-2 text-sm sm:text-base text-gray-700">
                               <li>• <strong>Encoder:</strong> Mix Vision Transformer (MiT-B0) for multi-scale feature extraction</li>
                               <li>• <strong>Decoder:</strong> Light-Ham decoder with Hamburger Matrix Decomposition</li>
-                              <li>• <strong>Breakthrough:</strong> Effective detection at concentrations as low as 10 SCCM</li>
+                              <li>• <strong>Achievement:</strong> Effective detection at concentrations as low as 10 SCCM</li>
                             </ul>
                           </div>
 
@@ -355,7 +355,7 @@ export default function ResearchPage() {
                           <div className="bg-amber-50 p-6 rounded-lg border border-amber-200">
                             <h3 className="text-sm sm:text-base lg:text-lg font-semibold text-amber-800 mb-3 flex items-center">
                               <Award className="h-5 w-5 mr-2" />
-                              Breakthrough Findings
+                              Key Findings
                             </h3>
                             <div className="space-y-3">
                               <div className="bg-white p-3 rounded">
@@ -513,7 +513,7 @@ export default function ResearchPage() {
                           <div className="bg-green-50 p-6 rounded-lg border border-green-200">
                             <h3 className="text-sm sm:text-base lg:text-lg font-semibold text-green-800 mb-3 flex items-center">
                               <Award className="h-5 w-5 mr-2" />
-                              Breakthrough Achievements
+                              Key Achievements
                             </h3>
                             <div className="grid grid-cols-2 gap-4 mb-4">
                               <div className="text-center">
