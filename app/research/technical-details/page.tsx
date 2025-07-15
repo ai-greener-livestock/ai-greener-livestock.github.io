@@ -29,7 +29,7 @@ export default function TechnicalDetailsPage() {
               <Badge variant="secondary" className="bg-blue-100 text-blue-800 mb-4">
                 Technical Research Details
               </Badge>
-              <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+              <h1 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-gray-900 mb-4">
                 Comprehensive Research Timeline
               </h1>
               <p className="text-xl text-gray-600 max-w-4xl mx-auto">
@@ -45,7 +45,7 @@ export default function TechnicalDetailsPage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-gray-900 mb-6">Project Overview</h2>
+              <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900 mb-6">Project Overview</h2>
             </div>
             
             <div className="prose prose-lg max-w-none">
@@ -69,7 +69,7 @@ export default function TechnicalDetailsPage() {
               <CardHeader className="bg-blue-100">
                 <div className="flex items-center justify-between">
                   <div>
-                    <CardTitle className="text-3xl text-blue-800 mb-3">Phase 1: Foundation - Gasformer (2024)</CardTitle>
+                    <CardTitle className="text-lg sm:text-2xl lg:text-3xl text-blue-800 mb-3">Phase 1: Foundation - Gasformer (2024)</CardTitle>
                     <p className="text-xl text-blue-700">Establishing Transformer-Based Methane Detection</p>
                   </div>
                   <Badge className="bg-blue-600 text-white text-lg px-4 py-2">2024</Badge>
@@ -134,7 +134,7 @@ export default function TechnicalDetailsPage() {
               <CardHeader className="bg-green-100">
                 <div className="flex items-center justify-between">
                   <div>
-                    <CardTitle className="text-3xl text-green-800 mb-3">Phase 2: Comprehensive Validation - Multi-Model Analysis (2025)</CardTitle>
+                    <CardTitle className="text-lg sm:text-2xl lg:text-3xl text-green-800 mb-3">Phase 2: Comprehensive Validation - Multi-Model Analysis (2025)</CardTitle>
                     <p className="text-xl text-green-700">Quantifying Dietary Impact on Methane Emissions</p>
                   </div>
                   <Badge className="bg-green-600 text-white text-lg px-4 py-2">2025</Badge>
@@ -199,7 +199,7 @@ export default function TechnicalDetailsPage() {
               <CardHeader className="bg-purple-100">
                 <div className="flex items-center justify-between">
                   <div>
-                    <CardTitle className="text-3xl text-purple-800 mb-3">Phase 3: Real-World Application - GasTwinFormer (2025)</CardTitle>
+                    <CardTitle className="text-lg sm:text-2xl lg:text-3xl text-purple-800 mb-3">Phase 3: Real-World Application - GasTwinFormer (2025)</CardTitle>
                     <p className="text-xl text-purple-700">Integrated Segmentation and Dietary Classification</p>
                   </div>
                   <Badge className="bg-purple-600 text-white text-lg px-4 py-2">2025</Badge>
@@ -269,7 +269,7 @@ export default function TechnicalDetailsPage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-gray-900 mb-6">Research Evolution &amp; Future Directions</h2>
+              <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900 mb-6">Research Evolution &amp; Future Directions</h2>
             </div>
             
             <div className="prose prose-lg max-w-none">
@@ -310,7 +310,7 @@ export default function TechnicalDetailsPage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-gray-900 mb-6">Publications &amp; Recognition</h2>
+              <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900 mb-6">Publications &amp; Recognition</h2>
             </div>
             
             <div className="prose prose-lg max-w-none">
@@ -342,7 +342,7 @@ export default function TechnicalDetailsPage() {
       <section className="py-12 bg-gradient-to-r from-blue-700 to-purple-700 text-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-2xl font-bold mb-4">Explore More Research</h2>
+                          <h2 className="text-lg sm:text-xl lg:text-2xl font-bold mb-4">Explore More Research</h2>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild size="lg" className="bg-white text-blue-700 hover:bg-gray-100">
                 <Link href="/research">

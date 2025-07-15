@@ -103,10 +103,10 @@ export default function ResourcesPage() {
             <Badge variant="secondary" className="bg-blue-100 text-blue-800 mb-4">
               Research Resources
             </Badge>
-            <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+            <h1 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-gray-900 mb-6">
               Publications, Data & Code
             </h1>
-            <p className="text-xl text-gray-600 leading-relaxed">
+            <p className="text-base sm:text-lg lg:text-xl text-gray-600 leading-relaxed">
               All research outputs from our methane emission detection study are freely available.
               Access our publications, datasets, and source code to build upon our work.
             </p>
@@ -119,8 +119,8 @@ export default function ResourcesPage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-gray-900 mb-4">📚 Publications</h2>
-              <p className="text-lg text-gray-600">
+              <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900 mb-4">📚 Publications</h2>
+              <p className="text-sm sm:text-base lg:text-lg text-gray-600">
                 Peer-reviewed research papers documenting our methodology and findings
               </p>
             </div>
@@ -188,8 +188,8 @@ export default function ResourcesPage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-gray-900 mb-4">🗂️ Datasets</h2>
-              <p className="text-lg text-gray-600">
+              <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900 mb-4">🗂️ Datasets</h2>
+              <p className="text-sm sm:text-base lg:text-lg text-gray-600">
                 Labeled datasets for methane detection research. The Controlled Diet (CD) dataset is openly available, 
                 while other datasets require permission for research collaboration.
               </p>
@@ -285,7 +285,7 @@ export default function ResourcesPage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-gray-900 mb-4">💻 Source Code</h2>
+              <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900 mb-4">💻 Source Code</h2>
               <p className="text-lg text-gray-600">
                 Complete implementation code and tools for reproducing our results
               </p>
@@ -345,7 +345,7 @@ export default function ResourcesPage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-8">
-              <h2 className="text-3xl font-bold text-gray-900 mb-4">📝 How to Cite</h2>
+              <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900 mb-4">📝 How to Cite</h2>
               <p className="text-lg text-gray-600">
                 If you use our work, please cite the appropriate papers using these references
               </p>

@@ -81,10 +81,10 @@ export default function TeamPage() {
             <Badge variant="secondary" className="bg-green-100 text-green-800 mb-4">
               Research Team
             </Badge>
-            <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+            <h1 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-gray-900 mb-6">
               Meet Our Research Team
             </h1>
-            <p className="text-xl text-gray-600 leading-relaxed">
+            <p className="text-base sm:text-lg lg:text-xl text-gray-600 leading-relaxed">
               An interdisciplinary team combining expertise in computer science, agricultural sciences, 
               and animal nutrition to advance methane emission detection and mitigation technologies.
             </p>
@@ -159,10 +159,10 @@ export default function TeamPage() {
       {/* Contact */}
       <section className="py-16 bg-blue-700 text-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold mb-6">
+                        <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold mb-6">
             Interested in Collaboration?
           </h2>
-          <p className="text-xl mb-8 max-w-2xl mx-auto opacity-90">
+                        <p className="text-base sm:text-lg lg:text-xl mb-8 max-w-2xl mx-auto opacity-90">
             We welcome collaborations with researchers, industry partners, and institutions 
             working on climate solutions and agricultural sustainability.
           </p>

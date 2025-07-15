@@ -28,7 +28,7 @@ export default function Header() {
           {/* Logo and Title */}
           <Link href="/" className="flex items-center space-x-2">
             <div className="flex flex-col">
-              <span className="text-lg font-bold text-green-700">AI Greener Livestock</span>
+              <span className="text-sm sm:text-base lg:text-lg font-bold text-green-700">AI Greener Livestock</span>
               <span className="text-xs text-muted-foreground">USDA Research Project</span>
             </div>
           </Link>
@@ -70,7 +70,7 @@ export default function Header() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="block rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-gray-900"
+                  className="block rounded-md px-3 py-2 text-sm sm:text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-gray-900"
                   onClick={() => setIsOpen(false)}
                 >
                   {item.title}

@@ -36,10 +36,10 @@ export default function ResearchPage() {
             <Badge variant="secondary" className="bg-blue-100 text-blue-800 mb-6">
               Research Timeline
             </Badge>
-            <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+            <h1 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-gray-900 mb-6">
               AI-Driven Methane Detection for Livestock Monitoring
             </h1>
-            <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+            <p className="text-base sm:text-lg lg:text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
               A comprehensive three-phase research program developing cutting-edge artificial intelligence techniques combined with optical gas imaging technology to detect, segment, and quantify methane emissions from livestock operations.
             </p>
           </div>
@@ -51,7 +51,7 @@ export default function ResearchPage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-gray-900 mb-6">Project Overview</h2>
+              <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900 mb-6">Project Overview</h2>
             </div>
             
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
@@ -65,11 +65,11 @@ export default function ResearchPage() {
                 <CardContent>
                   <div className="space-y-4">
                     <div className="text-center">
-                      <div className="text-3xl font-bold text-red-700">32%</div>
+                      <div className="text-xl sm:text-2xl lg:text-3xl font-bold text-red-700">32%</div>
                       <div className="text-sm text-red-600">of human-caused methane emissions</div>
                     </div>
                     <div className="text-center">
-                      <div className="text-3xl font-bold text-red-700">70%</div>
+                      <div className="text-xl sm:text-2xl lg:text-3xl font-bold text-red-700">70%</div>
                       <div className="text-sm text-red-600">increase in demand by 2050</div>
                     </div>
                     <p className="text-sm text-gray-700">
@@ -89,11 +89,11 @@ export default function ResearchPage() {
                 <CardContent>
                   <div className="space-y-4">
                     <div className="text-center">
-                      <div className="text-3xl font-bold text-blue-700">3</div>
+                      <div className="text-xl sm:text-2xl lg:text-3xl font-bold text-blue-700">3</div>
                       <div className="text-sm text-blue-600">research phases</div>
                     </div>
                     <div className="text-center">
-                      <div className="text-3xl font-bold text-blue-700">AI + OGI</div>
+                      <div className="text-xl sm:text-2xl lg:text-3xl font-bold text-blue-700">AI + OGI</div>
                       <div className="text-sm text-blue-600">integrated solution</div>
                     </div>
                     <p className="text-sm text-gray-700">
@@ -113,11 +113,11 @@ export default function ResearchPage() {
                 <CardContent>
                   <div className="space-y-4">
                     <div className="text-center">
-                      <div className="text-3xl font-bold text-green-700">25K+</div>
+                      <div className="text-xl sm:text-2xl lg:text-3xl font-bold text-green-700">25K+</div>
                       <div className="text-sm text-green-600">annotated images</div>
                     </div>
                     <div className="text-center">
-                      <div className="text-3xl font-bold text-green-700">100%</div>
+                      <div className="text-xl sm:text-2xl lg:text-3xl font-bold text-green-700">100%</div>
                       <div className="text-sm text-green-600">dietary classification accuracy</div>
                     </div>
                     <p className="text-sm text-gray-700">
@@ -145,8 +145,8 @@ export default function ResearchPage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-gray-900 mb-6">Research Phases</h2>
-              <p className="text-xl text-gray-600 max-w-4xl mx-auto mb-6">
+              <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900 mb-6">Research Phases</h2>
+                              <p className="text-base sm:text-lg lg:text-xl text-gray-600 max-w-4xl mx-auto mb-6">
                 A systematic three-phase progression from fundamental algorithmic development to practical real-world deployment.
               </p>
               <Button asChild size="lg" className="bg-blue-600 hover:bg-blue-700">
@@ -158,18 +158,21 @@ export default function ResearchPage() {
             </div>
 
             <Tabs defaultValue="phase1" className="w-full">
-              <TabsList className="grid w-full grid-cols-3 mb-8">
-                <TabsTrigger value="phase1" className="flex items-center gap-2">
-                  <Brain className="h-4 w-4" />
-                  Phase 1: Foundation
+              <TabsList className="grid w-full grid-cols-1 sm:grid-cols-3 mb-8">
+                <TabsTrigger value="phase1" className="flex items-center gap-1 sm:gap-2">
+                  <Brain className="h-3 w-3 sm:h-4 sm:w-4" />
+                  <span className="hidden sm:inline">Phase 1: Foundation</span>
+                  <span className="sm:hidden">Phase 1</span>
                 </TabsTrigger>
-                <TabsTrigger value="phase2" className="flex items-center gap-2">
-                  <Microscope className="h-4 w-4" />
-                  Phase 2: Validation
+                <TabsTrigger value="phase2" className="flex items-center gap-1 sm:gap-2">
+                  <Microscope className="h-3 w-3 sm:h-4 sm:w-4" />
+                  <span className="hidden sm:inline">Phase 2: Validation</span>
+                  <span className="sm:hidden">Phase 2</span>
                 </TabsTrigger>
-                <TabsTrigger value="phase3" className="flex items-center gap-2">
-                  <Users className="h-4 w-4" />
-                  Phase 3: Application
+                <TabsTrigger value="phase3" className="flex items-center gap-1 sm:gap-2">
+                  <Users className="h-3 w-3 sm:h-4 sm:w-4" />
+                  <span className="hidden sm:inline">Phase 3: Application</span>
+                  <span className="sm:hidden">Phase 3</span>
                 </TabsTrigger>
               </TabsList>
 
@@ -179,7 +182,7 @@ export default function ResearchPage() {
                   <CardHeader className="bg-blue-50">
                     <div className="flex items-center justify-between">
                       <div>
-                        <CardTitle className="text-2xl text-blue-800 mb-2">Phase 1: Foundation - Gasformer (2024)</CardTitle>
+                        <CardTitle className="text-lg sm:text-xl lg:text-2xl text-blue-800 mb-2">Phase 1: Foundation - Gasformer (2024)</CardTitle>
                         <CardDescription className="text-lg text-blue-700">
                           Establishing Transformer-Based Methane Detection
                         </CardDescription>
@@ -301,7 +304,7 @@ export default function ResearchPage() {
                   <CardHeader className="bg-green-50">
                     <div className="flex items-center justify-between">
                       <div>
-                        <CardTitle className="text-2xl text-green-800 mb-2">Phase 2: Comprehensive Validation - Multi-Model Analysis (2025)</CardTitle>
+                        <CardTitle className="text-lg sm:text-xl lg:text-2xl text-green-800 mb-2">Phase 2: Comprehensive Validation - Multi-Model Analysis (2025)</CardTitle>
                         <CardDescription className="text-lg text-green-700">
                           Quantifying Dietary Impact on Methane Emissions
                         </CardDescription>
@@ -433,7 +436,7 @@ export default function ResearchPage() {
                   <CardHeader className="bg-purple-50">
                     <div className="flex items-center justify-between">
                       <div>
-                        <CardTitle className="text-2xl text-purple-800 mb-2">Phase 3: Real-World Application - GasTwinFormer (2025)</CardTitle>
+                        <CardTitle className="text-lg sm:text-xl lg:text-2xl text-purple-800 mb-2">Phase 3: Real-World Application - GasTwinFormer (2025)</CardTitle>
                         <CardDescription className="text-lg text-purple-700">
                           Integrated Segmentation and Dietary Classification
                         </CardDescription>
@@ -574,10 +577,10 @@ export default function ResearchPage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-gray-900 mb-6">Research Evolution & Future Directions</h2>
-              <p className="text-xl text-gray-600 max-w-4xl mx-auto">
-                The progression of our research program demonstrates a carefully orchestrated evolution from fundamental algorithmic development to practical real-world application.
-              </p>
+              <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900 mb-6">Research Evolution & Future Directions</h2>
+                              <p className="text-base sm:text-lg lg:text-xl text-gray-600 max-w-4xl mx-auto">
+                  The progression of our research program demonstrates a carefully orchestrated evolution from fundamental algorithmic development to practical real-world application.
+                </p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
@@ -670,7 +673,7 @@ export default function ResearchPage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-gray-900 mb-6">Publications & Recognition</h2>
+              <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900 mb-6">Publications & Recognition</h2>
               <p className="text-xl text-gray-600 max-w-4xl mx-auto">
                 Our research has resulted in a strong publication record reflecting both technical innovation and practical impact.
               </p>
@@ -775,7 +778,7 @@ export default function ResearchPage() {
       <section className="py-16 bg-gradient-to-r from-blue-700 to-purple-700 text-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl font-bold mb-6">Advancing Agricultural AI Research</h2>
+                          <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold mb-6">Advancing Agricultural AI Research</h2>
             <p className="text-xl mb-8 opacity-90">
               This research represents a significant advancement in agricultural AI applications, providing practical tools for climate-smart livestock management while contributing to global methane emission reduction efforts.
             </p>
