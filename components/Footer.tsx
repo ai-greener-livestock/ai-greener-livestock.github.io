@@ -9,10 +9,10 @@ export default function Footer() {
         <div className="text-center space-y-8">
           {/* Project Title & Description */}
           <div className="space-y-4">
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent">
+            <h2 className="text-lg sm:text-xl lg:text-2xl font-bold bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent">
               AI Greener Livestock
             </h2>
-            <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-sm sm:text-base lg:text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
               Artificial Intelligence for Greener Livestock: Educational and Research
             </p>
           </div>
@@ -21,25 +21,25 @@ export default function Footer() {
           <div className="flex flex-wrap justify-center gap-6 sm:gap-8 lg:gap-12">
             <Link 
               href="/" 
-              className="text-gray-700 hover:text-green-600 transition-all duration-300 text-lg font-medium hover:scale-105"
+              className="text-gray-700 hover:text-green-600 transition-all duration-300 text-xs sm:text-sm font-medium hover:scale-105"
             >
               Home
             </Link>
             <Link 
               href="/research" 
-              className="text-gray-700 hover:text-green-600 transition-all duration-300 text-lg font-medium hover:scale-105"
+              className="text-gray-700 hover:text-green-600 transition-all duration-300 text-xs sm:text-sm font-medium hover:scale-105"
             >
               Research
             </Link>
             <Link 
               href="/team" 
-              className="text-gray-700 hover:text-green-600 transition-all duration-300 text-lg font-medium hover:scale-105"
+              className="text-gray-700 hover:text-green-600 transition-all duration-300 text-xs sm:text-sm font-medium hover:scale-105"
             >
               Team
             </Link>
             <Link 
               href="/resources" 
-              className="text-gray-700 hover:text-green-600 transition-all duration-300 text-lg font-medium hover:scale-105"
+              className="text-gray-700 hover:text-green-600 transition-all duration-300 text-xs sm:text-sm font-medium hover:scale-105"
             >
               Resources
             </Link>
@@ -52,14 +52,14 @@ export default function Footer() {
                 <Mail className="h-5 w-5 text-green-600" />
                 <a 
                   href="mailto:khaled.ahmed@siu.edu"
-                  className="hover:text-green-600 transition-colors duration-300 text-lg"
+                  className="hover:text-green-600 transition-colors duration-300 text-xs sm:text-sm"
                 >
                   Research Team
                 </a>
               </div>
               <div className="flex items-center space-x-3 text-gray-600">
                 <MapPin className="h-5 w-5 text-green-600" />
-                <span className="text-lg">Southern Illinois University, Carbondale</span>
+                <span className="text-xs sm:text-sm">Southern Illinois University, Carbondale</span>
               </div>
             </div>
           </div>
