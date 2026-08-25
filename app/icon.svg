@@ -1,0 +1,16 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Green background matching header logo background -->
+  <rect width="32" height="32" rx="4" fill="#f0fdf4"/>
+  <rect width="32" height="32" rx="4" stroke="#dcfce7" stroke-width="1"/>
+  
+  <!-- Clean leaf icon - simple and clear -->
+  <g transform="translate(16, 16)">
+    <!-- Leaf shape -->
+    <path d="M-6 -8 C-6 -8 -8 -4 -8 0 C-8 4 -6 8 0 8 C6 8 8 4 8 0 C8 -4 6 -8 0 -8 C-2 -8 -4 -8 -6 -8Z" fill="#15803d"/>
+    <!-- Leaf vein -->
+    <path d="M0 -8 L0 8" stroke="#22c55e" stroke-width="1" opacity="0.8"/>
+    <!-- Side veins -->
+    <path d="M0 -4 L-4 -2 M0 0 L-4 2 M0 4 L-4 6" stroke="#22c55e" stroke-width="0.8" opacity="0.6"/>
+    <path d="M0 -4 L4 -2 M0 0 L4 2 M0 4 L4 6" stroke="#22c55e" stroke-width="0.8" opacity="0.6"/>
+  </g>
+</svg>
